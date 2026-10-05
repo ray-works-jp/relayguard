@@ -1,5 +1,28 @@
 # RelayGuard — 英文メール返信の「約束しすぎ」を止めるローカル確認ツール
 
+> **Stops over-promising in English e-mail replies.** A human approves each item (amount, deadline, promise); anything else that slips into the reply makes the check stop. Deterministic Python rules decide, not an LLM. No e-mail is sent. Source-available, noncommercial use only.
+
+人が承認した項目（金額・期限・約束など）以外が英文返信に1語でも混ざると、検査が止まります。止めるかどうかを決めるのはLLMではなく、Pythonの決定論的なルールです。メールは送信しません。
+
+| | |
+|---|---|
+| 動作 | Windows向けローカルツール（ブラウザ画面）。外部通信なしで使えます |
+| 実装 | Python 3.14、FastAPI + Jinja2、JSON Schema |
+| 検証 | `pytest` 2,793件・`ruff`・`mypy --strict` が合格（開発者による検証。独立監査・実メール評価は未実施） |
+| ライセンス | [PolyForm Strict 1.0.0](LICENSE)（非商用のみ・再配布不可） |
+
+### 画面（架空データ）
+
+**① 承認：相手の要求を、利用者が項目ごとに判断します**
+
+![承認画面](docs/images/approval-screen.png)
+
+**② 停止：承認していない約束（クーポン）を足すと、理由つきで止まります**
+
+![停止画面](docs/images/stopped-unapproved-promise.png)
+
+---
+
 ## 短い説明（何をするツールか・売るために作っているか）
 
 RelayGuard は、日本語しか十分に読めない人が英語のメールに返信するための Windows 用ローカルツールです。Claude がメールを読み取って要点を日本語で示し、利用者が項目ごとに承認します。英語の返信は、承認した内容だけから組み立てます。承認していない金額・日付・約束・返金・リンクが混ざっていれば、プログラムの検査で止めます。メールの送信機能はなく、最後は利用者がコピーして自分で送ります。
