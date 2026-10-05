@@ -1,0 +1,210 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-056",
+  "source_message": {
+    "message_id": "RG-EVAL-056_msg",
+    "subject": "Refund",
+    "body": "Hello,\nPlease send the refund for order R-8800 to my account.\nSora Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "22b3f2ddae829f4700ab7b75404f0c60eb1e21b4b0c264e99ccae4adba92403c"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-056_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-056_msg",
+    "source_hash": "22b3f2ddae829f4700ab7b75404f0c60eb1e21b4b0c264e99ccae4adba92403c",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_refund",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "currency": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "type": "refund",
+          "condition": {
+            "status": "explicit",
+            "value": "for order R-8800",
+            "raw_text": "for order R-8800"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_commit",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "send the refund",
+            "raw_text": "send the refund"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "order R-8800",
+            "raw_text": "order R-8800"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "order R-8800",
+            "raw_text": "order R-8800"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [
+            "c_refund"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-056_msg",
+          "source_hash": "22b3f2ddae829f4700ab7b75404f0c60eb1e21b4b0c264e99ccae4adba92403c",
+          "quote": "the refund for order R-8800",
+          "supports": [
+            "c_refund"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-056_msg",
+          "source_hash": "22b3f2ddae829f4700ab7b75404f0c60eb1e21b4b0c264e99ccae4adba92403c",
+          "quote": "Please send the refund for order R-8800 to my account.",
+          "supports": [
+            "c_commit"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-056_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-056_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "22b3f2ddae829f4700ab7b75404f0c60eb1e21b4b0c264e99ccae4adba92403c",
+    "items": [
+      {
+        "item_id": "item_c_refund",
+        "source_claim_id": "c_refund",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_commit",
+        "source_claim_id": "c_commit",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_commit",
+        "evidence_ids": [
+          "ev02"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "send the refund",
+          "raw_text": "send the refund"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "order R-8800",
+          "raw_text": "order R-8800"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "not_stated",
+          "value": null,
+          "raw_text": ""
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "order R-8800",
+          "raw_text": "order R-8800"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [
+          "c_refund"
+        ],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "2b722cfec1522718d79e1f43746116772436f2c71dc31c0a667db1043888f50f"
+  },
+  "policy_version": "delegation-0.4"
+}

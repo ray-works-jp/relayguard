@@ -1,0 +1,138 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-054",
+  "source_message": {
+    "message_id": "RG-EVAL-054_msg",
+    "subject": "Open points",
+    "body": "Hi,\nRegarding points 1 and 3 in my previous message, both are still open.\nRegards,\nExample Consulting",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "ffee2e244e4ebed113065d4f17a5c37944e8f9b178594ddbf1ba7c56d2260d55"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-054_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-054_msg",
+    "source_hash": "ffee2e244e4ebed113065d4f17a5c37944e8f9b178594ddbf1ba7c56d2260d55",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Says two earlier points remain open",
+            "raw_text": "Says two earlier points remain open"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [
+        {
+          "id": "c_points",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "missing_information",
+          "description": {
+            "status": "explicit",
+            "value": "The content of points 1 and 3 is not in this message",
+            "raw_text": "The content of points 1 and 3 is not in this message"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-054_msg",
+          "source_hash": "ffee2e244e4ebed113065d4f17a5c37944e8f9b178594ddbf1ba7c56d2260d55",
+          "quote": "both are still open",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-054_msg",
+          "source_hash": "ffee2e244e4ebed113065d4f17a5c37944e8f9b178594ddbf1ba7c56d2260d55",
+          "quote": "Regarding points 1 and 3 in my previous message",
+          "supports": [
+            "c_points"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-054_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-054_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "ffee2e244e4ebed113065d4f17a5c37944e8f9b178594ddbf1ba7c56d2260d55",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_points",
+        "source_claim_id": "c_points",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "0e8bf0b1dbdfd9340a3db5018925337249cf0110596903efacbbb5f7e31bce0a"
+  },
+  "policy_version": "delegation-0.4"
+}

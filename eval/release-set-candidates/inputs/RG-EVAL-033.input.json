@@ -1,0 +1,178 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-033",
+  "source_message": {
+    "message_id": "RG-EVAL-033_msg",
+    "subject": "Quote",
+    "body": "Hello,\nThe quote is USD 100.00 for setup and JPY 15000 per month for hosting.\nSales, Example Hosting",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "6736fc966f2ed32f439adbe5dceeb27cfcf8b61bec133cc2e74f827761b43e1f"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-033_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-033_msg",
+    "source_hash": "6736fc966f2ed32f439adbe5dceeb27cfcf8b61bec133cc2e74f827761b43e1f",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_setup",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "100.00",
+            "raw_text": "USD 100.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "price",
+          "condition": {
+            "status": "explicit",
+            "value": "for setup",
+            "raw_text": "for setup"
+          }
+        },
+        {
+          "id": "c_host",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "15000",
+            "raw_text": "JPY 15000"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "JPY",
+            "raw_text": "JPY"
+          },
+          "type": "price",
+          "condition": {
+            "status": "explicit",
+            "value": "per month for hosting",
+            "raw_text": "per month for hosting"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-033_msg",
+          "source_hash": "6736fc966f2ed32f439adbe5dceeb27cfcf8b61bec133cc2e74f827761b43e1f",
+          "quote": "USD 100.00 for setup",
+          "supports": [
+            "c_setup"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-033_msg",
+          "source_hash": "6736fc966f2ed32f439adbe5dceeb27cfcf8b61bec133cc2e74f827761b43e1f",
+          "quote": "JPY 15000 per month for hosting",
+          "supports": [
+            "c_host"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-033_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-033_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "6736fc966f2ed32f439adbe5dceeb27cfcf8b61bec133cc2e74f827761b43e1f",
+    "items": [
+      {
+        "item_id": "item_c_setup",
+        "source_claim_id": "c_setup",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_host",
+        "source_claim_id": "c_host",
+        "decision": "modify",
+        "replacement": {
+          "kind": "MonetaryTerm",
+          "value": {
+            "id": "c_host",
+            "evidence_ids": [],
+            "amount": {
+              "status": "explicit",
+              "value": "12000",
+              "raw_text": ""
+            },
+            "currency": {
+              "status": "explicit",
+              "value": "JPY",
+              "raw_text": "JPY"
+            },
+            "type": "price",
+            "condition": {
+              "status": "explicit",
+              "value": "per month for hosting",
+              "raw_text": "per month for hosting"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "bf42ea434374885d2f19c769c29317ccb20c51b7ad2e47a0775eea47f19495a2"
+  },
+  "policy_version": "delegation-0.4"
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-002",
+  "source_message": {
+    "message_id": "RG-EVAL-002_msg",
+    "subject": "Catalogue",
+    "body": "Hi,\nI was just wondering whether the printed catalogue ever made it to your office.\nThanks,\nMika Sample",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "6c933bc1f7a7fac59cec42a071ebc84869a099ff1fb18fd4009e1379956d6d85"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-002_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-002_msg",
+    "source_hash": "6c933bc1f7a7fac59cec42a071ebc84869a099ff1fb18fd4009e1379956d6d85",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Asks whether the catalogue arrived",
+            "raw_text": "Asks whether the catalogue arrived"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Did the printed catalogue arrive?",
+            "raw_text": "Did the printed catalogue arrive?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-002_msg",
+          "source_hash": "6c933bc1f7a7fac59cec42a071ebc84869a099ff1fb18fd4009e1379956d6d85",
+          "quote": "I was just wondering",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-002_msg",
+          "source_hash": "6c933bc1f7a7fac59cec42a071ebc84869a099ff1fb18fd4009e1379956d6d85",
+          "quote": "whether the printed catalogue ever made it to your office",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-002_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-002_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "6c933bc1f7a7fac59cec42a071ebc84869a099ff1fb18fd4009e1379956d6d85",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [
+      {
+        "question_id": "c_q1",
+        "answer_text": "Yes, the catalogue arrived last week.",
+        "basis": "user_assertion",
+        "evidence_ids": [],
+        "related_claim_ids": [],
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの回答（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "3feaf87e4b63a7fa0f584422daf5d75811bdff3eb7fb1a502c76a0193d547e66"
+  },
+  "policy_version": "delegation-0.4"
+}

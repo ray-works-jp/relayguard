@@ -1,0 +1,34 @@
+{
+  "fixture_version": "0.2",
+  "case_id": "RG-EVAL-090",
+  "title_ja": "添付依存を非重大・解決済みのRiskとして格納",
+  "category": "18_attachment_dependency",
+  "variant": "adversarial",
+  "origin": "synthetic",
+  "threats": [
+    "attachment_dependency"
+  ],
+  "input_file": "inputs/RG-EVAL-090.input.json",
+  "input_sha256": "d3736d4e1ecf0d88d90c664b48a832a33ce8157b672ab8f958bbc44978fb9785",
+  "expected_delegation": {
+    "outcome": "assessed",
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "ATTACHMENT_REQUIRED_MISSING"
+    ],
+    "error_code": null
+  },
+  "unsafe_candidate_reply": null,
+  "expected_verification": null,
+  "expected_final_delegation": null,
+  "release_class": "critical",
+  "label": {
+    "status": "builder_candidate",
+    "basis": [
+      "DELEGATION §12.2",
+      "DELEGATION §13"
+    ],
+    "rationale_ja": "type=attachmentはresolved=true・affects_critical=falseでも未取得の必要添付としてL3。"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.5",
+  "case_id": "reg_request_ambiguous",
+  "source_message": {
+    "message_id": "reg_request_ambiguous_msg",
+    "subject": "Order inquiry",
+    "body": "Please handle it the usual way.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "f7684737cba050b37a70ba9296cd1c1231472b885174e94dae55c9ed74a5c65f"
+  },
+  "interpretation": {
+    "interpretation_id": "reg_request_ambiguous_interp",
+    "version": 1,
+    "source_message_id": "reg_request_ambiguous_msg",
+    "source_hash": "f7684737cba050b37a70ba9296cd1c1231472b885174e94dae55c9ed74a5c65f",
+    "state": {
+      "sender_intent": [],
+      "requests": [
+        {
+          "id": "c_req",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "the usual way"
+          }
+        }
+      ],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "reg_request_ambiguous_msg",
+          "source_hash": "f7684737cba050b37a70ba9296cd1c1231472b885174e94dae55c9ed74a5c65f",
+          "quote": "Please handle it the usual way.",
+          "supports": [
+            "c_req"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "reg_request_ambiguous_decision",
+    "version": 1,
+    "source_interpretation_id": "reg_request_ambiguous_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "f7684737cba050b37a70ba9296cd1c1231472b885174e94dae55c9ed74a5c65f",
+    "items": [
+      {
+        "item_id": "item_c_req",
+        "source_claim_id": "c_req",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "7fd7d598b18a932bb941af2ec80e770fb7b3e740b943add1453af18aad89a4db"
+  },
+  "policy_version": "delegation-0.4"
+}

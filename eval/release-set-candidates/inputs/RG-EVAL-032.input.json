@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-032",
+  "source_message": {
+    "message_id": "RG-EVAL-032_msg",
+    "subject": "Rush fee",
+    "body": "Hi,\nJust a heads-up that the usual fee of $500 will apply to the rush order.\nThanks,\nPrint Partner Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "55a383b27c9ec399b92b9d656a17d606f4c212bba9084f37a08b506ebe010692"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-032_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-032_msg",
+    "source_hash": "55a383b27c9ec399b92b9d656a17d606f4c212bba9084f37a08b506ebe010692",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_fee",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "500",
+            "raw_text": "$500"
+          },
+          "currency": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "$"
+          },
+          "type": "fee",
+          "condition": {
+            "status": "explicit",
+            "value": "for the rush order",
+            "raw_text": "for the rush order"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-032_msg",
+          "source_hash": "55a383b27c9ec399b92b9d656a17d606f4c212bba9084f37a08b506ebe010692",
+          "quote": "the usual fee of $500 will apply to the rush order",
+          "supports": [
+            "c_fee"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-032_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-032_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "55a383b27c9ec399b92b9d656a17d606f4c212bba9084f37a08b506ebe010692",
+    "items": [
+      {
+        "item_id": "item_c_fee",
+        "source_claim_id": "c_fee",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "4f0002519a0bf1c5c561ecc947ea75cc6cda429d5e2e5c6d993b0652375fc6c1"
+  },
+  "policy_version": "delegation-0.4"
+}

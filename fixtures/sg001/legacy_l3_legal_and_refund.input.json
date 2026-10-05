@@ -1,0 +1,245 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l3_legal_refund",
+  "source_message": {
+    "message_id": "case_l3_legal_refund_msg",
+    "subject": "Order inquiry",
+    "body": "Refund USD 80.00 now or we will take legal action.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "347a89826a96da491ee2d39467152ef8526f8adafde67a043d4178cd1f6371b0"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l3_legal_refund_interp",
+    "version": 1,
+    "source_message_id": "case_l3_legal_refund_msg",
+    "source_hash": "347a89826a96da491ee2d39467152ef8526f8adafde67a043d4178cd1f6371b0",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_m1",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "80.00",
+            "raw_text": "80.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "refund",
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_commit",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "refund",
+            "raw_text": "refund"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "USD 80.00",
+            "raw_text": "USD 80.00"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "scope": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [
+            "c_m1"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [
+        {
+          "id": "c_legal",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "claim_type": {
+            "status": "explicit",
+            "value": "threat of legal action",
+            "raw_text": "threat of legal action"
+          },
+          "requires_human_review": true
+        }
+      ],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l3_legal_refund_msg",
+          "source_hash": "347a89826a96da491ee2d39467152ef8526f8adafde67a043d4178cd1f6371b0",
+          "quote": "USD 80.00",
+          "supports": [
+            "c_m1"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l3_legal_refund_msg",
+          "source_hash": "347a89826a96da491ee2d39467152ef8526f8adafde67a043d4178cd1f6371b0",
+          "quote": "Refund USD 80.00 now",
+          "supports": [
+            "c_commit"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "case_l3_legal_refund_msg",
+          "source_hash": "347a89826a96da491ee2d39467152ef8526f8adafde67a043d4178cd1f6371b0",
+          "quote": "we will take legal action",
+          "supports": [
+            "c_legal"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l3_legal_refund_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l3_legal_refund_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "347a89826a96da491ee2d39467152ef8526f8adafde67a043d4178cd1f6371b0",
+    "items": [
+      {
+        "item_id": "item_c_m1",
+        "source_claim_id": "c_m1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_commit",
+        "source_claim_id": "c_commit",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_legal",
+        "source_claim_id": "c_legal",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_commit",
+        "evidence_ids": [
+          "ev02"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "refund",
+          "raw_text": "refund"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "USD 80.00",
+          "raw_text": "USD 80.00"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "not_stated",
+          "value": null,
+          "raw_text": ""
+        },
+        "scope": {
+          "status": "not_stated",
+          "value": null,
+          "raw_text": ""
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [
+          "c_m1"
+        ],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "2f0cf0842a14798e4066344c441a4d682cc94fb46eb46121f11d59fcd86d3c47"
+  },
+  "policy_version": "delegation-0.4"
+}

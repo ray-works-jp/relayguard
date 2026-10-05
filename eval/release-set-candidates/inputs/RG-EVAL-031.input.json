@@ -1,0 +1,158 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-031",
+  "source_message": {
+    "message_id": "RG-EVAL-031_msg",
+    "subject": "Invoice total",
+    "body": "Hello,\nThe invoice total for the September service period is EUR 1250.00. This is for your records only.\nBilling, Example Cloud",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "4c912679f081c498ee1ddd32c9ab65c22869edda8b225fec95c50cf64e81993d"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-031_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-031_msg",
+    "source_hash": "4c912679f081c498ee1ddd32c9ab65c22869edda8b225fec95c50cf64e81993d",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Shares the September invoice total for records",
+            "raw_text": "Shares the September invoice total for records"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_total",
+          "evidence_ids": [
+            "ev01",
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "1250.00",
+            "raw_text": "EUR 1250.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "EUR",
+            "raw_text": "EUR"
+          },
+          "type": "payment",
+          "condition": {
+            "status": "explicit",
+            "value": "for the September service period",
+            "raw_text": "for the September service period"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-031_msg",
+          "source_hash": "4c912679f081c498ee1ddd32c9ab65c22869edda8b225fec95c50cf64e81993d",
+          "quote": "EUR 1250.00",
+          "supports": [
+            "c_total"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-031_msg",
+          "source_hash": "4c912679f081c498ee1ddd32c9ab65c22869edda8b225fec95c50cf64e81993d",
+          "quote": "for the September service period",
+          "supports": [
+            "c_total"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-031_msg",
+          "source_hash": "4c912679f081c498ee1ddd32c9ab65c22869edda8b225fec95c50cf64e81993d",
+          "quote": "This is for your records only.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-031_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-031_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "4c912679f081c498ee1ddd32c9ab65c22869edda8b225fec95c50cf64e81993d",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_total",
+        "source_claim_id": "c_total",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "664887e6e368d9a654ab0acda88dec160bd177c06d94b7fb26e7fe227615946e"
+  },
+  "policy_version": "delegation-0.4"
+}

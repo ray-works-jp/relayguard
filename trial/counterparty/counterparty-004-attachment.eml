@@ -1,0 +1,36 @@
+Subject: Attached spec for the Q3 integration work, please confirm
+From: Counterparty 4 <counterparty4@example.invalid>
+To: operator@example.invalid
+Date: Sun, 20 Sep 2026 11:14:48 +0900
+Message-ID: <178987048874.12236.4815915984665336444@example.invalid>
+X-RelayGuard-Synthetic: true
+X-RelayGuard-Scenario: attachment
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hi Daniel,
+
+I've attached the integration spec our ops team put together last week. It's =
+the version we walked through on Thursday's call, with the two changes you as=
+ked for (the retry logic on the webhook, and the extra field for cost centre).
+
+Can you confirm a few things for me before I send it up for sign-off:
+
+1. That the field list in section 3 matches what your API actually returns to=
+day, not what's planned for the next release.
+2. That the 48 hour retry window is something you can support without a custo=
+m build.
+3. That the SFTP fallback in section 5 is still on the table. Marek mentioned=
+ it might be deprecated.
+
+If anything in there looks wrong or out of date, mark it up directly in the d=
+ocument and send it back. I'd rather catch it now than after procurement gets=
+ involved.
+
+We need this locked down by Friday the 14th to keep the October start date. L=
+et me know if that's tight on your end.
+
+Thanks,
+Priya Ramanathan
+Operations, Halberd Logistics Ltd

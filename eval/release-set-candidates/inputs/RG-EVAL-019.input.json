@@ -1,0 +1,158 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-019",
+  "source_message": {
+    "message_id": "RG-EVAL-019_msg",
+    "subject": "License extension",
+    "body": "Hello,\nUnder the website license you granted us in 2025, we would like to extend it to our mobile app from 2026-11-01.\nKind regards,\nApp Team, Example Media",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "a7d2aa3e62ebfe6f5329b17b301e9be563a748870d7a8500192042a4e3f4b041"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-019_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-019_msg",
+    "source_hash": "a7d2aa3e62ebfe6f5329b17b301e9be563a748870d7a8500192042a4e3f4b041",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [
+        {
+          "id": "c_lic",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "scope": {
+            "status": "explicit",
+            "value": "website and mobile app",
+            "raw_text": "website and mobile app"
+          },
+          "exclusivity": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "sublicensing": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "commercial_use": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "from 2026-11-01",
+            "raw_text": "from 2026-11-01"
+          }
+        }
+      ],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [
+        {
+          "id": "c_terms",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "missing_information",
+          "description": {
+            "status": "explicit",
+            "value": "Terms of the 2025 website license are not in this message",
+            "raw_text": "Terms of the 2025 website license are not in this message"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-019_msg",
+          "source_hash": "a7d2aa3e62ebfe6f5329b17b301e9be563a748870d7a8500192042a4e3f4b041",
+          "quote": "we would like to extend it to our mobile app from 2026-11-01",
+          "supports": [
+            "c_lic"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-019_msg",
+          "source_hash": "a7d2aa3e62ebfe6f5329b17b301e9be563a748870d7a8500192042a4e3f4b041",
+          "quote": "Under the website license you granted us in 2025",
+          "supports": [
+            "c_terms"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-019_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-019_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "a7d2aa3e62ebfe6f5329b17b301e9be563a748870d7a8500192042a4e3f4b041",
+    "items": [
+      {
+        "item_id": "item_c_lic",
+        "source_claim_id": "c_lic",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_terms",
+        "source_claim_id": "c_terms",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "dda3d4f56bcc300f9e8a47da640f2694baceaeb9e91ce256ab7e9f295ce42aa2"
+  },
+  "policy_version": "delegation-0.4"
+}

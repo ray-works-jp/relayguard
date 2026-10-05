@@ -1,0 +1,159 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-007",
+  "source_message": {
+    "message_id": "RG-EVAL-007_msg",
+    "subject": "Pricing",
+    "body": "Hi,\nI hope you are well. Is there any flexibility on pricing for us this year?\nBest,\nTomo Sample",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "a14419a926855f191164e87e4e2f44fb717741e19764cc185897b4ed6e700a03"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-007_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-007_msg",
+    "source_hash": "a14419a926855f191164e87e4e2f44fb717741e19764cc185897b4ed6e700a03",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Asks about pricing flexibility",
+            "raw_text": "Asks about pricing flexibility"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_flex",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "any flexibility on pricing"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "pricing for this year",
+            "raw_text": "pricing for us this year"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "this year",
+            "raw_text": "this year"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-007_msg",
+          "source_hash": "a14419a926855f191164e87e4e2f44fb717741e19764cc185897b4ed6e700a03",
+          "quote": "I hope you are well.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-007_msg",
+          "source_hash": "a14419a926855f191164e87e4e2f44fb717741e19764cc185897b4ed6e700a03",
+          "quote": "Is there any flexibility on pricing for us this year?",
+          "supports": [
+            "c_flex"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-007_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-007_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "a14419a926855f191164e87e4e2f44fb717741e19764cc185897b4ed6e700a03",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_flex",
+        "source_claim_id": "c_flex",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "75366074d910a9a3ca62582e9f529f01906abeef5338398ff87d10183508e258"
+  },
+  "policy_version": "delegation-0.4"
+}

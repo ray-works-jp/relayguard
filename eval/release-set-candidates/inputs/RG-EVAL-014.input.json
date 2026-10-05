@@ -1,0 +1,283 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-014",
+  "source_message": {
+    "message_id": "RG-EVAL-014_msg",
+    "subject": "Missing refund",
+    "body": "Hello,\nIn your email of 2026-08-02 you promised to refund USD 35.00 for the late delivery of order R-2750, but nothing has arrived yet. I'm losing trust in your service.\nAya Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "74fd7bd4ed6641184d9e6a7fb10055fd2135d0099eeee58b90ad19609885c724"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-014_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-014_msg",
+    "source_hash": "74fd7bd4ed6641184d9e6a7fb10055fd2135d0099eeee58b90ad19609885c724",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_refund",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "35.00",
+            "raw_text": "USD 35.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "refund",
+          "condition": {
+            "status": "explicit",
+            "value": "for the late delivery of order R-2750",
+            "raw_text": "for the late delivery of order R-2750"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [
+        {
+          "id": "c_promise",
+          "evidence_ids": [
+            "ev04"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "refund USD 35.00",
+            "raw_text": "refund USD 35.00"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "order R-2750",
+            "raw_text": "order R-2750"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "for the late delivery of order R-2750",
+            "raw_text": "for the late delivery of order R-2750"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "order R-2750",
+            "raw_text": "order R-2750"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [
+            "c_refund"
+          ],
+          "authorization_state": "not_approved"
+        }
+      ],
+      "personal_data": [],
+      "customer_emotion": [
+        {
+          "id": "c_emotion",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "distrust",
+          "intensity": "medium",
+          "target": {
+            "status": "explicit",
+            "value": "promised refund not received",
+            "raw_text": "promised refund not received"
+          }
+        }
+      ],
+      "legal_claims": [],
+      "reputational_risks": [
+        {
+          "id": "c_rep",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "reputational",
+          "description": {
+            "status": "explicit",
+            "value": "A previously promised refund has not been paid",
+            "raw_text": "A previously promised refund has not been paid"
+          },
+          "affects_critical": false,
+          "resolved": false
+        }
+      ],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-014_msg",
+          "source_hash": "74fd7bd4ed6641184d9e6a7fb10055fd2135d0099eeee58b90ad19609885c724",
+          "quote": "I'm losing trust in your service.",
+          "supports": [
+            "c_emotion"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-014_msg",
+          "source_hash": "74fd7bd4ed6641184d9e6a7fb10055fd2135d0099eeee58b90ad19609885c724",
+          "quote": "but nothing has arrived yet",
+          "supports": [
+            "c_rep"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-014_msg",
+          "source_hash": "74fd7bd4ed6641184d9e6a7fb10055fd2135d0099eeee58b90ad19609885c724",
+          "quote": "USD 35.00",
+          "supports": [
+            "c_refund"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev04",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-014_msg",
+          "source_hash": "74fd7bd4ed6641184d9e6a7fb10055fd2135d0099eeee58b90ad19609885c724",
+          "quote": "you promised to refund USD 35.00 for the late delivery of order R-2750",
+          "supports": [
+            "c_promise"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-014_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-014_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "74fd7bd4ed6641184d9e6a7fb10055fd2135d0099eeee58b90ad19609885c724",
+    "items": [
+      {
+        "item_id": "item_c_refund",
+        "source_claim_id": "c_refund",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_promise",
+        "source_claim_id": "c_promise",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_emotion",
+        "source_claim_id": "c_emotion",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_rep",
+        "source_claim_id": "c_rep",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_promise",
+        "evidence_ids": [
+          "ev04"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "refund USD 35.00",
+          "raw_text": "refund USD 35.00"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "order R-2750",
+          "raw_text": "order R-2750"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "for the late delivery of order R-2750",
+          "raw_text": "for the late delivery of order R-2750"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "order R-2750",
+          "raw_text": "order R-2750"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [
+          "c_refund"
+        ],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "8ef4a940cbf94efbbd51079298b1e5484bd6c54a91df6f4fc233abe81b4da38f"
+  },
+  "policy_version": "delegation-0.4"
+}

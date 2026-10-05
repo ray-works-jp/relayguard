@@ -1,0 +1,148 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l2_anger_money",
+  "source_message": {
+    "message_id": "case_l2_anger_money_msg",
+    "subject": "Order inquiry",
+    "body": "This is unacceptable. You charged me EUR 45.00 twice this month.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "ba80cd0856f7f789c823197c4c8d604c608a1fb1cdeb8cf95ac37b9cee4363fc"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l2_anger_money_interp",
+    "version": 1,
+    "source_message_id": "case_l2_anger_money_msg",
+    "source_hash": "ba80cd0856f7f789c823197c4c8d604c608a1fb1cdeb8cf95ac37b9cee4363fc",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_m1",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "45.00",
+            "raw_text": "45.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "EUR",
+            "raw_text": "EUR"
+          },
+          "type": "fee",
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [
+        {
+          "id": "c_emotion",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "anger",
+          "intensity": "high",
+          "target": {
+            "status": "explicit",
+            "value": "double charge",
+            "raw_text": "double charge"
+          }
+        }
+      ],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l2_anger_money_msg",
+          "source_hash": "ba80cd0856f7f789c823197c4c8d604c608a1fb1cdeb8cf95ac37b9cee4363fc",
+          "quote": "This is unacceptable.",
+          "supports": [
+            "c_emotion"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l2_anger_money_msg",
+          "source_hash": "ba80cd0856f7f789c823197c4c8d604c608a1fb1cdeb8cf95ac37b9cee4363fc",
+          "quote": "EUR 45.00",
+          "supports": [
+            "c_m1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l2_anger_money_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l2_anger_money_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "ba80cd0856f7f789c823197c4c8d604c608a1fb1cdeb8cf95ac37b9cee4363fc",
+    "items": [
+      {
+        "item_id": "item_c_m1",
+        "source_claim_id": "c_m1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_emotion",
+        "source_claim_id": "c_emotion",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "0576cabfb88be7c011bf4020a7d9bb4ad456199c0b7a9cac4ae00d5688b5fd7b"
+  },
+  "policy_version": "delegation-0.4"
+}

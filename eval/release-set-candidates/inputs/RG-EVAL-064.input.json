@@ -1,0 +1,161 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-064",
+  "source_message": {
+    "message_id": "RG-EVAL-064_msg",
+    "subject": "Go ahead",
+    "body": "Hi,\nPlease go ahead with the thing we talked about on Friday.\nThanks,\nExample Media Group",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "206b1aa02c61e96534c28ca5f1cc270e387fd3dbffe28fbd0ab36a8e19e15d57"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-064_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-064_msg",
+    "source_hash": "206b1aa02c61e96534c28ca5f1cc270e387fd3dbffe28fbd0ab36a8e19e15d57",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_go",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "go ahead with the thing"
+          },
+          "object": {
+            "status": "unknown",
+            "value": null,
+            "raw_text": "the thing we talked about on Friday"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "scope": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-064_msg",
+          "source_hash": "206b1aa02c61e96534c28ca5f1cc270e387fd3dbffe28fbd0ab36a8e19e15d57",
+          "quote": "Please go ahead with the thing we talked about on Friday.",
+          "supports": [
+            "c_go"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-064_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-064_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "206b1aa02c61e96534c28ca5f1cc270e387fd3dbffe28fbd0ab36a8e19e15d57",
+    "items": [
+      {
+        "item_id": "item_c_go",
+        "source_claim_id": "c_go",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_go",
+        "evidence_ids": [
+          "ev01"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "ambiguous",
+          "value": null,
+          "raw_text": "go ahead with the thing"
+        },
+        "object": {
+          "status": "unknown",
+          "value": null,
+          "raw_text": "the thing we talked about on Friday"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "not_stated",
+          "value": null,
+          "raw_text": ""
+        },
+        "scope": {
+          "status": "not_stated",
+          "value": null,
+          "raw_text": ""
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "9f3451365faf26d441f3fd19e144d0539daacc94151d8e13a6db4826eb0300e8"
+  },
+  "policy_version": "delegation-0.4"
+}

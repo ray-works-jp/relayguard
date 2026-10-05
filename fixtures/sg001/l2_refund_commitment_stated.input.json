@@ -1,0 +1,235 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l2_refund_stated",
+  "source_message": {
+    "message_id": "case_l2_refund_stated_msg",
+    "subject": "Order inquiry",
+    "body": "Order A-1001 arrived with a broken mug. Because the mug was damaged in transit, we ask you to refund USD 120.00 for the mug only. Nothing else is claimed.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "02a1b58bb06517b7a0b58979658f34ccae90e44714686395857797bb993557bd"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l2_refund_stated_interp",
+    "version": 1,
+    "source_message_id": "case_l2_refund_stated_msg",
+    "source_hash": "02a1b58bb06517b7a0b58979658f34ccae90e44714686395857797bb993557bd",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_m1",
+          "evidence_ids": [
+            "ev01",
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "120.00",
+            "raw_text": "USD 120.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD 120.00"
+          },
+          "type": "refund",
+          "condition": {
+            "status": "explicit",
+            "value": "Because the mug was damaged in transit",
+            "raw_text": "Because the mug was damaged in transit"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_commit",
+          "evidence_ids": [
+            "ev03",
+            "ev04"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "refund",
+            "raw_text": "refund"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "USD 120.00",
+            "raw_text": "USD 120.00"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "Because the mug was damaged in transit",
+            "raw_text": "Because the mug was damaged in transit"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "for the mug only",
+            "raw_text": "for the mug only"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [
+            "c_m1"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l2_refund_stated_msg",
+          "source_hash": "02a1b58bb06517b7a0b58979658f34ccae90e44714686395857797bb993557bd",
+          "quote": "USD 120.00",
+          "supports": [
+            "c_m1"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l2_refund_stated_msg",
+          "source_hash": "02a1b58bb06517b7a0b58979658f34ccae90e44714686395857797bb993557bd",
+          "quote": "Because the mug was damaged in transit",
+          "supports": [
+            "c_m1"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "case_l2_refund_stated_msg",
+          "source_hash": "02a1b58bb06517b7a0b58979658f34ccae90e44714686395857797bb993557bd",
+          "quote": "we ask you to refund USD 120.00",
+          "supports": [
+            "c_commit"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev04",
+          "source_kind": "source_message",
+          "source_id": "case_l2_refund_stated_msg",
+          "source_hash": "02a1b58bb06517b7a0b58979658f34ccae90e44714686395857797bb993557bd",
+          "quote": "for the mug only",
+          "supports": [
+            "c_commit"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l2_refund_stated_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l2_refund_stated_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "02a1b58bb06517b7a0b58979658f34ccae90e44714686395857797bb993557bd",
+    "items": [
+      {
+        "item_id": "item_c_m1",
+        "source_claim_id": "c_m1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_commit",
+        "source_claim_id": "c_commit",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_commit",
+        "evidence_ids": [
+          "ev03",
+          "ev04"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "refund",
+          "raw_text": "refund"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "USD 120.00",
+          "raw_text": "USD 120.00"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "Because the mug was damaged in transit",
+          "raw_text": "Because the mug was damaged in transit"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "for the mug only",
+          "raw_text": "for the mug only"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [
+          "c_m1"
+        ],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "9483bb982954c73d80d0d5b5bfc18118cc0b6bb498f9a5abe549df4857bccdb9"
+  },
+  "policy_version": "delegation-0.4"
+}

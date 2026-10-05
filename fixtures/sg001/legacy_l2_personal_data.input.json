@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l2_pii",
+  "source_message": {
+    "message_id": "case_l2_pii_msg",
+    "subject": "Order inquiry",
+    "body": "Please send the parcel to Taro Example, phone +81-90-0000-0000, 1-2-3 Sample-cho.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "42b5a134cb28f10386f33eecf119a8e0e8353583090712bbd92d601eaedf7f96"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l2_pii_interp",
+    "version": 1,
+    "source_message_id": "case_l2_pii_msg",
+    "source_hash": "42b5a134cb28f10386f33eecf119a8e0e8353583090712bbd92d601eaedf7f96",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [
+        {
+          "id": "c_pii",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Taro Example, phone +81-90-0000-0000, 1-2-3 Sample-cho",
+            "raw_text": "Taro Example, phone +81-90-0000-0000, 1-2-3 Sample-cho"
+          }
+        }
+      ],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l2_pii_msg",
+          "source_hash": "42b5a134cb28f10386f33eecf119a8e0e8353583090712bbd92d601eaedf7f96",
+          "quote": "Taro Example, phone +81-90-0000-0000, 1-2-3 Sample-cho",
+          "supports": [
+            "c_pii"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l2_pii_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l2_pii_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "42b5a134cb28f10386f33eecf119a8e0e8353583090712bbd92d601eaedf7f96",
+    "items": [
+      {
+        "item_id": "item_c_pii",
+        "source_claim_id": "c_pii",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "94272dcf64ad0629207b6f87b230bfbfc705cb48c08cf9a1784b22981fae8b63"
+  },
+  "policy_version": "delegation-0.4"
+}

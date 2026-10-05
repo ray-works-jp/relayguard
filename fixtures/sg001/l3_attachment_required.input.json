@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l3_attachment",
+  "source_message": {
+    "message_id": "case_l3_attachment_msg",
+    "subject": "Order inquiry",
+    "body": "Please review the attached contract and confirm the terms.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "1b2f647d0557efdeb3b1fc211ff6bbdcc531ed50c6562550b00fddfadea7ee99"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l3_attachment_interp",
+    "version": 1,
+    "source_message_id": "case_l3_attachment_msg",
+    "source_hash": "1b2f647d0557efdeb3b1fc211ff6bbdcc531ed50c6562550b00fddfadea7ee99",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [
+        {
+          "id": "c_att",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "attachment",
+          "description": {
+            "status": "explicit",
+            "value": "Terms are only in the attachment",
+            "raw_text": "Terms are only in the attachment"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l3_attachment_msg",
+          "source_hash": "1b2f647d0557efdeb3b1fc211ff6bbdcc531ed50c6562550b00fddfadea7ee99",
+          "quote": "the attached contract",
+          "supports": [
+            "c_att"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l3_attachment_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l3_attachment_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "1b2f647d0557efdeb3b1fc211ff6bbdcc531ed50c6562550b00fddfadea7ee99",
+    "items": [
+      {
+        "item_id": "item_c_att",
+        "source_claim_id": "c_att",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "f19fd7e10217ef2b1be0c3e081940f52418d2a3eb43cd078e29481d344164b1a"
+  },
+  "policy_version": "delegation-0.4"
+}

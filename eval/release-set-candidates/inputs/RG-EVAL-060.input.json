@@ -1,0 +1,134 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-060",
+  "source_message": {
+    "message_id": "RG-EVAL-060_msg",
+    "subject": "Setup fee",
+    "body": "Hello,\nWe will pay the agreed setup fee once the account is active.\nFinance, Example Robotics",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "cf63becb992c88395181b1d7130c13adc72db4d232a9ea03e542442d3a4a1854"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-060_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-060_msg",
+    "source_hash": "cf63becb992c88395181b1d7130c13adc72db4d232a9ea03e542442d3a4a1854",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_fee",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "unknown",
+            "value": null,
+            "raw_text": "the agreed setup fee"
+          },
+          "currency": {
+            "status": "unknown",
+            "value": null,
+            "raw_text": ""
+          },
+          "type": "payment",
+          "condition": {
+            "status": "explicit",
+            "value": "once the account is active",
+            "raw_text": "once the account is active"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-060_msg",
+          "source_hash": "cf63becb992c88395181b1d7130c13adc72db4d232a9ea03e542442d3a4a1854",
+          "quote": "the agreed setup fee",
+          "supports": [
+            "c_fee"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-060_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-060_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "cf63becb992c88395181b1d7130c13adc72db4d232a9ea03e542442d3a4a1854",
+    "items": [
+      {
+        "item_id": "item_c_fee",
+        "source_claim_id": "c_fee",
+        "decision": "modify",
+        "replacement": {
+          "kind": "MonetaryTerm",
+          "value": {
+            "id": "c_fee",
+            "evidence_ids": [],
+            "amount": {
+              "status": "explicit",
+              "value": "500.00",
+              "raw_text": ""
+            },
+            "currency": {
+              "status": "explicit",
+              "value": "USD",
+              "raw_text": ""
+            },
+            "type": "payment",
+            "condition": {
+              "status": "explicit",
+              "value": "once the account is active",
+              "raw_text": "once the account is active"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "20d7b87677fa68ccfe055f0f5180a712673d3012ec7ce03099da802e1e1378bc"
+  },
+  "policy_version": "delegation-0.4"
+}

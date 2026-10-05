@@ -1,0 +1,205 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-027",
+  "source_message": {
+    "message_id": "RG-EVAL-027_msg",
+    "subject": "Plan",
+    "body": "Hi,\nWe'll probably have a few more people joining the team soon, so please adjust our plan accordingly.\nBest,\nOffice Manager, Example Studio",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "06839c8b81f52c2a1655254688646e4a9f0e6987a8a4e7ab348e53f536b18329"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-027_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-027_msg",
+    "source_hash": "06839c8b81f52c2a1655254688646e4a9f0e6987a8a4e7ab348e53f536b18329",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [
+        {
+          "id": "c_seats",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "quantity": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "a few more people"
+          },
+          "unit": {
+            "status": "explicit",
+            "value": "users",
+            "raw_text": "people"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_adjust",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "adjust the plan",
+            "raw_text": "adjust the plan"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "our plan",
+            "raw_text": "our plan"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "our plan",
+            "raw_text": "our plan"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-027_msg",
+          "source_hash": "06839c8b81f52c2a1655254688646e4a9f0e6987a8a4e7ab348e53f536b18329",
+          "quote": "a few more people joining the team",
+          "supports": [
+            "c_seats"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-027_msg",
+          "source_hash": "06839c8b81f52c2a1655254688646e4a9f0e6987a8a4e7ab348e53f536b18329",
+          "quote": "please adjust our plan accordingly",
+          "supports": [
+            "c_adjust"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-027_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-027_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "06839c8b81f52c2a1655254688646e4a9f0e6987a8a4e7ab348e53f536b18329",
+    "items": [
+      {
+        "item_id": "item_c_seats",
+        "source_claim_id": "c_seats",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_adjust",
+        "source_claim_id": "c_adjust",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_adjust",
+        "evidence_ids": [
+          "ev02"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "adjust the plan",
+          "raw_text": "adjust the plan"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "our plan",
+          "raw_text": "our plan"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "not_stated",
+          "value": null,
+          "raw_text": ""
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "our plan",
+          "raw_text": "our plan"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "dbec5ea6a03613636401e71328699b59eb0ec4a277ba4355774c073ac24f60e1"
+  },
+  "policy_version": "delegation-0.4"
+}

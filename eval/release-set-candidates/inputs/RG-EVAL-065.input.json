@@ -1,0 +1,138 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-065",
+  "source_message": {
+    "message_id": "RG-EVAL-065_msg",
+    "subject": "Plan choice",
+    "body": "Hi,\nThe price is fine either way, so just pick whichever plan works.\nExample Dental",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "6553b9acd4518c282cc50153a2fc01850fc8049b7b69376728ce116f38e07e6e"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-065_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-065_msg",
+    "source_hash": "6553b9acd4518c282cc50153a2fc01850fc8049b7b69376728ce116f38e07e6e",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Leaves the plan choice to us",
+            "raw_text": "Leaves the plan choice to us"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [
+        {
+          "id": "c_amb",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "ambiguity",
+          "description": {
+            "status": "explicit",
+            "value": "Which plan and price are accepted is unclear",
+            "raw_text": "Which plan and price are accepted is unclear"
+          },
+          "affects_critical": true,
+          "resolved": true
+        }
+      ],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-065_msg",
+          "source_hash": "6553b9acd4518c282cc50153a2fc01850fc8049b7b69376728ce116f38e07e6e",
+          "quote": "just pick whichever plan works",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-065_msg",
+          "source_hash": "6553b9acd4518c282cc50153a2fc01850fc8049b7b69376728ce116f38e07e6e",
+          "quote": "The price is fine either way",
+          "supports": [
+            "c_amb"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-065_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-065_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "6553b9acd4518c282cc50153a2fc01850fc8049b7b69376728ce116f38e07e6e",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_amb",
+        "source_claim_id": "c_amb",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "0560360d4bf57230137f2f9ae734eb694496a4785727a443bcd359b07be4c7af"
+  },
+  "policy_version": "delegation-0.4"
+}

@@ -1,0 +1,206 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-009",
+  "source_message": {
+    "message_id": "RG-EVAL-009_msg",
+    "subject": "Renewal",
+    "body": "Hello,\nLast year you gave us 15% off. Please apply the same discount to this year's renewal.\nRegards,\nExample Books",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "4812eedc5c6fa927fde643137a0103cf456aeb8d013c0690f1a66398444bdd2b"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-009_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-009_msg",
+    "source_hash": "4812eedc5c6fa927fde643137a0103cf456aeb8d013c0690f1a66398444bdd2b",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [
+        {
+          "id": "c_pct",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "quantity": {
+            "status": "explicit",
+            "value": "15",
+            "raw_text": "15%"
+          },
+          "unit": {
+            "status": "explicit",
+            "value": "percent",
+            "raw_text": "%"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "same as last year",
+            "raw_text": "same as last year"
+          }
+        }
+      ],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_same",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "apply the same discount",
+            "raw_text": "apply the same discount"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "this year's renewal",
+            "raw_text": "this year's renewal"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "same discount as last year",
+            "raw_text": "the same discount"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "this year's renewal",
+            "raw_text": "this year's renewal"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [
+        {
+          "id": "c_hist",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "type": "missing_information",
+          "description": {
+            "status": "explicit",
+            "value": "Last year's discount cannot be confirmed from this message",
+            "raw_text": "Last year's discount cannot be confirmed from this message"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-009_msg",
+          "source_hash": "4812eedc5c6fa927fde643137a0103cf456aeb8d013c0690f1a66398444bdd2b",
+          "quote": "15% off",
+          "supports": [
+            "c_pct"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-009_msg",
+          "source_hash": "4812eedc5c6fa927fde643137a0103cf456aeb8d013c0690f1a66398444bdd2b",
+          "quote": "Please apply the same discount to this year's renewal.",
+          "supports": [
+            "c_same"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-009_msg",
+          "source_hash": "4812eedc5c6fa927fde643137a0103cf456aeb8d013c0690f1a66398444bdd2b",
+          "quote": "Last year you gave us 15% off.",
+          "supports": [
+            "c_hist"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-009_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-009_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "4812eedc5c6fa927fde643137a0103cf456aeb8d013c0690f1a66398444bdd2b",
+    "items": [
+      {
+        "item_id": "item_c_pct",
+        "source_claim_id": "c_pct",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_same",
+        "source_claim_id": "c_same",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_hist",
+        "source_claim_id": "c_hist",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "1881b7608ef360b3276ef19612d8e816c197926d9f3e21dc5fd8b84306b5cab5"
+  },
+  "policy_version": "delegation-0.4"
+}

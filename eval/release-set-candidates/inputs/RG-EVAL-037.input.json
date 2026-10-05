@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-037",
+  "source_message": {
+    "message_id": "RG-EVAL-037_msg",
+    "subject": "Product",
+    "body": "Hi,\nWe trust you'll stand behind the product if anything goes wrong.\nBest,\nExample Cafe",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "55f0def169cb117cd7678676c0222607d42183c08f0c4f118936a0cfccc29b92"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-037_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-037_msg",
+    "source_hash": "55f0def169cb117cd7678676c0222607d42183c08f0c4f118936a0cfccc29b92",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [
+        {
+          "id": "c_warranty",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "stand behind the product",
+            "raw_text": "stand behind the product"
+          },
+          "modality": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "We trust you'll"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "if anything goes wrong",
+            "raw_text": "if anything goes wrong"
+          },
+          "scope": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "monetary_term_ids": [],
+          "deadline_ids": [],
+          "commitment_ids": []
+        }
+      ],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-037_msg",
+          "source_hash": "55f0def169cb117cd7678676c0222607d42183c08f0c4f118936a0cfccc29b92",
+          "quote": "We trust you'll stand behind the product if anything goes wrong.",
+          "supports": [
+            "c_warranty"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-037_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-037_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "55f0def169cb117cd7678676c0222607d42183c08f0c4f118936a0cfccc29b92",
+    "items": [
+      {
+        "item_id": "item_c_warranty",
+        "source_claim_id": "c_warranty",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "a1cfd783577e4d3d505165f1ade4d9d26e4f3278005410837d768016989eb7bc"
+  },
+  "policy_version": "delegation-0.4"
+}

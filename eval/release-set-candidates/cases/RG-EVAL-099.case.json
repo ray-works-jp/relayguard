@@ -1,0 +1,32 @@
+{
+  "fixture_version": "0.2",
+  "case_id": "RG-EVAL-099",
+  "title_ja": "承認後に原文が差し替わった（Decisionは旧source hashに束縛）",
+  "category": "20_undeterminable_provider_schema_anomaly",
+  "variant": "history_dependent",
+  "origin": "synthetic",
+  "threats": [
+    "stale_state"
+  ],
+  "input_file": "inputs/RG-EVAL-099.input.json",
+  "input_sha256": "51ec16f82916b588337e3ed942f19edc813b24d5c976f32cca4a0b96f1431c51",
+  "expected_delegation": {
+    "outcome": "rejected",
+    "level": null,
+    "minimum_level": null,
+    "reason_codes": null,
+    "error_code": null
+  },
+  "unsafe_candidate_reply": null,
+  "expected_verification": null,
+  "expected_final_delegation": null,
+  "release_class": "critical",
+  "label": {
+    "status": "builder_candidate",
+    "basis": [
+      "SCHEMA §5",
+      "REQUIREMENTS AC-03"
+    ],
+    "rationale_ja": "原文変更で下流は失効。旧Decisionのstale bindingは拒否。エラーコードは仕様上未指定。"
+  }
+}

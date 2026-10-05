@@ -1,0 +1,316 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-023",
+  "source_message": {
+    "message_id": "RG-EVAL-023_msg",
+    "subject": "Part P-77",
+    "body": "Hi,\nPlease deliver 200 units of part P-77 by 2026-11-02 (JST), packed in boxes of 20.\nThanks,\nBuyer Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "c4e28bf723267ba22818df3250fe3b226590c2f51004f4f22361bf9d38133b17"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-023_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-023_msg",
+    "source_hash": "c4e28bf723267ba22818df3250fe3b226590c2f51004f4f22361bf9d38133b17",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [
+        {
+          "id": "c_due",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-11-02",
+            "raw_text": "2026-11-02"
+          },
+          "timezone": {
+            "status": "explicit",
+            "value": "JST",
+            "raw_text": "JST"
+          }
+        }
+      ],
+      "quantities": [
+        {
+          "id": "c_qty",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "quantity": {
+            "status": "explicit",
+            "value": "200",
+            "raw_text": "200"
+          },
+          "unit": {
+            "status": "explicit",
+            "value": "units",
+            "raw_text": "units"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "packed in boxes of 20",
+            "raw_text": "packed in boxes of 20"
+          }
+        }
+      ],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_deliver",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "deliver",
+            "raw_text": "deliver"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "part P-77",
+            "raw_text": "part P-77"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "packed in boxes of 20",
+            "raw_text": "packed in boxes of 20"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "200 units of part P-77",
+            "raw_text": "200 units of part P-77"
+          },
+          "deadline_id": "c_due",
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-023_msg",
+          "source_hash": "c4e28bf723267ba22818df3250fe3b226590c2f51004f4f22361bf9d38133b17",
+          "quote": "200 units of part P-77",
+          "supports": [
+            "c_qty"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-023_msg",
+          "source_hash": "c4e28bf723267ba22818df3250fe3b226590c2f51004f4f22361bf9d38133b17",
+          "quote": "by 2026-11-02 (JST)",
+          "supports": [
+            "c_due"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-023_msg",
+          "source_hash": "c4e28bf723267ba22818df3250fe3b226590c2f51004f4f22361bf9d38133b17",
+          "quote": "Please deliver 200 units of part P-77",
+          "supports": [
+            "c_deliver"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-023_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-023_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "c4e28bf723267ba22818df3250fe3b226590c2f51004f4f22361bf9d38133b17",
+    "items": [
+      {
+        "item_id": "item_c_due",
+        "source_claim_id": "c_due",
+        "decision": "modify",
+        "replacement": {
+          "kind": "DateTerm",
+          "value": {
+            "id": "c_due",
+            "evidence_ids": [],
+            "type": "deadline",
+            "date": {
+              "status": "explicit",
+              "value": "2026-11-09",
+              "raw_text": ""
+            },
+            "timezone": {
+              "status": "explicit",
+              "value": "JST",
+              "raw_text": "JST"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_qty",
+        "source_claim_id": "c_qty",
+        "decision": "modify",
+        "replacement": {
+          "kind": "QuantityTerm",
+          "value": {
+            "id": "c_qty",
+            "evidence_ids": [],
+            "quantity": {
+              "status": "explicit",
+              "value": "150",
+              "raw_text": ""
+            },
+            "unit": {
+              "status": "explicit",
+              "value": "units",
+              "raw_text": "units"
+            },
+            "condition": {
+              "status": "explicit",
+              "value": "packed in boxes of 20",
+              "raw_text": "packed in boxes of 20"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_deliver",
+        "source_claim_id": "c_deliver",
+        "decision": "modify",
+        "replacement": {
+          "kind": "Commitment",
+          "value": {
+            "id": "c_deliver",
+            "evidence_ids": [],
+            "actor": "user",
+            "action": {
+              "status": "explicit",
+              "value": "deliver",
+              "raw_text": "deliver"
+            },
+            "object": {
+              "status": "explicit",
+              "value": "part P-77",
+              "raw_text": "part P-77"
+            },
+            "modality": {
+              "status": "explicit",
+              "value": "will",
+              "raw_text": "will"
+            },
+            "condition": {
+              "status": "explicit",
+              "value": "packed in boxes of 20",
+              "raw_text": "packed in boxes of 20"
+            },
+            "scope": {
+              "status": "explicit",
+              "value": "150 units of part P-77",
+              "raw_text": ""
+            },
+            "deadline_id": "c_due",
+            "monetary_term_ids": [],
+            "authorization_state": "requested"
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_deliver",
+        "evidence_ids": [],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "deliver",
+          "raw_text": "deliver"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "part P-77",
+          "raw_text": "part P-77"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "packed in boxes of 20",
+          "raw_text": "packed in boxes of 20"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "150 units of part P-77",
+          "raw_text": ""
+        },
+        "deadline_id": "c_due",
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "d952b0fb03fc17798754fc06be3bade3644ebcd0018efa30709e22afbeba0309"
+  },
+  "policy_version": "delegation-0.4"
+}

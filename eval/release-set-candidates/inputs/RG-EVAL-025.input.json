@@ -1,0 +1,201 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-025",
+  "source_message": {
+    "message_id": "RG-EVAL-025_msg",
+    "subject": "Print deadline",
+    "body": "Hi,\nFinal files must reach us by 2026-10-01 23:59 or the print slot is cancelled.\nProduction Desk",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "55aea6688f15ce9d88e30c2df2926c7267ddb750966af605adc2a5ee7ba61dd9"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-025_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-025_msg",
+    "source_hash": "55aea6688f15ce9d88e30c2df2926c7267ddb750966af605adc2a5ee7ba61dd9",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [
+        {
+          "id": "c_due",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-10-01",
+            "raw_text": "2026-10-01"
+          },
+          "timezone": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_files",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "deliver the final files",
+            "raw_text": "deliver the final files"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "final files",
+            "raw_text": "final files"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "must",
+            "raw_text": "must"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "or the print slot is cancelled",
+            "raw_text": "or the print slot is cancelled"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "the print slot",
+            "raw_text": "the print slot"
+          },
+          "deadline_id": "c_due",
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-025_msg",
+          "source_hash": "55aea6688f15ce9d88e30c2df2926c7267ddb750966af605adc2a5ee7ba61dd9",
+          "quote": "by 2026-10-01 23:59",
+          "supports": [
+            "c_due"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-025_msg",
+          "source_hash": "55aea6688f15ce9d88e30c2df2926c7267ddb750966af605adc2a5ee7ba61dd9",
+          "quote": "Final files must reach us by 2026-10-01 23:59",
+          "supports": [
+            "c_files"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-025_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-025_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "55aea6688f15ce9d88e30c2df2926c7267ddb750966af605adc2a5ee7ba61dd9",
+    "items": [
+      {
+        "item_id": "item_c_due",
+        "source_claim_id": "c_due",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_files",
+        "source_claim_id": "c_files",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_files",
+        "evidence_ids": [
+          "ev02"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "deliver the final files",
+          "raw_text": "deliver the final files"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "final files",
+          "raw_text": "final files"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "must",
+          "raw_text": "must"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "or the print slot is cancelled",
+          "raw_text": "or the print slot is cancelled"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "the print slot",
+          "raw_text": "the print slot"
+        },
+        "deadline_id": "c_due",
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "23bc012cc8ffce8c3caca9670b69ad84861d0c341c4f6363653e49c2fc4f6d71"
+  },
+  "policy_version": "delegation-0.4"
+}

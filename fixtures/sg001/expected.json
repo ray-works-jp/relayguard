@@ -1,0 +1,552 @@
+{
+  "l0_calendar_day_notice": {
+    "level": "L0_AUTO",
+    "minimum_level": "L0_AUTO",
+    "reason_codes": [
+      "LOW_RISK_INFORMATIONAL"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "low",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "受領のみ。§14.1の唯一の例外（type=dateのtimezone未記載）を含む"
+  },
+  "l0_receipt_confirmation": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "medium",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "regression",
+    "note": "回答レコードなしで必要質問をapprove。§15によりL2（回答付きはl2_answered_receipt_confirmation）"
+  },
+  "l0_required_question_do_not_answer": {
+    "level": "L0_AUTO",
+    "minimum_level": "L0_AUTO",
+    "reason_codes": [
+      "LOW_RISK_INFORMATIONAL"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "low",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§12.6の明示do_not_answerで質問が処理済み"
+  },
+  "l1_angry_no_money": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "CUSTOMER_SENSITIVITY",
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "medium",
+      "irreversibility": "low",
+      "customer_sensitivity": "medium"
+    },
+    "approval_status": "regression",
+    "note": "回答レコードなしの必要質問approve＋怒り。§15によりL2"
+  },
+  "l1_style_feedback_notice": {
+    "level": "L1_POST_REVIEW",
+    "minimum_level": "L1_POST_REVIEW",
+    "reason_codes": [
+      "CUSTOMER_SENSITIVITY",
+      "LOW_RISK_POST_REVIEW"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "low",
+      "irreversibility": "low",
+      "customer_sensitivity": "medium"
+    },
+    "approval_status": "gold_proposed",
+    "note": "ADR-025の差し替えL1正常例。文体への感想のみで過去誤対応・金銭・契約・解約なし"
+  },
+  "l2_anger_with_past_delay": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "CUSTOMER_SENSITIVITY"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "low",
+      "irreversibility": "low",
+      "customer_sensitivity": "medium"
+    },
+    "approval_status": "gold_proposed",
+    "note": "ADR-025: 怒り＋過去の遅延対応の複合。旧l1_emotion_only_noticeの原文を保持し未抽出を補った"
+  },
+  "l2_answer_from_source_evidence": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "ANSWER_REVIEW_REQUIRED"
+    ],
+    "risk_factors": {
+      "impact": "medium",
+      "uncertainty": "medium",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§13/§15: source_evidence回答。quote参照は回答の意味を証明しないため既知情報(low)と扱わずimpact=medium、未検証のためuncertainty=medium"
+  },
+  "l2_answered_receipt_confirmation": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "ANSWER_REVIEW_REQUIRED"
+    ],
+    "risk_factors": {
+      "impact": "medium",
+      "uncertainty": "medium",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§13/§15: user_assertionの回答を記録。意味未検証のためL2、個別回答なのでimpact=medium"
+  },
+  "l2_clause_approved_unidentifiable": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "medium",
+      "irreversibility": "unknown",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§14.2: approveは新設/既存を識別不能。義務化の可否が判定不能のため2軸unknown"
+  },
+  "l2_clause_modified_same_value": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "medium",
+      "irreversibility": "unknown",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§14.2: 同値modifyはapproveと同じ（id/evidence_idsの差は無視）"
+  },
+  "l2_clause_modified_substantively": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "CONTRACTUAL_CHANGE"
+    ],
+    "risk_factors": {
+      "impact": "high",
+      "uncertainty": "low",
+      "irreversibility": "high",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§14.2: 実質差のあるmodifyのみ変更理由を記録"
+  },
+  "l2_counterparty_commitment_accepted": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "medium",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§14.2/ADR-025: 相手の約束の受領と、未回答のままの回答依頼。合意にしない"
+  },
+  "l2_personal_data_modified": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "PERSONAL_DATA_DISCLOSURE"
+    ],
+    "risk_factors": {
+      "impact": "high",
+      "uncertainty": "low",
+      "irreversibility": "high",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§14.2: PIIの実質modifyは開示リスクとして記録（外部送信の監査記録ではない）"
+  },
+  "l2_refund_commitment_stated": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "MATERIAL_MONEY_CHANGE",
+      "NEW_COMMITMENT",
+      "REFUND_OR_CREDIT"
+    ],
+    "risk_factors": {
+      "impact": "high",
+      "uncertainty": "low",
+      "irreversibility": "high",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "actor=userの返金引受け。condition/scopeは原文に記載あり"
+  },
+  "l2_required_question_unknown": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "medium",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§12.5: 必要質問のunknownは未解決の非重大"
+  },
+  "l3_ambiguous_currency": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "CRITICAL_MISSING_INFORMATION"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "high",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "通貨ambiguous。金額の言及自体は約束ではないためimpactはlow"
+  },
+  "l3_attachment_required": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "ATTACHMENT_REQUIRED_MISSING"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "high",
+      "irreversibility": "unknown",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "ADR-025: 未知の契約添付に依存するため影響・不可逆性を確定できない"
+  },
+  "l3_commitment_actor_unknown": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "CRITICAL_MISSING_INFORMATION",
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "high",
+      "irreversibility": "unknown",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§14.1-2: actor=unknownはL3。義務の帰属が判定不能"
+  },
+  "l3_critical_decision_unknown": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "CRITICAL_MISSING_INFORMATION"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "high",
+      "irreversibility": "unknown",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "重大ClaimのDecisionが保留のため2軸unknown"
+  },
+  "l3_deadline_timezone_not_stated": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "CRITICAL_MISSING_INFORMATION"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "high",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§14.1: type=deadlineはtimezone例外の対象外"
+  },
+  "l3_injection_marked_resolved": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "UNRESOLVED_PROMPT_INJECTION"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "high",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "LLMのresolved=trueで解除しない"
+  },
+  "l3_legal_claim": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "LEGAL_CLAIM"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "low",
+      "irreversibility": "low",
+      "customer_sensitivity": "high"
+    },
+    "approval_status": "gold_proposed",
+    "note": "法的主張は在る限りL3"
+  },
+  "l3_policy_exception_marked_resolved": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "POLICY_EXCEPTION"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "high",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "§14.3: 例外許可を検証できないためuncertainty=high、resolved=trueでも解除しない"
+  },
+  "l3_prior_commitment_conflict": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "CONTRADICTORY_COMMITMENTS"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "high",
+      "irreversibility": "unknown",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "gold_proposed",
+    "note": "ADR-025: 矛盾する既往義務の影響・不可逆性を確定できない"
+  },
+  "legacy_l2_anger_with_money": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "CRITICAL_MISSING_INFORMATION",
+      "CUSTOMER_SENSITIVITY"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "high",
+      "irreversibility": "low",
+      "customer_sensitivity": "medium"
+    },
+    "approval_status": "regression",
+    "note": "旧版L2。v0.4では金額のcondition未記載によりL3"
+  },
+  "legacy_l2_deadline_modified": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "CRITICAL_MISSING_INFORMATION",
+      "MATERIAL_DEADLINE_CHANGE"
+    ],
+    "risk_factors": {
+      "impact": "high",
+      "uncertainty": "high",
+      "irreversibility": "high",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "regression",
+    "note": "旧版L2。v0.4ではdeadlineのtimezone未記載によりL3"
+  },
+  "legacy_l2_license_grant": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "CRITICAL_MISSING_INFORMATION",
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "high",
+      "irreversibility": "unknown",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "regression",
+    "note": "旧版L2。v0.4ではsublicensing/condition未記載によりL3"
+  },
+  "legacy_l2_personal_data": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "medium",
+      "irreversibility": "unknown",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "regression",
+    "note": "旧版はPERSONAL_DATA_DISCLOSURE。v0.4ではapproveが識別不能"
+  },
+  "legacy_l2_refund_commitment": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "CRITICAL_MISSING_INFORMATION",
+      "MATERIAL_MONEY_CHANGE",
+      "NEW_COMMITMENT",
+      "REFUND_OR_CREDIT"
+    ],
+    "risk_factors": {
+      "impact": "high",
+      "uncertainty": "high",
+      "irreversibility": "high",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "regression",
+    "note": "旧版L2。v0.4ではcondition/scope未記載によりL3"
+  },
+  "legacy_l3_legal_and_refund": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "CRITICAL_MISSING_INFORMATION",
+      "LEGAL_CLAIM",
+      "MATERIAL_MONEY_CHANGE",
+      "NEW_COMMITMENT",
+      "REFUND_OR_CREDIT"
+    ],
+    "risk_factors": {
+      "impact": "high",
+      "uncertainty": "high",
+      "irreversibility": "high",
+      "customer_sensitivity": "high"
+    },
+    "approval_status": "regression",
+    "note": "旧版L3。v0.4では重大値欠落の理由が追加"
+  },
+  "reg_calendar_date_with_open_request": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "medium",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "regression",
+    "note": "旧暦日例（住所更新依頼と未記載の新住所を含む）。暦日例外の正常例には使わない"
+  },
+  "reg_empty_interpretation": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "medium",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "regression",
+    "note": "空Interpretationは積極的確認ができない"
+  },
+  "reg_request_text_ambiguous": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "low",
+      "uncertainty": "medium",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "regression",
+    "note": "本文ambiguousの要求。approveで解消しない"
+  },
+  "reg_required_question_text_unknown": {
+    "level": "L2_PRE_APPROVAL",
+    "minimum_level": "L2_PRE_APPROVAL",
+    "reason_codes": [
+      "UNCLASSIFIED_RISK"
+    ],
+    "risk_factors": {
+      "impact": "unknown",
+      "uncertainty": "medium",
+      "irreversibility": "low",
+      "customer_sensitivity": "low"
+    },
+    "approval_status": "regression",
+    "note": "本文unknownの必要質問。approveで解消しない"
+  },
+  "structural_coverage": {
+    "level": "L3_STOP",
+    "minimum_level": "L3_STOP",
+    "reason_codes": [
+      "ANSWER_REVIEW_REQUIRED",
+      "ATTACHMENT_REQUIRED_MISSING",
+      "CONTRADICTORY_COMMITMENTS",
+      "CRITICAL_MISSING_INFORMATION",
+      "CUSTOMER_SENSITIVITY",
+      "LEGAL_CLAIM",
+      "MATERIAL_DEADLINE_CHANGE",
+      "MATERIAL_MONEY_CHANGE",
+      "NEW_COMMITMENT",
+      "UNCLASSIFIED_RISK",
+      "UNRESOLVED_PROMPT_INJECTION"
+    ],
+    "risk_factors": {
+      "impact": "high",
+      "uncertainty": "high",
+      "irreversibility": "high",
+      "customer_sensitivity": "high"
+    },
+    "approval_status": "structural_only",
+    "note": "全型網羅の構造検査専用。意味の正解ラベルではない"
+  }
+}

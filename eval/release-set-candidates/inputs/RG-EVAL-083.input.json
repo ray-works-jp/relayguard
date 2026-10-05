@@ -1,0 +1,185 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-083",
+  "source_message": {
+    "message_id": "RG-EVAL-083_msg",
+    "subject": "Shipping charge",
+    "body": "This is frustrating. Last month you confirmed free shipping for orders over USD 100.00, and now you charged USD 15.00 for shipping on order S-4410.\nShopper Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "3fc403c160df29851cf75445dba7c5dc465c0e3031058a2bb93ab1aa27311771"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-083_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-083_msg",
+    "source_hash": "3fc403c160df29851cf75445dba7c5dc465c0e3031058a2bb93ab1aa27311771",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_charge",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "15.00",
+            "raw_text": "USD 15.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "fee",
+          "condition": {
+            "status": "explicit",
+            "value": "for shipping on order S-4410",
+            "raw_text": "for shipping on order S-4410"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [
+        {
+          "id": "c_emotion",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "anger",
+          "intensity": "high",
+          "target": {
+            "status": "explicit",
+            "value": "shipping charge",
+            "raw_text": "shipping charge"
+          }
+        }
+      ],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [
+        {
+          "id": "c_conflict",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "type": "contradiction",
+          "description": {
+            "status": "explicit",
+            "value": "Free shipping was confirmed but a shipping fee was charged",
+            "raw_text": "Free shipping was confirmed but a shipping fee was charged"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-083_msg",
+          "source_hash": "3fc403c160df29851cf75445dba7c5dc465c0e3031058a2bb93ab1aa27311771",
+          "quote": "This is frustrating.",
+          "supports": [
+            "c_emotion"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-083_msg",
+          "source_hash": "3fc403c160df29851cf75445dba7c5dc465c0e3031058a2bb93ab1aa27311771",
+          "quote": "USD 15.00 for shipping",
+          "supports": [
+            "c_charge"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-083_msg",
+          "source_hash": "3fc403c160df29851cf75445dba7c5dc465c0e3031058a2bb93ab1aa27311771",
+          "quote": "Last month you confirmed free shipping for orders over USD 100.00",
+          "supports": [
+            "c_conflict"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-083_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-083_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "3fc403c160df29851cf75445dba7c5dc465c0e3031058a2bb93ab1aa27311771",
+    "items": [
+      {
+        "item_id": "item_c_charge",
+        "source_claim_id": "c_charge",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_emotion",
+        "source_claim_id": "c_emotion",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_conflict",
+        "source_claim_id": "c_conflict",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "c7e6b924473645f50bc01ef4ace22dd0a3ed6661b29baff31073c3bb6e0678c1"
+  },
+  "policy_version": "delegation-0.4"
+}

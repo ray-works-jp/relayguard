@@ -1,0 +1,121 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-041",
+  "source_message": {
+    "message_id": "RG-EVAL-041_msg",
+    "subject": "Distribution rights",
+    "body": "Hello,\nWe request exclusive distribution rights for your products in Japan for two years, including the right to sublicense to our resellers, for commercial sale.\nBusiness Development, Example Distribution",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "8b6d0040c8c5184367842e99380ea7deafc746afdc08fd4223df2cb6a8172922"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-041_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-041_msg",
+    "source_hash": "8b6d0040c8c5184367842e99380ea7deafc746afdc08fd4223df2cb6a8172922",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [
+        {
+          "id": "c_rights",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "scope": {
+            "status": "explicit",
+            "value": "distribution of the products in Japan",
+            "raw_text": "distribution of the products in Japan"
+          },
+          "exclusivity": {
+            "status": "explicit",
+            "value": true,
+            "raw_text": "exclusive"
+          },
+          "sublicensing": {
+            "status": "explicit",
+            "value": true,
+            "raw_text": "the right to sublicense"
+          },
+          "commercial_use": {
+            "status": "explicit",
+            "value": true,
+            "raw_text": "commercial sale"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "for two years",
+            "raw_text": "for two years"
+          }
+        }
+      ],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-041_msg",
+          "source_hash": "8b6d0040c8c5184367842e99380ea7deafc746afdc08fd4223df2cb6a8172922",
+          "quote": "exclusive distribution rights for your products in Japan for two years",
+          "supports": [
+            "c_rights"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-041_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-041_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "8b6d0040c8c5184367842e99380ea7deafc746afdc08fd4223df2cb6a8172922",
+    "items": [
+      {
+        "item_id": "item_c_rights",
+        "source_claim_id": "c_rights",
+        "decision": "do_not_answer",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "719e11687748d6d098d7fa27fa878879d365eb572289832ce55d6c8a91b37a55"
+  },
+  "policy_version": "delegation-0.4"
+}

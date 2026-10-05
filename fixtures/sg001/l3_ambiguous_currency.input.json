@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l3_currency",
+  "source_message": {
+    "message_id": "case_l3_currency_msg",
+    "subject": "Order inquiry",
+    "body": "The total is $500 for the full package.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "867e37def6443723216f83209ca6a30b8bd5e31ab21a154847ba3f726d6ac105"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l3_currency_interp",
+    "version": 1,
+    "source_message_id": "case_l3_currency_msg",
+    "source_hash": "867e37def6443723216f83209ca6a30b8bd5e31ab21a154847ba3f726d6ac105",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_m1",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "500",
+            "raw_text": "$500"
+          },
+          "currency": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "$"
+          },
+          "type": "price",
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.999,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l3_currency_msg",
+          "source_hash": "867e37def6443723216f83209ca6a30b8bd5e31ab21a154847ba3f726d6ac105",
+          "quote": "$500",
+          "supports": [
+            "c_m1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l3_currency_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l3_currency_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "867e37def6443723216f83209ca6a30b8bd5e31ab21a154847ba3f726d6ac105",
+    "items": [
+      {
+        "item_id": "item_c_m1",
+        "source_claim_id": "c_m1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "8e8f655b0885cfeaff3d94ed149600dfe32c68fac6809f1562375f162feceac3"
+  },
+  "policy_version": "delegation-0.4"
+}

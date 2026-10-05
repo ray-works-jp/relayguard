@@ -1,0 +1,229 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-052",
+  "source_message": {
+    "message_id": "RG-EVAL-052_msg",
+    "subject": "Billing address",
+    "body": "Hi,\nWhen you have a moment, could you update our billing address to 2-4-6 Example-dori, Sample City? And maybe take a look at the last shipment too.\nThanks,\nAccounts, Example Bakery",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "1adee61192bf5990cea2559dafc8514c2d665baab7905fd20cd93570719a5d26"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-052_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-052_msg",
+    "source_hash": "1adee61192bf5990cea2559dafc8514c2d665baab7905fd20cd93570719a5d26",
+    "state": {
+      "sender_intent": [],
+      "requests": [
+        {
+          "id": "c_check",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "text": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "take a look at the last shipment"
+          }
+        }
+      ],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_update",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "update the billing address",
+            "raw_text": "update the billing address"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "billing address record",
+            "raw_text": "billing address record"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "when you have a moment",
+            "raw_text": "When you have a moment"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "our billing address",
+            "raw_text": "our billing address"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [
+        {
+          "id": "c_address",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Billing address 2-4-6 Example-dori, Sample City",
+            "raw_text": "Billing address 2-4-6 Example-dori, Sample City"
+          }
+        }
+      ],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-052_msg",
+          "source_hash": "1adee61192bf5990cea2559dafc8514c2d665baab7905fd20cd93570719a5d26",
+          "quote": "2-4-6 Example-dori, Sample City",
+          "supports": [
+            "c_address"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-052_msg",
+          "source_hash": "1adee61192bf5990cea2559dafc8514c2d665baab7905fd20cd93570719a5d26",
+          "quote": "could you update our billing address",
+          "supports": [
+            "c_update"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-052_msg",
+          "source_hash": "1adee61192bf5990cea2559dafc8514c2d665baab7905fd20cd93570719a5d26",
+          "quote": "maybe take a look at the last shipment too",
+          "supports": [
+            "c_check"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-052_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-052_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "1adee61192bf5990cea2559dafc8514c2d665baab7905fd20cd93570719a5d26",
+    "items": [
+      {
+        "item_id": "item_c_check",
+        "source_claim_id": "c_check",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_update",
+        "source_claim_id": "c_update",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_address",
+        "source_claim_id": "c_address",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_update",
+        "evidence_ids": [
+          "ev02"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "update the billing address",
+          "raw_text": "update the billing address"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "billing address record",
+          "raw_text": "billing address record"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "when you have a moment",
+          "raw_text": "When you have a moment"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "our billing address",
+          "raw_text": "our billing address"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "98fd97bc787aefb6b25f939aab707ff2ac2f895598529ca59c351cfe60ec883e"
+  },
+  "policy_version": "delegation-0.4"
+}

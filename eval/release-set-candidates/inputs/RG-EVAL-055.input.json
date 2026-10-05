@@ -1,0 +1,274 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-055",
+  "source_message": {
+    "message_id": "RG-EVAL-055_msg",
+    "subject": "Booking",
+    "body": "Hi,\nThanks for the brochure and the samples. Please confirm the meeting room booking. Also, transfer the remaining balance of USD 2000.00 to account ending 4411 today.\nRegards,\nExample Events",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "cce51670b3d08cae94747bbc0ad66d0540bf130e2a741c44e4cf462d0c916c60"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-055_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-055_msg",
+    "source_hash": "cce51670b3d08cae94747bbc0ad66d0540bf130e2a741c44e4cf462d0c916c60",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Thanks for the brochure and samples",
+            "raw_text": "Thanks for the brochure and samples"
+          }
+        }
+      ],
+      "requests": [
+        {
+          "id": "c_booking",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Confirm the meeting room booking",
+            "raw_text": "Confirm the meeting room booking"
+          }
+        }
+      ],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_balance",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "2000.00",
+            "raw_text": "USD 2000.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "payment",
+          "condition": {
+            "status": "explicit",
+            "value": "the remaining balance",
+            "raw_text": "the remaining balance"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_transfer",
+          "evidence_ids": [
+            "ev04"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "transfer USD 2000.00",
+            "raw_text": "transfer USD 2000.00"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "account ending 4411",
+            "raw_text": "account ending 4411"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "today",
+            "raw_text": "today"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "the remaining balance",
+            "raw_text": "the remaining balance"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [
+            "c_balance"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [
+        {
+          "id": "c_account",
+          "evidence_ids": [
+            "ev05"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Bank account ending 4411",
+            "raw_text": "Bank account ending 4411"
+          }
+        }
+      ],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-055_msg",
+          "source_hash": "cce51670b3d08cae94747bbc0ad66d0540bf130e2a741c44e4cf462d0c916c60",
+          "quote": "Thanks for the brochure and the samples.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-055_msg",
+          "source_hash": "cce51670b3d08cae94747bbc0ad66d0540bf130e2a741c44e4cf462d0c916c60",
+          "quote": "Please confirm the meeting room booking.",
+          "supports": [
+            "c_booking"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-055_msg",
+          "source_hash": "cce51670b3d08cae94747bbc0ad66d0540bf130e2a741c44e4cf462d0c916c60",
+          "quote": "USD 2000.00",
+          "supports": [
+            "c_balance"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev04",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-055_msg",
+          "source_hash": "cce51670b3d08cae94747bbc0ad66d0540bf130e2a741c44e4cf462d0c916c60",
+          "quote": "transfer the remaining balance of USD 2000.00 to account ending 4411 today",
+          "supports": [
+            "c_transfer"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev05",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-055_msg",
+          "source_hash": "cce51670b3d08cae94747bbc0ad66d0540bf130e2a741c44e4cf462d0c916c60",
+          "quote": "account ending 4411",
+          "supports": [
+            "c_account"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-055_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-055_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "cce51670b3d08cae94747bbc0ad66d0540bf130e2a741c44e4cf462d0c916c60",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_booking",
+        "source_claim_id": "c_booking",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_balance",
+        "source_claim_id": "c_balance",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_transfer",
+        "source_claim_id": "c_transfer",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_account",
+        "source_claim_id": "c_account",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "ea0ba9c674d289f383172889ba087e9a99969232d52d12d3de2ff7915cf1c4c3"
+  },
+  "policy_version": "delegation-0.4"
+}

@@ -1,0 +1,169 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-036",
+  "source_message": {
+    "message_id": "RG-EVAL-036_msg",
+    "subject": "SLA",
+    "body": "Hello,\nDoes your Business plan guarantee 99.9% uptime per calendar month?\nIT Procurement, Example Bank",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "40d8a866d75d9fc27a40a69f1649903b07a86d2e4c86cef261efb8be681bbfc5"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-036_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-036_msg",
+    "source_hash": "40d8a866d75d9fc27a40a69f1649903b07a86d2e4c86cef261efb8be681bbfc5",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Does the Business plan guarantee 99.9% monthly uptime?",
+            "raw_text": "Does the Business plan guarantee 99.9% monthly uptime?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [
+        {
+          "id": "c_sla",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "99.9% uptime guarantee",
+            "raw_text": "99.9% uptime guarantee"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "for the Business plan",
+            "raw_text": "your Business plan"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "per calendar month",
+            "raw_text": "per calendar month"
+          },
+          "monetary_term_ids": [],
+          "deadline_ids": [],
+          "commitment_ids": []
+        }
+      ],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-036_msg",
+          "source_hash": "40d8a866d75d9fc27a40a69f1649903b07a86d2e4c86cef261efb8be681bbfc5",
+          "quote": "99.9% uptime per calendar month",
+          "supports": [
+            "c_sla"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-036_msg",
+          "source_hash": "40d8a866d75d9fc27a40a69f1649903b07a86d2e4c86cef261efb8be681bbfc5",
+          "quote": "Does your Business plan guarantee",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-036_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-036_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "40d8a866d75d9fc27a40a69f1649903b07a86d2e4c86cef261efb8be681bbfc5",
+    "items": [
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_sla",
+        "source_claim_id": "c_sla",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [
+      {
+        "question_id": "c_q1",
+        "answer_text": "Yes, the Business plan includes a 99.9% monthly uptime commitment.",
+        "basis": "user_assertion",
+        "evidence_ids": [],
+        "related_claim_ids": [
+          "c_sla"
+        ],
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの回答（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "d75a53a2ce7a83b8cfaa9861b9d30a73332bb604a39421d435099bb6b66b6af3"
+  },
+  "policy_version": "delegation-0.4"
+}

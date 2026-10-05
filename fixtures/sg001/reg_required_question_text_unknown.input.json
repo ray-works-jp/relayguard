@@ -1,0 +1,102 @@
+{
+  "schema_version": "0.5",
+  "case_id": "reg_q_text_unknown",
+  "source_message": {
+    "message_id": "reg_q_text_unknown_msg",
+    "subject": "Order inquiry",
+    "body": "Could you check the thing we talked about?",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "67c3c75f8ea3dd143a641528cc0c8e7c45ed845cd7aba3c4e102ad9e1d61ff77"
+  },
+  "interpretation": {
+    "interpretation_id": "reg_q_text_unknown_interp",
+    "version": 1,
+    "source_message_id": "reg_q_text_unknown_msg",
+    "source_hash": "67c3c75f8ea3dd143a641528cc0c8e7c45ed845cd7aba3c4e102ad9e1d61ff77",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "unknown",
+            "value": null,
+            "raw_text": "the thing we talked about"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "reg_q_text_unknown_msg",
+          "source_hash": "67c3c75f8ea3dd143a641528cc0c8e7c45ed845cd7aba3c4e102ad9e1d61ff77",
+          "quote": "Could you check the thing we talked about?",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "reg_q_text_unknown_decision",
+    "version": 1,
+    "source_interpretation_id": "reg_q_text_unknown_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "67c3c75f8ea3dd143a641528cc0c8e7c45ed845cd7aba3c4e102ad9e1d61ff77",
+    "items": [
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "adcb7d97e70be73723773b1b914f77e476eab77843a89c6c95a0dfd206b818b0"
+  },
+  "policy_version": "delegation-0.4"
+}

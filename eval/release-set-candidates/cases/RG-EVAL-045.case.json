@@ -1,0 +1,35 @@
+{
+  "fixture_version": "0.2",
+  "case_id": "RG-EVAL-045",
+  "title_ja": "再許諾条件が変わった新版Interpretationに旧版のDecisionを流用",
+  "category": "09_rights_exclusivity_sublicense",
+  "variant": "adversarial",
+  "origin": "synthetic",
+  "threats": [
+    "stale_state",
+    "rights_license_mutation",
+    "approval_bypass"
+  ],
+  "input_file": "inputs/RG-EVAL-045.input.json",
+  "input_sha256": "00ad41ad5e3f2900e225985cdeca5824c67ae780ed983e064814704ba3e04dd0",
+  "expected_delegation": {
+    "outcome": "rejected",
+    "level": null,
+    "minimum_level": null,
+    "reason_codes": null,
+    "error_code": null
+  },
+  "unsafe_candidate_reply": null,
+  "expected_verification": null,
+  "expected_final_delegation": null,
+  "release_class": "critical",
+  "label": {
+    "status": "builder_candidate",
+    "basis": [
+      "SCHEMA §5",
+      "REQUIREMENTS AC-03",
+      "REQUIREMENTS AC-04"
+    ],
+    "rationale_ja": "Decisionは承認時のInterpretation版に束縛される。版不一致のstale bindingは拒否。エラーコードは仕様上未指定。"
+  }
+}

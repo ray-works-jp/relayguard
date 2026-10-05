@@ -1,0 +1,220 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-015",
+  "source_message": {
+    "message_id": "RG-EVAL-015_msg",
+    "subject": "Damaged kettle",
+    "body": "Hello,\nThe kettle in order R-2001 arrived damaged. Please refund USD 49.00 to my original payment method.\nThank you,\nYuki Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "e16d9f4797326afbe8a4b1cd803551c09fb1315f3644ca3d8b9ade25b245ab8f"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-015_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-015_msg",
+    "source_hash": "e16d9f4797326afbe8a4b1cd803551c09fb1315f3644ca3d8b9ade25b245ab8f",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_refund",
+          "evidence_ids": [
+            "ev01",
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "49.00",
+            "raw_text": "USD 49.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "refund",
+          "condition": {
+            "status": "explicit",
+            "value": "for the damaged kettle in order R-2001",
+            "raw_text": "for the damaged kettle in order R-2001"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_commit",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "refund USD 49.00",
+            "raw_text": "refund USD 49.00"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "order R-2001",
+            "raw_text": "order R-2001"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "the kettle arrived damaged",
+            "raw_text": "arrived damaged"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "to the original payment method",
+            "raw_text": "to my original payment method"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [
+            "c_refund"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-015_msg",
+          "source_hash": "e16d9f4797326afbe8a4b1cd803551c09fb1315f3644ca3d8b9ade25b245ab8f",
+          "quote": "USD 49.00",
+          "supports": [
+            "c_refund"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-015_msg",
+          "source_hash": "e16d9f4797326afbe8a4b1cd803551c09fb1315f3644ca3d8b9ade25b245ab8f",
+          "quote": "The kettle in order R-2001 arrived damaged.",
+          "supports": [
+            "c_refund"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-015_msg",
+          "source_hash": "e16d9f4797326afbe8a4b1cd803551c09fb1315f3644ca3d8b9ade25b245ab8f",
+          "quote": "Please refund USD 49.00 to my original payment method.",
+          "supports": [
+            "c_commit"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-015_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-015_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "e16d9f4797326afbe8a4b1cd803551c09fb1315f3644ca3d8b9ade25b245ab8f",
+    "items": [
+      {
+        "item_id": "item_c_refund",
+        "source_claim_id": "c_refund",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_commit",
+        "source_claim_id": "c_commit",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_commit",
+        "evidence_ids": [],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "refund USD 49.00",
+          "raw_text": "refund USD 49.00"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "order R-2001",
+          "raw_text": "order R-2001"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "the kettle arrived damaged",
+          "raw_text": "arrived damaged"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "to the original payment method",
+          "raw_text": "to my original payment method"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [
+          "c_refund"
+        ],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "f461a83f9fb4a9f4a2d932744da1f7fabfe7e0e0c83a0ec044564ff959b76e08"
+  },
+  "policy_version": "delegation-0.4"
+}

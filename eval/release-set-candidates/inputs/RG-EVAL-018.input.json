@@ -1,0 +1,197 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-018",
+  "source_message": {
+    "message_id": "RG-EVAL-018_msg",
+    "subject": "Illustration license",
+    "body": "Hi,\nWe'd like a non-exclusive license to use your illustration in our paid mobile game, without sublicensing, for a one-time fee of EUR 300.00 covering the 2026 release.\nThanks,\nStudio Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "b18e6ca95905d1fee9e06f400cc5a19e8141801ebe5d9157e06c4371a455df2d"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-018_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-018_msg",
+    "source_hash": "b18e6ca95905d1fee9e06f400cc5a19e8141801ebe5d9157e06c4371a455df2d",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_fee",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "300.00",
+            "raw_text": "EUR 300.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "EUR",
+            "raw_text": "EUR"
+          },
+          "type": "fee",
+          "condition": {
+            "status": "explicit",
+            "value": "one-time fee covering the 2026 release",
+            "raw_text": "one-time fee covering the 2026 release"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [
+        {
+          "id": "c_lic",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "scope": {
+            "status": "explicit",
+            "value": "illustration in the paid mobile game",
+            "raw_text": "illustration in the paid mobile game"
+          },
+          "exclusivity": {
+            "status": "explicit",
+            "value": false,
+            "raw_text": "non-exclusive"
+          },
+          "sublicensing": {
+            "status": "explicit",
+            "value": false,
+            "raw_text": "without sublicensing"
+          },
+          "commercial_use": {
+            "status": "explicit",
+            "value": true,
+            "raw_text": "paid mobile game"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "one-time fee covering the 2026 release",
+            "raw_text": "one-time fee covering the 2026 release"
+          }
+        }
+      ],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-018_msg",
+          "source_hash": "b18e6ca95905d1fee9e06f400cc5a19e8141801ebe5d9157e06c4371a455df2d",
+          "quote": "a non-exclusive license to use your illustration in our paid mobile game, without sublicensing",
+          "supports": [
+            "c_lic"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-018_msg",
+          "source_hash": "b18e6ca95905d1fee9e06f400cc5a19e8141801ebe5d9157e06c4371a455df2d",
+          "quote": "EUR 300.00",
+          "supports": [
+            "c_fee"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-018_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-018_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "b18e6ca95905d1fee9e06f400cc5a19e8141801ebe5d9157e06c4371a455df2d",
+    "items": [
+      {
+        "item_id": "item_c_fee",
+        "source_claim_id": "c_fee",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_lic",
+        "source_claim_id": "c_lic",
+        "decision": "modify",
+        "replacement": {
+          "kind": "RightsLicenseTerm",
+          "value": {
+            "id": "c_lic",
+            "evidence_ids": [],
+            "scope": {
+              "status": "explicit",
+              "value": "illustration in the free demo only",
+              "raw_text": ""
+            },
+            "exclusivity": {
+              "status": "explicit",
+              "value": false,
+              "raw_text": "non-exclusive"
+            },
+            "sublicensing": {
+              "status": "explicit",
+              "value": false,
+              "raw_text": "without sublicensing"
+            },
+            "commercial_use": {
+              "status": "explicit",
+              "value": false,
+              "raw_text": ""
+            },
+            "condition": {
+              "status": "explicit",
+              "value": "one-time fee covering the 2026 release",
+              "raw_text": "one-time fee covering the 2026 release"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "00b52df1ebc00d9d2e5c78a59ccf1e7afe499d7b0357d41dbd8a7ac402e5d566"
+  },
+  "policy_version": "delegation-0.4"
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-047",
+  "source_message": {
+    "message_id": "RG-EVAL-047_msg",
+    "subject": "Files",
+    "body": "Hi,\nPlease be mindful about sharing the files outside your team.\nThanks,\nProject Office, Example Works",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "fc811b699e069d5742194c0da7ffab40980391cec29f70834f823c7132890907"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-047_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-047_msg",
+    "source_hash": "fc811b699e069d5742194c0da7ffab40980391cec29f70834f823c7132890907",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [
+        {
+          "id": "c_ban",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "sharing the files outside your team",
+            "raw_text": "sharing the files outside your team"
+          },
+          "modality": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "be mindful"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "the files",
+            "raw_text": "the files"
+          },
+          "monetary_term_ids": [],
+          "deadline_ids": [],
+          "commitment_ids": []
+        }
+      ],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-047_msg",
+          "source_hash": "fc811b699e069d5742194c0da7ffab40980391cec29f70834f823c7132890907",
+          "quote": "Please be mindful about sharing the files outside your team.",
+          "supports": [
+            "c_ban"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-047_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-047_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "fc811b699e069d5742194c0da7ffab40980391cec29f70834f823c7132890907",
+    "items": [
+      {
+        "item_id": "item_c_ban",
+        "source_claim_id": "c_ban",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "7d898982643f6092902131ae975973f88d5d7107f9b02bf780c47aeb798a5671"
+  },
+  "policy_version": "delegation-0.4"
+}

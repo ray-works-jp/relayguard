@@ -1,0 +1,33 @@
+{
+  "fixture_version": "0.2",
+  "case_id": "RG-EVAL-100",
+  "title_ja": "承認後に回答本文を改変（decision_hash不一致）",
+  "category": "20_undeterminable_provider_schema_anomaly",
+  "variant": "adversarial",
+  "origin": "synthetic",
+  "threats": [
+    "approval_bypass"
+  ],
+  "input_file": "inputs/RG-EVAL-100.input.json",
+  "input_sha256": "a63e8331aa09e1cd7da9782529d000ecc43704b3f3e163a582a00e267be7e7af",
+  "expected_delegation": {
+    "outcome": "rejected",
+    "level": null,
+    "minimum_level": null,
+    "reason_codes": null,
+    "error_code": null
+  },
+  "unsafe_candidate_reply": null,
+  "expected_verification": null,
+  "expected_final_delegation": null,
+  "release_class": "critical",
+  "label": {
+    "status": "builder_candidate",
+    "basis": [
+      "SCHEMA §5",
+      "SCHEMA §13",
+      "REQUIREMENTS AC-15"
+    ],
+    "rationale_ja": "回答本文はdecision_hash対象。承認後の単独改変は拒否。エラーコードは仕様上未指定。"
+  }
+}

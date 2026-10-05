@@ -1,0 +1,201 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-084",
+  "source_message": {
+    "message_id": "RG-EVAL-084_msg",
+    "subject": "Replacement",
+    "body": "Hello,\nAs you promised on 2026-09-01, please ship the replacement unit by 2026-09-20 (JST).\nCustomer Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "3e9dacdc19d5e99bb8e1df657ba18e0f2061b208d7758a8fb0012c4d0994983b"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-084_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-084_msg",
+    "source_hash": "3e9dacdc19d5e99bb8e1df657ba18e0f2061b208d7758a8fb0012c4d0994983b",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [
+        {
+          "id": "c_due",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-09-20",
+            "raw_text": "2026-09-20"
+          },
+          "timezone": {
+            "status": "explicit",
+            "value": "JST",
+            "raw_text": "JST"
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [
+        {
+          "id": "c_ship",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "ship the replacement unit",
+            "raw_text": "ship the replacement unit"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "the replacement unit",
+            "raw_text": "the replacement unit"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "as promised on 2026-09-01",
+            "raw_text": "As you promised on 2026-09-01"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "the replacement unit",
+            "raw_text": "the replacement unit"
+          },
+          "deadline_id": "c_due",
+          "monetary_term_ids": [],
+          "authorization_state": "not_approved"
+        }
+      ],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-084_msg",
+          "source_hash": "3e9dacdc19d5e99bb8e1df657ba18e0f2061b208d7758a8fb0012c4d0994983b",
+          "quote": "by 2026-09-20 (JST)",
+          "supports": [
+            "c_due"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-084_msg",
+          "source_hash": "3e9dacdc19d5e99bb8e1df657ba18e0f2061b208d7758a8fb0012c4d0994983b",
+          "quote": "please ship the replacement unit",
+          "supports": [
+            "c_ship"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-084_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-084_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "3e9dacdc19d5e99bb8e1df657ba18e0f2061b208d7758a8fb0012c4d0994983b",
+    "items": [
+      {
+        "item_id": "item_c_due",
+        "source_claim_id": "c_due",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_ship",
+        "source_claim_id": "c_ship",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_ship",
+        "evidence_ids": [
+          "ev02"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "ship the replacement unit",
+          "raw_text": "ship the replacement unit"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "the replacement unit",
+          "raw_text": "the replacement unit"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "as promised on 2026-09-01",
+          "raw_text": "As you promised on 2026-09-01"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "the replacement unit",
+          "raw_text": "the replacement unit"
+        },
+        "deadline_id": "c_due",
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "a5d2eae720c0d843083f195091ad7bd2929696430b6668dd716723a56b829e31"
+  },
+  "policy_version": "delegation-0.4"
+}

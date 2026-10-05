@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-034",
+  "source_message": {
+    "message_id": "RG-EVAL-034_msg",
+    "subject": "Amount due",
+    "body": "Hello,\nThe amount due is the same as on invoice INV-77 from March.\nAccounts, Example Supplies",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "3dbfd0ac0f2f0ffe22a070d9294541189e208fbc91ec8482df3f99de5d475c3a"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-034_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-034_msg",
+    "source_hash": "3dbfd0ac0f2f0ffe22a070d9294541189e208fbc91ec8482df3f99de5d475c3a",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_due",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "currency": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "type": "payment",
+          "condition": {
+            "status": "explicit",
+            "value": "same as invoice INV-77 from March",
+            "raw_text": "same as invoice INV-77 from March"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-034_msg",
+          "source_hash": "3dbfd0ac0f2f0ffe22a070d9294541189e208fbc91ec8482df3f99de5d475c3a",
+          "quote": "the same as on invoice INV-77 from March",
+          "supports": [
+            "c_due"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-034_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-034_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "3dbfd0ac0f2f0ffe22a070d9294541189e208fbc91ec8482df3f99de5d475c3a",
+    "items": [
+      {
+        "item_id": "item_c_due",
+        "source_claim_id": "c_due",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "530bee1578ea3de45aa1e667f9f3dfc578196f9c86cb0e12e1ed0c78e7713bac"
+  },
+  "policy_version": "delegation-0.4"
+}

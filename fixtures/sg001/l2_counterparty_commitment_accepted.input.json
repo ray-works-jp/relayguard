@@ -1,0 +1,243 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l2_counterparty_commit",
+  "source_message": {
+    "message_id": "case_l2_counterparty_commit_msg",
+    "subject": "Order inquiry",
+    "body": "We will ship the replacement unit under the warranty terms, limited to the damaged unit. Let us know if that works for you.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "c1a2006b3eae32aed848589db4bdfa7bf540886ca1916cb1bc6527e0758128ad"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l2_counterparty_commit_interp",
+    "version": 1,
+    "source_message_id": "case_l2_counterparty_commit_msg",
+    "source_hash": "c1a2006b3eae32aed848589db4bdfa7bf540886ca1916cb1bc6527e0758128ad",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Announces a replacement shipment",
+            "raw_text": "Announces a replacement shipment"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q_ok",
+          "evidence_ids": [
+            "ev04"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Does the replacement plan work for you?",
+            "raw_text": "Does the replacement plan work for you?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [
+        {
+          "id": "c_commit",
+          "evidence_ids": [
+            "ev01",
+            "ev02"
+          ],
+          "actor": "counterparty",
+          "action": {
+            "status": "explicit",
+            "value": "ship",
+            "raw_text": "ship"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "the replacement unit",
+            "raw_text": "the replacement unit"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "under the warranty terms",
+            "raw_text": "under the warranty terms"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "limited to the damaged unit",
+            "raw_text": "limited to the damaged unit"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l2_counterparty_commit_msg",
+          "source_hash": "c1a2006b3eae32aed848589db4bdfa7bf540886ca1916cb1bc6527e0758128ad",
+          "quote": "We will ship the replacement unit",
+          "supports": [
+            "c_commit"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l2_counterparty_commit_msg",
+          "source_hash": "c1a2006b3eae32aed848589db4bdfa7bf540886ca1916cb1bc6527e0758128ad",
+          "quote": "limited to the damaged unit",
+          "supports": [
+            "c_commit"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "case_l2_counterparty_commit_msg",
+          "source_hash": "c1a2006b3eae32aed848589db4bdfa7bf540886ca1916cb1bc6527e0758128ad",
+          "quote": "We will ship the replacement unit",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev04",
+          "source_kind": "source_message",
+          "source_id": "case_l2_counterparty_commit_msg",
+          "source_hash": "c1a2006b3eae32aed848589db4bdfa7bf540886ca1916cb1bc6527e0758128ad",
+          "quote": "Let us know if that works for you.",
+          "supports": [
+            "c_q_ok"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l2_counterparty_commit_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l2_counterparty_commit_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "c1a2006b3eae32aed848589db4bdfa7bf540886ca1916cb1bc6527e0758128ad",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_q_ok",
+        "source_claim_id": "c_q_ok",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_commit",
+        "source_claim_id": "c_commit",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_commit",
+        "evidence_ids": [
+          "ev01",
+          "ev02"
+        ],
+        "actor": "counterparty",
+        "action": {
+          "status": "explicit",
+          "value": "ship",
+          "raw_text": "ship"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "the replacement unit",
+          "raw_text": "the replacement unit"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "under the warranty terms",
+          "raw_text": "under the warranty terms"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "limited to the damaged unit",
+          "raw_text": "limited to the damaged unit"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "832b05f80b169f0eadd104242125df268997a8675dbe49b1aff61d31a1a2ccb7"
+  },
+  "policy_version": "delegation-0.4"
+}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}新しいメール - RelayGuard{% endblock %}
+{% block content %}
+<div class="page-head"><h1>新しいメールを解析</h1></div>
+
+{% if error %}
+<div class="alert" role="alert">操作を完了できませんでした。{{ error }}</div>
+{% endif %}
+
+<nav class="tabs" aria-label="取り込み方法">
+  <a href="/new"{% if mode == "auto" %} aria-current="page"{% endif %}>自動解析（Claude）</a>
+  <a href="/new?mode=manual"{% if mode == "manual" %} aria-current="page"{% endif %}>手動で登録</a>
+</nav>
+
+<section class="panel">
+{% if mode == "auto" and key_entry and not llm_enabled %}
+  <div class="setup" aria-labelledby="key-heading">
+    <h2 id="key-heading">まず APIキーを設定</h2>
+    <p class="small">APIキーはこのPCのメモリだけ ／ 解析するメールの本文を Anthropic へ送信 ／ API料金が発生</p>
+    <details class="small"><summary>詳細</summary>
+      <ul>
+        <li>キーはファイルにも記録にも残さず、RelayGuard を閉じると消えます。次回はもう一度入れてください。</li>
+        <li>送信されるのは「解析する」を押したメールの件名と本文だけです。作者や他の場所には送りません。</li>
+        <li>料金はあなたの Anthropic API 契約に請求されます。キーは <a href="https://console.anthropic.com/" rel="noreferrer">Anthropic Console</a> で作れます。</li>
+      </ul>
+    </details>
+    <form method="post" action="/settings/api-key" class="row-form">
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <input type="hidden" name="back" value="new">
+      <label class="grow">APIキー <input type="password" name="key" autocomplete="off" spellcheck="false" placeholder="sk-ant-..." required></label>
+      <label class="inline"><input type="checkbox" name="consent" value="1" required> 上の内容に同意する</label>
+      <button type="submit" class="primary">設定する</button>
+    </form>
+    <p class="muted small" data-key-browser-note>RelayGuard 自体はキーを保存しません。ただし、ブラウザがパスワードとして保存を提案する場合があります。「保存しない」を選んでください。保存してしまった場合は、ブラウザのパスワード管理画面から削除してください。</p>
+  </div>
+{% elif mode == "auto" and key_entry %}
+  <p class="key-status">✓ APIキー設定済み{{ "（閉じると消えます）" if key_source == "screen" else "（環境変数）" }} <a href="/settings">設定で変更</a></p>
+{% endif %}
+
+  <form method="post" action="/cases/read-eml" enctype="multipart/form-data" class="row-form file-row">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <input type="hidden" name="mode" value="{{ mode }}">
+    <label class="grow">メールファイル（.eml）から本文を読み込む <input type="file" name="file" accept=".eml,message/rfc822" required></label>
+    <button type="submit">読み込む</button>
+  </form>
+  {% if eml %}
+  <p class="note" role="status">ファイルから読み込みました。{% if eml.attachments %}添付（{{ eml.attachments | join("、") }}）は読んでいません。{% endif %}{% if eml.is_long %} 本文が長め（{{ eml.body | length }}文字）なので、解析が5分の上限を超えることがあります。{% endif %}</p>
+  {% endif %}
+
+{% if mode == "auto" %}
+  {% if llm_enabled %}
+  <form method="post" action="/cases/interpret" data-busy="Claude がメールを解析しています（長いメールでは最大5分）。この画面のままお待ちください。">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <label>英語のメール本文 <textarea name="body" rows="7" required placeholder="ここに貼り付け">{{ eml.body if eml else "" }}</textarea></label>
+    <label>件名（任意） <input type="text" name="subject" value="{{ eml.subject or "" if eml else "" }}"></label>
+    {% if key_source != "screen" %}
+    <label class="inline"><input type="checkbox" name="consent" value="1" required> 本文を外部LLMプロバイダへ送信することに同意します</label>
+    {% endif %}
+    <button type="submit" class="primary big">解析する</button>
+  </form>
+  {% elif not key_entry %}
+  <p class="muted">この起動方法では自動解析は使えません。「手動で登録」をお使いください。</p>
+  {% else %}
+  <p class="muted">APIキーを設定すると、ここに本文を貼り付けて解析できます。</p>
+  {% endif %}
+{% else %}
+  {% include "_manual_form.html" %}
+{% endif %}
+</section>
+{% endblock %}

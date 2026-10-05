@@ -1,0 +1,197 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-038",
+  "source_message": {
+    "message_id": "RG-EVAL-038_msg",
+    "subject": "Renewal SLA",
+    "body": "Hello,\nFor the renewal, we propose a 99.9% monthly uptime guarantee, with a service credit of USD 200.00 for any month below that level.\nVendor Management, Example Retail",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "5dc9f091612d678f6bee02653160528c78eb80832222f242245bdd55df8f5c2e"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-038_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-038_msg",
+    "source_hash": "5dc9f091612d678f6bee02653160528c78eb80832222f242245bdd55df8f5c2e",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_credit",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "200.00",
+            "raw_text": "USD 200.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "credit",
+          "condition": {
+            "status": "explicit",
+            "value": "for any month below that level",
+            "raw_text": "for any month below that level"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [
+        {
+          "id": "c_sla",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "99.9% monthly uptime guarantee",
+            "raw_text": "99.9% monthly uptime guarantee"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "for the renewal",
+            "raw_text": "For the renewal"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "monthly uptime",
+            "raw_text": "monthly uptime"
+          },
+          "monetary_term_ids": [
+            "c_credit"
+          ],
+          "deadline_ids": [],
+          "commitment_ids": []
+        }
+      ],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-038_msg",
+          "source_hash": "5dc9f091612d678f6bee02653160528c78eb80832222f242245bdd55df8f5c2e",
+          "quote": "a service credit of USD 200.00",
+          "supports": [
+            "c_credit"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-038_msg",
+          "source_hash": "5dc9f091612d678f6bee02653160528c78eb80832222f242245bdd55df8f5c2e",
+          "quote": "a 99.9% monthly uptime guarantee",
+          "supports": [
+            "c_sla"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-038_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-038_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "5dc9f091612d678f6bee02653160528c78eb80832222f242245bdd55df8f5c2e",
+    "items": [
+      {
+        "item_id": "item_c_credit",
+        "source_claim_id": "c_credit",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_sla",
+        "source_claim_id": "c_sla",
+        "decision": "modify",
+        "replacement": {
+          "kind": "ClauseTerm",
+          "value": {
+            "id": "c_sla",
+            "evidence_ids": [],
+            "text": {
+              "status": "explicit",
+              "value": "99.5% monthly uptime guarantee",
+              "raw_text": ""
+            },
+            "modality": {
+              "status": "explicit",
+              "value": "will",
+              "raw_text": "will"
+            },
+            "condition": {
+              "status": "explicit",
+              "value": "for the renewal",
+              "raw_text": "For the renewal"
+            },
+            "scope": {
+              "status": "explicit",
+              "value": "monthly uptime",
+              "raw_text": "monthly uptime"
+            },
+            "monetary_term_ids": [
+              "c_credit"
+            ],
+            "deadline_ids": [],
+            "commitment_ids": []
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "b9d570ff76a5fc698a5b49b3851c3731d814f76ad792a3758a11d9bc3cc95f96"
+  },
+  "policy_version": "delegation-0.4"
+}

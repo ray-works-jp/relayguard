@@ -1,0 +1,161 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-062",
+  "source_message": {
+    "message_id": "RG-EVAL-062_msg",
+    "subject": "Logo revisions",
+    "body": "Hi,\nAbout the logo revisions you asked for: consider it done, more or less.\nDesign Studio Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "62ca817d2c4832cedcee4adfc892c7d537e1e6485ef3d33f13d08e6c58ca7703"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-062_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-062_msg",
+    "source_hash": "62ca817d2c4832cedcee4adfc892c7d537e1e6485ef3d33f13d08e6c58ca7703",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [
+        {
+          "id": "c_done",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "actor": "counterparty",
+          "action": {
+            "status": "explicit",
+            "value": "complete the logo revisions",
+            "raw_text": "complete the logo revisions"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "the logo revisions",
+            "raw_text": "the logo revisions"
+          },
+          "modality": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "more or less"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "the logo revisions",
+            "raw_text": "the logo revisions"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-062_msg",
+          "source_hash": "62ca817d2c4832cedcee4adfc892c7d537e1e6485ef3d33f13d08e6c58ca7703",
+          "quote": "consider it done, more or less",
+          "supports": [
+            "c_done"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-062_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-062_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "62ca817d2c4832cedcee4adfc892c7d537e1e6485ef3d33f13d08e6c58ca7703",
+    "items": [
+      {
+        "item_id": "item_c_done",
+        "source_claim_id": "c_done",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_done",
+        "evidence_ids": [
+          "ev01"
+        ],
+        "actor": "counterparty",
+        "action": {
+          "status": "explicit",
+          "value": "complete the logo revisions",
+          "raw_text": "complete the logo revisions"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "the logo revisions",
+          "raw_text": "the logo revisions"
+        },
+        "modality": {
+          "status": "ambiguous",
+          "value": null,
+          "raw_text": "more or less"
+        },
+        "condition": {
+          "status": "not_stated",
+          "value": null,
+          "raw_text": ""
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "the logo revisions",
+          "raw_text": "the logo revisions"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "63552f39477560f9b09b2e7694290b3d96541aa6b47f2606e202b02146c79b5c"
+  },
+  "policy_version": "delegation-0.4"
+}

@@ -1,0 +1,137 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-076",
+  "source_message": {
+    "message_id": "RG-EVAL-076_msg",
+    "subject": "Re: Re: Tracking link",
+    "body": "Hi,\nThe new portal layout is a bit annoying to navigate, but I found the tracking link. Thanks.\nRyo Example\n\n> On 2026-09-02, Support wrote:\n> Thanks for your order. We will send the tracking link once the parcel is scanned.\n> On 2026-09-01, you wrote:\n> Could you share the tracking link when it is ready?\n",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "4b06c11b11ebdcc4ab362f6621af3b1cf6ee0d884e7f9857427376f69a48a628"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-076_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-076_msg",
+    "source_hash": "4b06c11b11ebdcc4ab362f6621af3b1cf6ee0d884e7f9857427376f69a48a628",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Confirms the tracking link was found",
+            "raw_text": "Confirms the tracking link was found"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [
+        {
+          "id": "c_emotion",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "anger",
+          "intensity": "low",
+          "target": {
+            "status": "explicit",
+            "value": "new portal layout",
+            "raw_text": "new portal layout"
+          }
+        }
+      ],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-076_msg",
+          "source_hash": "4b06c11b11ebdcc4ab362f6621af3b1cf6ee0d884e7f9857427376f69a48a628",
+          "quote": "I found the tracking link. Thanks.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-076_msg",
+          "source_hash": "4b06c11b11ebdcc4ab362f6621af3b1cf6ee0d884e7f9857427376f69a48a628",
+          "quote": "a bit annoying to navigate",
+          "supports": [
+            "c_emotion"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-076_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-076_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "4b06c11b11ebdcc4ab362f6621af3b1cf6ee0d884e7f9857427376f69a48a628",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_emotion",
+        "source_claim_id": "c_emotion",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "2fe25fbe165329ad81eac8dfd70ccb8798117172e4af771cfb3d3fb9616af4ce"
+  },
+  "policy_version": "delegation-0.4"
+}

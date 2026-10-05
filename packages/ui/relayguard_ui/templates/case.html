@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+{% block title %}{{ case.source.subject or "案件" }} - RelayGuard{% endblock %}
+{% block content %}
+<p><a href="/">← 案件一覧</a></p>
+{% if error %}
+<div class="alert"><strong>{{ error.code }}</strong>: {{ error.message }}</div>
+{% endif %}
+
+<section class="panel">
+  <div class="headline">
+    <h1>{{ case.source.subject or "（件名なし）" }}</h1>
+    <span class="state state-{{ case.state }}">{{ STATE_LABELS[case.state] }}</span>
+  </div>
+  <p class="muted">案件ID {{ case.case_id }}{% if case.origin == "fixture" %} ・ <span class="tag">合成データ（Decisionはfixture由来で、実ユーザー承認ではありません）</span>{% endif %}</p>
+  <details>
+    <summary>英語原文を表示</summary>
+    <pre class="source">{{ case.source.body }}</pre>
+  </details>
+</section>
+
+<nav class="panel steps-panel" aria-label="進み具合">
+  <ol class="steps">
+    {% for label, status in progress.statuses %}
+    <li class="step-{{ status }}"{% if status in ("current", "stopped") %} aria-current="step"{% endif %}>
+      <span class="step-no" aria-hidden="true">{{ loop.index }}</span>{{ label }}
+      <span class="visually-hidden">（{{ {"done": "完了", "current": "いまここ", "todo": "未着手", "stopped": "停止"}[status] }}）</span>
+    </li>
+    {% endfor %}
+  </ol>
+  <p class="step-hint"><strong>いまやること:</strong> {{ progress.hint }}</p>
+</nav>
+
+{% if next_steps and case.state != CaseState.SAFE_CANDIDATE %}{# a pass repeats the step hint; show only stops and fixes #}
+<section class="panel next-steps">
+  <h2>次にやること</h2>
+  <ol>{% for step in next_steps %}<li>{{ step }}</li>{% endfor %}</ol>
+</section>
+{% endif %}
+
+<section class="panel">
+  <h2>1. 相手の要求と、あなたの判断</h2>
+  {% if no_request_note %}
+  <div class="note">{{ no_request_note }}</div>
+  {% endif %}
+  {% if case.state == CaseState.STOPPED %}
+  <div class="stop" role="alert">このメールは AI では扱えません（返信案の作成・承認・コピーはできません）。原文を確認し、手動で対応してください。</div>
+  {% endif %}
+  <form method="post" action="/cases/{{ case.case_id }}/decision">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <input type="hidden" name="revision" value="{{ case.revision }}">
+    <table class="claims">
+      <thead><tr><th>相手が言っていること</th><th>原文の根拠</th><th>判断</th></tr></thead>
+      <tbody>
+      {% for row in rows %}
+        <tr class="{% if row.uncertain %}uncertain{% endif %}">
+          <td>
+            <div class="headline{% if row.uncertain %} warn{% endif %}"><span class="tag">{{ row.array_label }}</span>{{ row.headline or "（内容なし）" }}</div>
+            <details class="detail small">
+              <summary>詳しく</summary>
+              {% for name, shown, flag in row.fields %}
+                <div><span class="fname">{{ name }}</span> <span class="{% if flag %}warn{% endif %}">{{ shown }}</span></div>
+              {% endfor %}
+              {% for name, shown in row.extra %}<span class="chip">{{ name }}: {{ shown }}</span>{% endfor %}
+              <div class="muted">ID {{ row.claim_id }}</div>
+            </details>
+          </td>
+          <td>{% for q in row.quotes %}<blockquote>{{ q }}</blockquote>{% endfor %}</td>
+          <td>
+            {% if decision_editable %}
+            <select name="choice__{{ row.claim_id }}">
+              {% for key, label in DECISION_LABELS.items() %}
+              <option value="{{ key }}" {% if row.decision == key %}selected{% endif %}>{{ label }}</option>
+              {% endfor %}
+            </select>
+            {% else %}{{ DECISION_LABELS[row.decision] }}{% endif %}
+            {% if row.kind == "Question" %}
+              {% set ans = answers.get(row.claim_id) %}
+              {% if decision_editable %}
+              <label class="small">英語の回答文（承認する場合のみ有効）
+                <textarea name="answer__{{ row.claim_id }}" rows="2">{{ ans.answer_text if ans else "" }}</textarea>
+              </label>
+              {% if related_options %}
+              <details class="small"><summary>回答に金額・日付・数量を書くとき: 根拠にする項目を選ぶ</summary>
+                <fieldset class="related">
+                  <legend class="visually-hidden">回答の根拠となる承認済み項目</legend>
+                  {% for opt in related_options %}
+                  <label><input type="checkbox" name="related__{{ row.claim_id }}" value="{{ opt.claim_id }}" {% if ans and opt.claim_id in ans.related_claim_ids %}checked{% endif %}> <span class="tag">{{ opt.array_label }}</span>{{ opt.headline or opt.claim_id }}</label>
+                  {% endfor %}
+                </fieldset>
+              </details>
+              {% endif %}
+              {% elif ans %}<div class="answer">回答: {{ ans.answer_text }}</div>{% endif %}
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% if decision_editable %}
+    <label>メモ（返信には使われません）<input type="text" name="notes"></label>
+    <p class="muted small">未選択の項目は「保留」になり、承認扱いにはなりません。金額・日付・数量などを回答文に書く場合は、根拠となる承認済み項目をチェックしてください（チェックがない値は検査で停止します）。</p>
+    <button type="submit" class="primary">この判断で確定する</button>
+    {% endif %}
+  </form>
+</section>
+
+{% if case.pre_assessment %}
+<section class="panel">
+  <h2>2. AIに任せてよい範囲（事前判定）</h2>
+  <p><span class="level level-{{ case.pre_assessment.level }}">{{ LEVEL_LABELS[case.pre_assessment.level] }}</span></p>
+  <ul class="reasons">{% for code, label in pre_reasons %}<li>{{ label }} <code class="muted small">{{ code }}</code></li>{% endfor %}</ul>
+  <p class="muted small">どの判定でも自動送信はしません。すべての返信は、検査のあとにあなたの最終承認が必要です。</p>
+  {% if case.state not in (CaseState.STOPPED, CaseState.COPIED) %}
+  <form method="post" action="/cases/{{ case.case_id }}/generate" class="inline-form" data-busy="返信案を作って検査しています…">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <input type="hidden" name="revision" value="{{ case.revision }}">
+    <label class="inline"><input type="checkbox" name="concise" value="1"> 簡潔（空行なし）</label>
+    <button type="submit" class="primary">英語の返信案を作って検査する</button>
+  </form>
+  {% endif %}
+</section>
+{% endif %}
+
+{% if case.draft %}
+<section class="panel">
+  <h2>3. 返信案と検査結果</h2>
+  <div class="grid2">
+    <div>
+      {% if case.state in (CaseState.SAFE_CANDIDATE, CaseState.BLOCKED) %}
+      <form method="post" action="/cases/{{ case.case_id }}/draft">
+        <input type="hidden" name="csrf" value="{{ csrf }}">
+        <input type="hidden" name="revision" value="{{ case.revision }}">
+        <textarea name="reply_text" rows="18" class="mono">{{ case.draft.reply_text }}</textarea>
+        <p class="muted small">編集すると新しい返信案として再抽出・再検査されます。Decisionにない文・金額・日付・約束を加えると停止します。</p>
+        <button type="submit">編集内容で再検査</button>
+      </form>
+      {% else %}
+      <pre class="mono reply" id="approved-reply">{{ case.draft.reply_text }}</pre>
+      {% endif %}
+      {% if origin_lines %}
+      <h3>行ごとの由来</h3>
+      <p class="small">{{ ORIGIN_INTRO }}</p>
+      <p class="muted small">
+        {% for origin, label, count in origin_summary %}{% if not loop.first %} / {% endif %}{{ label }} {{ count }}行{% endfor %}
+      </p>
+      <ol class="origin">
+        {% for line in origin_lines %}
+        <li class="o-{{ line.origin }}">
+          {% if line.origin != "blank" %}
+          <span class="otag">{{ line.label }}</span><span class="otext">{{ line.text }}</span>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+      <dl class="origin-legend">
+        {% for origin, label, count in origin_summary %}
+        <dt class="o-{{ origin }}">{{ label }}</dt><dd>{{ ORIGIN_LEGEND[origin] }}</dd>
+        {% endfor %}
+      </dl>
+      {% endif %}
+    </div>
+    <div>
+      {% if case.verification %}
+        {% if case.verification.policy_status == "SAFE_CANDIDATE" %}
+        <div class="pass" role="status">検査済み: あなたが決めていない内容は見つかりませんでした。</div>
+        {% else %}
+        <div class="stop" role="alert">{{ stop_guidance }}</div>
+        {% endif %}
+        {% if case.post_assessment %}
+        <p>事後判定: <span class="level level-{{ case.post_assessment.level }}">{{ LEVEL_LABELS[case.post_assessment.level] }}</span></p>
+        <ul class="reasons">{% for code, label in post_reasons %}<li>{{ label }} <code class="muted small">{{ code }}</code></li>{% endfor %}</ul>
+        {% endif %}
+        {% if findings %}
+        <h3>指摘</h3>
+        <ul class="findings">
+          {% for f in findings %}
+          <li class="sev-{{ f.severity_key }}">
+            <strong>[{{ f.severity }}{% if f.blocking %}・停止{% endif %}] {{ f.label }}</strong><br>{{ f.explanation }}
+            {% if f.claim_ids %}<div class="muted small">対象: {% for cid in f.claim_ids %}<code>{{ cid }}</code>{% if not loop.last %} {% endif %}{% endfor %}</div>{% endif %}
+            {% if f.next_action %}<div class="todo">対応: {{ f.next_action }}</div>{% endif %}
+            {% for q in f.quotes %}<blockquote>{{ q }}</blockquote>{% endfor %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}<p class="muted">指摘はありません。</p>{% endif %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if case.state in (CaseState.SAFE_CANDIDATE, CaseState.FINAL_APPROVED, CaseState.COPIED) %}
+<section class="panel">
+  <h2>4. 最終承認とコピー</h2>
+  <div class="responsibility" role="note"><strong>送る前に確認してください。</strong>検査は、あなたが決めた内容以外（金額・日付・約束・リンクなど）が混ざっていないかだけを確認します。内容が正しいか、相手への返事として適切かは確認していません。</div>
+  {% if case.state == CaseState.SAFE_CANDIDATE %}
+  <form method="post" action="/cases/{{ case.case_id }}/final-approval">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <input type="hidden" name="revision" value="{{ case.revision }}">
+    <label class="inline"><input type="checkbox" required> 返信本文をすべて読み、この内容で相手に送ることを確認しました</label>
+    <button type="submit" class="primary">最終承認する（{{ operator }}）</button>
+  </form>
+  {% else %}
+  <p>最終承認: {{ case.approval.approved_by }} / {{ case.approval.approved_at }}（approval_hash <code>{{ case.approval.approval_hash[:16] }}…</code>）</p>
+  <form method="post" action="/cases/{{ case.case_id }}/copied" id="copy-form">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <input type="hidden" name="revision" value="{{ case.revision }}">
+    <button type="submit" class="primary" data-copy-target="approved-reply">{% if case.state == CaseState.COPIED %}もう一度コピー{% else %}本文をクリップボードにコピー{% endif %}</button>
+  </form>
+  <p class="muted small">RelayGuardはメールを送信しません。コピーした本文をご自身のメールソフトに貼り付けて送信してください。</p>
+  {% endif %}
+</section>
+{% endif %}
+
+<section class="panel muted small">
+  <a href="/cases/{{ case.case_id }}/audit.json">監査ログ（ID・hashのみ）</a>
+  <form method="post" action="/cases/{{ case.case_id }}/delete" class="inline-form right">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <button type="submit" class="danger">この案件をメモリから削除</button>
+  </form>
+</section>
+{% endblock %}

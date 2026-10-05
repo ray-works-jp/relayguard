@@ -1,0 +1,176 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l0_calendar_date",
+  "source_message": {
+    "message_id": "case_l0_calendar_date_msg",
+    "subject": "Order inquiry",
+    "body": "Our office moved to the new address on 2026-04-01. Could you update your records?",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "5f21c2b7e0f0d5dd3029394faa72ffb3b27c42fccb6e563c7ec366825067b80e"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l0_calendar_date_interp",
+    "version": 1,
+    "source_message_id": "case_l0_calendar_date_msg",
+    "source_hash": "5f21c2b7e0f0d5dd3029394faa72ffb3b27c42fccb6e563c7ec366825067b80e",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Notifies an office move",
+            "raw_text": "Notifies an office move"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Update the stored address?",
+            "raw_text": "Update the stored address?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [
+        {
+          "id": "c_date",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "type": "date",
+          "date": {
+            "status": "explicit",
+            "value": "2026-04-01",
+            "raw_text": "on 2026-04-01"
+          },
+          "timezone": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l0_calendar_date_msg",
+          "source_hash": "5f21c2b7e0f0d5dd3029394faa72ffb3b27c42fccb6e563c7ec366825067b80e",
+          "quote": "Our office moved to the new address",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l0_calendar_date_msg",
+          "source_hash": "5f21c2b7e0f0d5dd3029394faa72ffb3b27c42fccb6e563c7ec366825067b80e",
+          "quote": "Could you update your records?",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "case_l0_calendar_date_msg",
+          "source_hash": "5f21c2b7e0f0d5dd3029394faa72ffb3b27c42fccb6e563c7ec366825067b80e",
+          "quote": "on 2026-04-01",
+          "supports": [
+            "c_date"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l0_calendar_date_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l0_calendar_date_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "5f21c2b7e0f0d5dd3029394faa72ffb3b27c42fccb6e563c7ec366825067b80e",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_date",
+        "source_claim_id": "c_date",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "0d2bcfc4a9e4dfe2e857314ad765bac496ac0d0c62bd88c7c8a518700c7a0eb7"
+  },
+  "policy_version": "delegation-0.4"
+}

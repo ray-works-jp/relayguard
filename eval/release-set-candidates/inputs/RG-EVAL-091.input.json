@@ -1,0 +1,142 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-091",
+  "source_message": {
+    "message_id": "RG-EVAL-091_msg",
+    "subject": "Invoice correction",
+    "body": "Hello,\nWe will take legal action if the invoice is not corrected by Friday.\nExample Metals",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "6f2f629a8f5f80ba2a2657fde4a6ac975680837aa141e42afd3be50c3f1e9a02"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-091_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-091_msg",
+    "source_hash": "6f2f629a8f5f80ba2a2657fde4a6ac975680837aa141e42afd3be50c3f1e9a02",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [
+        {
+          "id": "c_friday",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "Friday"
+          },
+          "timezone": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [
+        {
+          "id": "c_legal",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "claim_type": {
+            "status": "explicit",
+            "value": "threat of legal action",
+            "raw_text": "threat of legal action"
+          },
+          "requires_human_review": true
+        }
+      ],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-091_msg",
+          "source_hash": "6f2f629a8f5f80ba2a2657fde4a6ac975680837aa141e42afd3be50c3f1e9a02",
+          "quote": "We will take legal action",
+          "supports": [
+            "c_legal"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-091_msg",
+          "source_hash": "6f2f629a8f5f80ba2a2657fde4a6ac975680837aa141e42afd3be50c3f1e9a02",
+          "quote": "by Friday",
+          "supports": [
+            "c_friday"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-091_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-091_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "6f2f629a8f5f80ba2a2657fde4a6ac975680837aa141e42afd3be50c3f1e9a02",
+    "items": [
+      {
+        "item_id": "item_c_friday",
+        "source_claim_id": "c_friday",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_legal",
+        "source_claim_id": "c_legal",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "716f600988c417d56412b22bc2da7539a27ec04f48c0b314b340110397d4f1a5"
+  },
+  "policy_version": "delegation-0.4"
+}

@@ -1,0 +1,350 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-028",
+  "source_message": {
+    "message_id": "RG-EVAL-028_msg",
+    "subject": "Team plan seats",
+    "body": "Hi,\nPlease add seats so we have 25 users on the Team plan at USD 12.00 per user per month, effective from 2026-11-01 (JST).\nBest,\nOps Lead, Example Labs",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "338cbce825392c3a7dc5fea4ba0a482ed2e5128df603433175ecb70efc3cfc43"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-028_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-028_msg",
+    "source_hash": "338cbce825392c3a7dc5fea4ba0a482ed2e5128df603433175ecb70efc3cfc43",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_unit",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "12.00",
+            "raw_text": "USD 12.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "price",
+          "condition": {
+            "status": "explicit",
+            "value": "per user per month",
+            "raw_text": "per user per month"
+          }
+        }
+      ],
+      "dates": [
+        {
+          "id": "c_start",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "type": "date",
+          "date": {
+            "status": "explicit",
+            "value": "2026-11-01",
+            "raw_text": "2026-11-01"
+          },
+          "timezone": {
+            "status": "explicit",
+            "value": "JST",
+            "raw_text": "JST"
+          }
+        }
+      ],
+      "quantities": [
+        {
+          "id": "c_seats",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "quantity": {
+            "status": "explicit",
+            "value": "25",
+            "raw_text": "25"
+          },
+          "unit": {
+            "status": "explicit",
+            "value": "users",
+            "raw_text": "users"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "on the Team plan",
+            "raw_text": "on the Team plan"
+          }
+        }
+      ],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_add",
+          "evidence_ids": [
+            "ev04"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "provide 25 users on the Team plan",
+            "raw_text": "provide 25 users on the Team plan"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "Team plan seats",
+            "raw_text": "Team plan seats"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "effective from 2026-11-01 (JST)",
+            "raw_text": "effective from 2026-11-01 (JST)"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "the Team plan",
+            "raw_text": "the Team plan"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [
+            "c_unit"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-028_msg",
+          "source_hash": "338cbce825392c3a7dc5fea4ba0a482ed2e5128df603433175ecb70efc3cfc43",
+          "quote": "25 users on the Team plan",
+          "supports": [
+            "c_seats"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-028_msg",
+          "source_hash": "338cbce825392c3a7dc5fea4ba0a482ed2e5128df603433175ecb70efc3cfc43",
+          "quote": "USD 12.00 per user per month",
+          "supports": [
+            "c_unit"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-028_msg",
+          "source_hash": "338cbce825392c3a7dc5fea4ba0a482ed2e5128df603433175ecb70efc3cfc43",
+          "quote": "effective from 2026-11-01 (JST)",
+          "supports": [
+            "c_start"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev04",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-028_msg",
+          "source_hash": "338cbce825392c3a7dc5fea4ba0a482ed2e5128df603433175ecb70efc3cfc43",
+          "quote": "Please add seats so we have 25 users on the Team plan",
+          "supports": [
+            "c_add"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-028_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-028_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "338cbce825392c3a7dc5fea4ba0a482ed2e5128df603433175ecb70efc3cfc43",
+    "items": [
+      {
+        "item_id": "item_c_unit",
+        "source_claim_id": "c_unit",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_start",
+        "source_claim_id": "c_start",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_seats",
+        "source_claim_id": "c_seats",
+        "decision": "modify",
+        "replacement": {
+          "kind": "QuantityTerm",
+          "value": {
+            "id": "c_seats",
+            "evidence_ids": [],
+            "quantity": {
+              "status": "explicit",
+              "value": "20",
+              "raw_text": ""
+            },
+            "unit": {
+              "status": "explicit",
+              "value": "users",
+              "raw_text": "users"
+            },
+            "condition": {
+              "status": "explicit",
+              "value": "on the Team plan",
+              "raw_text": "on the Team plan"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_add",
+        "source_claim_id": "c_add",
+        "decision": "modify",
+        "replacement": {
+          "kind": "Commitment",
+          "value": {
+            "id": "c_add",
+            "evidence_ids": [],
+            "actor": "user",
+            "action": {
+              "status": "explicit",
+              "value": "provide 20 users on the Team plan",
+              "raw_text": ""
+            },
+            "object": {
+              "status": "explicit",
+              "value": "Team plan seats",
+              "raw_text": "Team plan seats"
+            },
+            "modality": {
+              "status": "explicit",
+              "value": "will",
+              "raw_text": "will"
+            },
+            "condition": {
+              "status": "explicit",
+              "value": "effective from 2026-11-01 (JST)",
+              "raw_text": "effective from 2026-11-01 (JST)"
+            },
+            "scope": {
+              "status": "explicit",
+              "value": "the Team plan",
+              "raw_text": "the Team plan"
+            },
+            "deadline_id": null,
+            "monetary_term_ids": [
+              "c_unit"
+            ],
+            "authorization_state": "requested"
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_add",
+        "evidence_ids": [],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "provide 20 users on the Team plan",
+          "raw_text": ""
+        },
+        "object": {
+          "status": "explicit",
+          "value": "Team plan seats",
+          "raw_text": "Team plan seats"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "effective from 2026-11-01 (JST)",
+          "raw_text": "effective from 2026-11-01 (JST)"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "the Team plan",
+          "raw_text": "the Team plan"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [
+          "c_unit"
+        ],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "18d5e317ba9f6e3aa25b3d0311746238adf5bb6193af3cfe3dc3c9ab0d7cffea"
+  },
+  "policy_version": "delegation-0.4"
+}

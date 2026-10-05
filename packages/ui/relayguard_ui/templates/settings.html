@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}設定 - RelayGuard{% endblock %}
+{% block content %}
+<div class="page-head"><h1>設定</h1></div>
+
+{% if error %}
+<div class="alert" role="alert">操作を完了できませんでした。{{ error }}</div>
+{% endif %}
+
+<section class="panel">
+  <h2>APIキー（自動解析）</h2>
+  {% if not key_entry %}
+  <p class="muted">この起動方法では、画面から APIキーを設定できません。</p>
+  {% elif key_source %}
+  <p class="key-status">✓ 設定済み{{ "（このPCのメモリだけ。閉じると消えます）" if key_source == "screen" else "（起動時の環境変数）" }}</p>
+  {% if key_source == "screen" %}
+  <form method="post" action="/settings/api-key/clear">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <input type="hidden" name="back" value="settings">
+    <button type="submit">キーを消す</button>
+  </form>
+  {% endif %}
+  {% else %}
+  <p class="small">APIキーはこのPCのメモリだけ ／ 解析するメールの本文を Anthropic へ送信 ／ API料金が発生</p>
+  <form method="post" action="/settings/api-key" class="row-form">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <input type="hidden" name="back" value="settings">
+    <label class="grow">APIキー <input type="password" name="key" autocomplete="off" spellcheck="false" placeholder="sk-ant-..." required></label>
+    <label class="inline"><input type="checkbox" name="consent" value="1" required> 上の内容に同意する</label>
+    <button type="submit" class="primary">設定する</button>
+  </form>
+  <p class="muted small" data-key-browser-note>RelayGuard 自体はキーを保存しません。ただし、ブラウザがパスワードとして保存を提案する場合があります。「保存しない」を選んでください。保存してしまった場合は、ブラウザのパスワード管理画面から削除してください。</p>
+  {% endif %}
+</section>
+
+<section class="panel">
+  <h2>動作チェック</h2>
+  <p class="small muted">必要なファイル・APIキー・Claude への接続を確認します（APIキーがあれば、ごく少額の試し呼び出しを1回行います）。</p>
+  <a class="button" href="/self-check">動作チェックを実行</a>
+</section>
+
+<section class="panel">
+  <details>
+    <summary><strong>開発者向け</strong></summary>
+    <h3>サンプル案件を開く</h3>
+    {% if samples %}
+    <form method="post" action="/cases/import-sample" class="row-form">
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <label class="grow">サンプル <select name="name">{% for s in samples %}<option value="{{ s }}">{{ s }}</option>{% endfor %}</select></label>
+      <button type="submit">サンプル案件を開く</button>
+    </form>
+    {% else %}
+    <p class="muted small">サンプルがありません。</p>
+    {% endif %}
+
+    <h3>JSON から案件を作成（ShadowCoreInput）</h3>
+    <form method="post" action="/cases/import-json">
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <label>JSON <textarea name="payload" rows="4" placeholder='{"schema_version": "0.5", ...}' required></textarea></label>
+      <button type="submit">JSONから案件を作成</button>
+    </form>
+
+    <h3>原文＋解釈JSONから案件を作成（Interpretation, SCHEMA v0.5）</h3>
+    <form method="post" action="/cases/import-interpretation">
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <label>件名 <input type="text" name="subject"></label>
+      <label>本文（英語メール原文）<textarea name="body" rows="4" required></textarea></label>
+      <label>Interpretation JSON <textarea name="interpretation" rows="4" required></textarea></label>
+      <button type="submit">解釈JSONから案件を作成</button>
+    </form>
+  </details>
+</section>
+{% endblock %}

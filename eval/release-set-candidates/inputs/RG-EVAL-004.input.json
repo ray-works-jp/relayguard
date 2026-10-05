@@ -1,0 +1,137 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-004",
+  "source_message": {
+    "message_id": "RG-EVAL-004_msg",
+    "subject": "Newsletter feedback",
+    "body": "Hi,\nSince last month's redesign, your newsletter font has been harder for me to read, which is a bit frustrating. Just sharing feedback, no reply needed.\nBest,\nKen Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "4646201ed743223d5803be12fbbba06deb3135aaaa4e7f03811bcbe09cb6c15b"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-004_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-004_msg",
+    "source_hash": "4646201ed743223d5803be12fbbba06deb3135aaaa4e7f03811bcbe09cb6c15b",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Shares feedback about the newsletter font",
+            "raw_text": "Shares feedback about the newsletter font"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [
+        {
+          "id": "c_emotion",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "anger",
+          "intensity": "low",
+          "target": {
+            "status": "explicit",
+            "value": "newsletter font after the redesign",
+            "raw_text": "newsletter font after the redesign"
+          }
+        }
+      ],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-004_msg",
+          "source_hash": "4646201ed743223d5803be12fbbba06deb3135aaaa4e7f03811bcbe09cb6c15b",
+          "quote": "Just sharing feedback, no reply needed.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-004_msg",
+          "source_hash": "4646201ed743223d5803be12fbbba06deb3135aaaa4e7f03811bcbe09cb6c15b",
+          "quote": "which is a bit frustrating",
+          "supports": [
+            "c_emotion"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-004_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-004_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "4646201ed743223d5803be12fbbba06deb3135aaaa4e7f03811bcbe09cb6c15b",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_emotion",
+        "source_claim_id": "c_emotion",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "6d95344e94355254040b92a196e5214d30fa44d1037edbd7d52f6a5e148e4794"
+  },
+  "policy_version": "delegation-0.4"
+}

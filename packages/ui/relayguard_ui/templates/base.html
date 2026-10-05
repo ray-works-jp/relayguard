@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}RelayGuard{% endblock %}</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/">RelayGuard</a>
+    <nav class="nav" aria-label="メインメニュー">
+      <a href="/"{% if page == "home" %} aria-current="page"{% endif %}>案件</a>
+      <a href="/new"{% if page == "new" %} aria-current="page"{% endif %}>新しいメール</a>
+      <a href="/settings"{% if page == "settings" %} aria-current="page"{% endif %}>設定</a>
+    </nav>
+    <span class="operator">{{ operator }}</span>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="foot">RelayGuard はメールを送信しません。承認した本文をコピーして、ご自身のメールソフトで送ります。</footer>
+</body>
+</html>

@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:relayguard:eval:fixture-0.2:case",
+  "title": "Evaluation case (EVALUATION.md v0.2 §§3,14; fixture_version 0.2)",
+  "description": "Evaluation-side metadata and expected labels. The ShadowCoreInput lives in a separate file (input_file, pinned by input_sha256) so expected_* never enters production input. category/variant follow EVALUATION.md §§4-5. threats, release_class=standard and label.status are harness taxonomy, not Current spec enums.",
+  "$ref": "#/$defs/EvalCase",
+  "$defs": {
+    "ID": { "type": "string", "pattern": "[A-Za-z0-9_-]{1,128}" },
+    "Text": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "[^\\u0000-\\u0008\\u000B\\u000C\\u000E-\\u001F\\u007F-\\u009F]+"
+    },
+    "Hash": { "type": "string", "pattern": "[0-9a-f]{64}" },
+    "DelegationLevel": { "enum": ["L0_AUTO", "L1_POST_REVIEW", "L2_PRE_APPROVAL", "L3_STOP"] },
+    "ErrorCode": {
+      "enum": [
+        "SafetyBlock", "SchemaInvalid", "StaleState", "ProviderUnavailable", "UnsupportedInput",
+        "InjectionSuspected", "PolicyViolation", "InternalIntegrityError", "DelegationConflict"
+      ]
+    },
+    "ReasonCode": {
+      "enum": [
+        "LEGAL_CLAIM", "UNRESOLVED_PROMPT_INJECTION", "CRITICAL_MISSING_INFORMATION", "ATTACHMENT_REQUIRED_MISSING",
+        "CONTRADICTORY_COMMITMENTS", "CRITICAL_DIFF", "REFUND_OR_CREDIT", "CONTRACTUAL_CHANGE", "RIGHTS_OR_LICENSE_CHANGE",
+        "NEW_GUARANTEE", "MATERIAL_MONEY_CHANGE", "MATERIAL_DEADLINE_CHANGE", "QUANTITY_CHANGE", "PERSONAL_DATA_DISCLOSURE",
+        "NEW_COMMITMENT", "POLICY_EXCEPTION", "CUSTOMER_SENSITIVITY", "LOW_RISK_INFORMATIONAL", "LOW_RISK_POST_REVIEW",
+        "UNCLASSIFIED_RISK", "ANSWER_REVIEW_REQUIRED", "INVALID_INPUT", "INCOMPLETE_PIPELINE", "STALE_STATE", "VERIFIER_BLOCK"
+      ]
+    },
+    "FindingType": {
+      "enum": [
+        "amount_changed", "currency_changed", "date_changed", "quantity_changed", "right_changed", "license_changed",
+        "guarantee_added", "refund_added", "commitment_added", "prohibition_removed", "required_answer_missing",
+        "condition_removed", "ambiguity_resolved_without_authority", "attachment_dependency", "prompt_injection_risk",
+        "unsupported_claim", "state_mismatch", "customer_emotion_missed", "legal_claim_detected", "delegation_level_too_low"
+      ]
+    },
+    "Axis": { "enum": ["low", "medium", "high", "unknown"] },
+    "ExpectedDelegation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["outcome", "level", "minimum_level", "reason_codes", "error_code"],
+          "properties": {
+            "outcome": { "const": "assessed" },
+            "level": { "$ref": "#/$defs/DelegationLevel" },
+            "minimum_level": { "$ref": "#/$defs/DelegationLevel" },
+            "reason_codes": { "type": "array", "items": { "$ref": "#/$defs/ReasonCode" }, "minItems": 1, "uniqueItems": true },
+            "error_code": { "type": "null" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["outcome", "level", "minimum_level", "reason_codes", "error_code"],
+          "properties": {
+            "outcome": { "const": "rejected" },
+            "level": { "type": "null" },
+            "minimum_level": { "type": "null" },
+            "reason_codes": { "type": "null" },
+            "error_code": {
+              "description": "null = any fail-closed rejection; a code is labelled only where the Current spec maps it.",
+              "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/ErrorCode" }]
+            }
+          }
+        }
+      ]
+    },
+    "EvalCase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixture_version", "case_id", "title_ja", "category", "variant", "origin", "threats", "input_file",
+        "input_sha256", "expected_delegation", "unsafe_candidate_reply", "expected_verification",
+        "expected_final_delegation", "release_class", "label"
+      ],
+      "properties": {
+        "fixture_version": { "const": "0.2" },
+        "case_id": { "$ref": "#/$defs/ID" },
+        "title_ja": { "$ref": "#/$defs/Text" },
+        "category": {
+          "enum": [
+            "01_simple_inquiry", "02_discount_negotiation", "03_refund_request", "04_license_inquiry",
+            "05_deadline_change", "06_quantity_change", "07_currency_amount_expression", "08_warranty_sla",
+            "09_rights_exclusivity_sublicense", "10_prohibition_condition_drop", "11_multiple_requests",
+            "12_critical_information_missing", "13_ambiguous_expression", "14_prompt_injection",
+            "15_indirect_prompt_injection", "16_long_thread", "17_history_contradiction", "18_attachment_dependency",
+            "19_legal_claim_contract", "20_undeterminable_provider_schema_anomaly"
+          ]
+        },
+        "variant": { "enum": ["explicit", "euphemistic", "compound", "history_dependent", "adversarial"] },
+        "origin": { "const": "synthetic" },
+        "threats": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "fabricated_commitment", "monetary_mutation", "currency_mutation", "deadline_mutation", "quantity_mutation",
+              "rights_license_mutation", "refund_or_credit", "guarantee", "prohibition_or_condition_drop", "prompt_injection",
+              "indirect_prompt_injection", "stale_state", "approval_bypass", "legal_claim", "critical_missing_information",
+              "ambiguity", "attachment_dependency", "history_contradiction", "customer_emotion", "policy_exception",
+              "personal_data_disclosure", "invalid_input"
+            ]
+          }
+        },
+        "input_file": { "type": "string", "pattern": "inputs/[A-Za-z0-9_-]{1,128}\\.input\\.json" },
+        "input_sha256": { "$ref": "#/$defs/Hash" },
+        "expected_delegation": { "$ref": "#/$defs/ExpectedDelegation" },
+        "unsafe_candidate_reply": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["text"],
+              "properties": { "text": { "$ref": "#/$defs/Text" } }
+            }
+          ]
+        },
+        "expected_verification": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["overall_status", "finding_types"],
+              "properties": {
+                "overall_status": { "enum": ["matched", "minor_differences", "blocked"] },
+                "finding_types": { "type": "array", "items": { "$ref": "#/$defs/FindingType" }, "uniqueItems": true }
+              }
+            }
+          ]
+        },
+        "expected_final_delegation": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["level"],
+              "properties": { "level": { "$ref": "#/$defs/DelegationLevel" } }
+            }
+          ]
+        },
+        "release_class": { "enum": ["critical", "standard"] },
+        "label": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "basis", "rationale_ja"],
+          "properties": {
+            "status": { "const": "builder_candidate" },
+            "basis": { "type": "array", "items": { "$ref": "#/$defs/Text" }, "minItems": 1, "uniqueItems": true },
+            "rationale_ja": { "$ref": "#/$defs/Text" }
+          }
+        }
+      }
+    }
+  }
+}

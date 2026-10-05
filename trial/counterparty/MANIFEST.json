@@ -1,0 +1,37 @@
+{
+  "synthetic": true,
+  "not_a_pilot": "REQUIREMENTS.md §3 SC-01 requires real mail from a counterparty with its own interests.",
+  "model": "claude-opus-5",
+  "mails": [
+    {
+      "file": "counterparty-001-angry.eml",
+      "scenario": "angry",
+      "subject": "Second sync failure this month - need an answer before renewal",
+      "generated_at": "2026-09-20T11:14:25"
+    },
+    {
+      "file": "counterparty-002-contract.eml",
+      "scenario": "contract",
+      "subject": "Renewal notice period in our agreement (Kelvin Freight Systems)",
+      "generated_at": "2026-09-20T11:14:33"
+    },
+    {
+      "file": "counterparty-003-deadline.eml",
+      "scenario": "deadline",
+      "subject": "Pushing the UAT sign-off date",
+      "generated_at": "2026-09-20T11:14:40"
+    },
+    {
+      "file": "counterparty-004-attachment.eml",
+      "scenario": "attachment",
+      "subject": "Attached spec for the Q3 integration work, please confirm",
+      "generated_at": "2026-09-20T11:14:48"
+    },
+    {
+      "file": "counterparty-005-refund.eml",
+      "scenario": "refund",
+      "subject": "Refund request for duplicate annual renewal, invoice 20418",
+      "generated_at": "2026-09-20T11:14:56"
+    }
+  ]
+}

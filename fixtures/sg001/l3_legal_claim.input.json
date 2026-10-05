@@ -1,0 +1,136 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l3_legal",
+  "source_message": {
+    "message_id": "case_l3_legal_msg",
+    "subject": "Order inquiry",
+    "body": "You breached our agreement. Our lawyer will file a lawsuit unless we hear from you.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "a6010713d3c227cfd97c5171be1150e1b79f3af9ffe2646735bbf5a5561d347c"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l3_legal_interp",
+    "version": 1,
+    "source_message_id": "case_l3_legal_msg",
+    "source_hash": "a6010713d3c227cfd97c5171be1150e1b79f3af9ffe2646735bbf5a5561d347c",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Threatens litigation",
+            "raw_text": "Threatens litigation"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [
+        {
+          "id": "c_legal",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "claim_type": {
+            "status": "explicit",
+            "value": "breach of agreement / lawsuit threat",
+            "raw_text": "breach of agreement / lawsuit threat"
+          },
+          "requires_human_review": true
+        }
+      ],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l3_legal_msg",
+          "source_hash": "a6010713d3c227cfd97c5171be1150e1b79f3af9ffe2646735bbf5a5561d347c",
+          "quote": "file a lawsuit",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l3_legal_msg",
+          "source_hash": "a6010713d3c227cfd97c5171be1150e1b79f3af9ffe2646735bbf5a5561d347c",
+          "quote": "You breached our agreement.",
+          "supports": [
+            "c_legal"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l3_legal_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l3_legal_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "a6010713d3c227cfd97c5171be1150e1b79f3af9ffe2646735bbf5a5561d347c",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_legal",
+        "source_claim_id": "c_legal",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "321f2879b69f51e3407dfd2451d433371916267c7a95d9e8802c1eb11bc26670"
+  },
+  "policy_version": "delegation-0.4"
+}

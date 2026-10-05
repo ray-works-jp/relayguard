@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-090",
+  "source_message": {
+    "message_id": "RG-EVAL-090_msg",
+    "subject": "Terms",
+    "body": "Hello,\nNothing important, just see the attached terms before replying.\nExample Leasing",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "4df13a5c9af73ba0d90efe6ffc6fd6f535925329993816e364502602170607fc"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-090_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-090_msg",
+    "source_hash": "4df13a5c9af73ba0d90efe6ffc6fd6f535925329993816e364502602170607fc",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [
+        {
+          "id": "c_attach",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "attachment",
+          "description": {
+            "status": "explicit",
+            "value": "Terms are in an attachment",
+            "raw_text": "Terms are in an attachment"
+          },
+          "affects_critical": false,
+          "resolved": true
+        }
+      ],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-090_msg",
+          "source_hash": "4df13a5c9af73ba0d90efe6ffc6fd6f535925329993816e364502602170607fc",
+          "quote": "see the attached terms before replying",
+          "supports": [
+            "c_attach"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-090_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-090_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "4df13a5c9af73ba0d90efe6ffc6fd6f535925329993816e364502602170607fc",
+    "items": [
+      {
+        "item_id": "item_c_attach",
+        "source_claim_id": "c_attach",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "68b8190dc2a2422fe3515f980b6997f9d19a81e4af5362c8df8e5be065491ad9"
+  },
+  "policy_version": "delegation-0.4"
+}

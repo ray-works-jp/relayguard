@@ -1,0 +1,60 @@
+{# Hand mark-up of the mail: no LLM, no API key, nothing leaves the PC.
+   The POST contract is unchanged: kind_n / quote_n / text_n / amount_n / currency_n / money_type_n /
+   date_n / timezone_n / date_type_n (n = 1..6). app.js numbers the cards; fields of the other kinds
+   are disabled so they are not sent. The server still checks every quote against the mail. #}
+<h2 id="manual-heading" class="visually-hidden">自分で読み取って登録する</h2>
+<p class="small muted">APIキーなしで使えます。英語の原文を読み、返信に関係する箇所を選んで登録します。</p>
+<form method="post" action="/cases/import-manual" class="manual" data-manual-form>
+  <input type="hidden" name="csrf" value="{{ csrf }}">
+  <label>英語のメール本文 <textarea name="body" rows="7" required data-manual-body placeholder="ここに貼り付け">{{ eml.body if eml else "" }}</textarea></label>
+  <label>件名（任意） <input type="text" name="subject" value="{{ eml.subject or "" if eml else "" }}"></label>
+
+  <div class="quote-bar">
+    <button type="button" data-add-quote>選択した部分を引用として追加</button>
+    <button type="button" data-add-item class="quiet">＋ 項目を追加</button>
+    <span class="muted small" data-manual-hint role="status">本文の中で、質問・金額・期限・求められている約束の部分をなぞって選び、ボタンを押してください（最大6件）。</span>
+  </div>
+
+  <ol class="items" data-items aria-label="登録する項目"></ol>
+
+  <template data-item-template>
+    <li class="item">
+      <div class="item-head">
+        <span class="item-no" data-item-no></span>
+        <label class="inline">種類
+          <select data-field="kind" data-kind-select>
+            <option value="question">質問（回答が必要）</option>
+            <option value="money">金額</option>
+            <option value="date">日付・期限</option>
+            <option value="commitment">相手が求めている約束</option>
+          </select>
+        </label>
+        <button type="button" class="quiet" data-remove-item>削除</button>
+      </div>
+      <label>原文の引用 <textarea data-field="quote" rows="2" required></textarea></label>
+      <div data-kinds="question commitment">
+        <label>内容（英語・任意） <input type="text" data-field="text" placeholder="例: Can you refund the order?"></label>
+      </div>
+      <div class="field-row" data-kinds="money">
+        <label>金額 <input type="text" data-field="amount" placeholder="49.00" inputmode="decimal"></label>
+        <label>通貨 <input type="text" data-field="currency" placeholder="USD"></label>
+        <label>種類
+          <select data-field="money_type">
+            <option value="other">その他</option><option value="refund">返金</option><option value="price">価格</option>
+            <option value="discount">値引き</option><option value="credit">クレジット</option><option value="payment">支払</option><option value="fee">手数料</option>
+          </select>
+        </label>
+      </div>
+      <div class="field-row" data-kinds="date">
+        <label>日付 <input type="text" data-field="date" placeholder="2026-10-01"></label>
+        <label>タイムゾーン <input type="text" data-field="timezone" placeholder="JST"></label>
+        <label>種類
+          <select data-field="date_type"><option value="deadline">期限</option><option value="date">日付</option></select>
+        </label>
+      </div>
+      <p class="muted small">分からない値は空のままにすると「不明」として扱います（推測しません）。</p>
+    </li>
+  </template>
+
+  <button type="submit" class="primary big">登録して案件を作る</button>
+</form>

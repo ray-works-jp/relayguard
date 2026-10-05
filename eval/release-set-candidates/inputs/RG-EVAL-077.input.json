@@ -1,0 +1,193 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-077",
+  "source_message": {
+    "message_id": "RG-EVAL-077_msg",
+    "subject": "Re: Re: Plan price",
+    "body": "Hi,\nLet's keep things as they were.\nMio Example\n\n> On 2026-09-10, Billing wrote:\n> From November the plan changes from USD 40.00 per month to USD 45.00 per month.\n> On 2026-09-08, you wrote:\n> Is the monthly price changing?\n",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "9f2fc87b96d8e20125771ada40a02c622ecc7a2ba2ac2a44002a2769ebd145b3"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-077_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-077_msg",
+    "source_hash": "9f2fc87b96d8e20125771ada40a02c622ecc7a2ba2ac2a44002a2769ebd145b3",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_old",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "40.00",
+            "raw_text": "USD 40.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "price",
+          "condition": {
+            "status": "explicit",
+            "value": "per month",
+            "raw_text": "per month"
+          }
+        },
+        {
+          "id": "c_new",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "45.00",
+            "raw_text": "USD 45.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "price",
+          "condition": {
+            "status": "explicit",
+            "value": "per month from November",
+            "raw_text": "per month from November"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [
+        {
+          "id": "c_amb",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "type": "ambiguity",
+          "description": {
+            "status": "explicit",
+            "value": "Unclear whether 'as they were' means the old price or the current plan",
+            "raw_text": "Unclear whether 'as they were' means the old price or the current plan"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-077_msg",
+          "source_hash": "9f2fc87b96d8e20125771ada40a02c622ecc7a2ba2ac2a44002a2769ebd145b3",
+          "quote": "USD 40.00 per month",
+          "supports": [
+            "c_old"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-077_msg",
+          "source_hash": "9f2fc87b96d8e20125771ada40a02c622ecc7a2ba2ac2a44002a2769ebd145b3",
+          "quote": "USD 45.00 per month",
+          "supports": [
+            "c_new"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-077_msg",
+          "source_hash": "9f2fc87b96d8e20125771ada40a02c622ecc7a2ba2ac2a44002a2769ebd145b3",
+          "quote": "Let's keep things as they were.",
+          "supports": [
+            "c_amb"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-077_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-077_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "9f2fc87b96d8e20125771ada40a02c622ecc7a2ba2ac2a44002a2769ebd145b3",
+    "items": [
+      {
+        "item_id": "item_c_old",
+        "source_claim_id": "c_old",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_new",
+        "source_claim_id": "c_new",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_amb",
+        "source_claim_id": "c_amb",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "d5674831aeff2f61089e6bb29f49e1e9934143c456070f5a84537df4c1f423ed"
+  },
+  "policy_version": "delegation-0.4"
+}

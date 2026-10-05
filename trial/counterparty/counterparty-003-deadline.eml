@@ -1,0 +1,34 @@
+Subject: Pushing the UAT sign-off date
+From: Counterparty 3 <counterparty3@example.invalid>
+To: operator@example.invalid
+Date: Sun, 20 Sep 2026 11:14:40 +0900
+Message-ID: <178987048094.12236.16186336788925432254@example.invalid>
+X-RelayGuard-Synthetic: true
+X-RelayGuard-Scenario: deadline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hi Marcus,
+
+We won't make the 14th for UAT sign-off. Our warehouse team is doing stock co=
+unt all next week and the two people who know the picking flow best are tied =
+up with that.
+
+Can we move sign-off to the 28th? That gives us the week of the 21st for actu=
+al testing, which is what we should have planned in the first place.
+
+I don't think this affects your side much since the build is already delivere=
+d, but let me know if it pushes your go-live support window into a different =
+month for billing. If it does, I'd rather hear it now than see it on the invo=
+ice.
+
+Everything else is on track. The data migration file went over Tuesday and Pr=
+iya said it loaded clean.
+
+Let me know by Friday if you can, I need to tell our ops director something a=
+t the Monday meeting.
+
+Thanks,
+Dana Whitfield
+Operations Manager, Kellerbrook Supply Co.

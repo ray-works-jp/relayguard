@@ -1,0 +1,102 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-092",
+  "source_message": {
+    "message_id": "RG-EVAL-092_msg",
+    "subject": "Handling",
+    "body": "Hi,\nOur lawyers may need to look into how this was handled.\nRegards,\nExample Pharmacy",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "1eb803d180070c123202c4f819932e49d4a773183f3fb6e427edd3ecedb4f71c"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-092_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-092_msg",
+    "source_hash": "1eb803d180070c123202c4f819932e49d4a773183f3fb6e427edd3ecedb4f71c",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [
+        {
+          "id": "c_legal",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "claim_type": {
+            "status": "explicit",
+            "value": "possible legal review",
+            "raw_text": "possible legal review"
+          },
+          "requires_human_review": true
+        }
+      ],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-092_msg",
+          "source_hash": "1eb803d180070c123202c4f819932e49d4a773183f3fb6e427edd3ecedb4f71c",
+          "quote": "Our lawyers may need to look into how this was handled.",
+          "supports": [
+            "c_legal"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-092_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-092_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "1eb803d180070c123202c4f819932e49d4a773183f3fb6e427edd3ecedb4f71c",
+    "items": [
+      {
+        "item_id": "item_c_legal",
+        "source_claim_id": "c_legal",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "fdfebfdf43ec7431feaf18ae1051645ff10d46d5fc0b781c4f3552457bfed70b"
+  },
+  "policy_version": "delegation-0.4"
+}

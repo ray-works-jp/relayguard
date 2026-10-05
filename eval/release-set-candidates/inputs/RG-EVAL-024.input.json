@@ -1,0 +1,218 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-024",
+  "source_message": {
+    "message_id": "RG-EVAL-024_msg",
+    "subject": "Report due date",
+    "body": "Hello,\nOur contract says the final report is due on 2026-09-30 (JST), but your last email said 2026-10-15 (JST). Which date applies?\nRegards,\nClient Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "cdc4c145035df2c659c4d7970edd2c6e644f5fb4283b369f8360275e9e5e9638"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-024_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-024_msg",
+    "source_hash": "cdc4c145035df2c659c4d7970edd2c6e644f5fb4283b369f8360275e9e5e9638",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev04"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Which due date applies?",
+            "raw_text": "Which due date applies?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [
+        {
+          "id": "c_contract",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-09-30",
+            "raw_text": "2026-09-30"
+          },
+          "timezone": {
+            "status": "explicit",
+            "value": "JST",
+            "raw_text": "JST"
+          }
+        },
+        {
+          "id": "c_email",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-10-15",
+            "raw_text": "2026-10-15"
+          },
+          "timezone": {
+            "status": "explicit",
+            "value": "JST",
+            "raw_text": "JST"
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [
+        {
+          "id": "c_conflict",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "type": "contradiction",
+          "description": {
+            "status": "explicit",
+            "value": "The contract deadline conflicts with the date in a later email",
+            "raw_text": "The contract deadline conflicts with the date in a later email"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-024_msg",
+          "source_hash": "cdc4c145035df2c659c4d7970edd2c6e644f5fb4283b369f8360275e9e5e9638",
+          "quote": "due on 2026-09-30 (JST)",
+          "supports": [
+            "c_contract"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-024_msg",
+          "source_hash": "cdc4c145035df2c659c4d7970edd2c6e644f5fb4283b369f8360275e9e5e9638",
+          "quote": "your last email said 2026-10-15 (JST)",
+          "supports": [
+            "c_email"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-024_msg",
+          "source_hash": "cdc4c145035df2c659c4d7970edd2c6e644f5fb4283b369f8360275e9e5e9638",
+          "quote": "Our contract says the final report is due on 2026-09-30 (JST), but your last email said 2026-10-15 (JST).",
+          "supports": [
+            "c_conflict"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev04",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-024_msg",
+          "source_hash": "cdc4c145035df2c659c4d7970edd2c6e644f5fb4283b369f8360275e9e5e9638",
+          "quote": "Which date applies?",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-024_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-024_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "cdc4c145035df2c659c4d7970edd2c6e644f5fb4283b369f8360275e9e5e9638",
+    "items": [
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_contract",
+        "source_claim_id": "c_contract",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_email",
+        "source_claim_id": "c_email",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_conflict",
+        "source_claim_id": "c_conflict",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "38964fcf9eb91f793bd79ed9a494e56058b0d4c0111fd79efcc78e03191dde8b"
+  },
+  "policy_version": "delegation-0.4"
+}

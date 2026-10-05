@@ -1,0 +1,1035 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:relayguard:schema:0.5:draft",
+  "title": "Draft and Reply Extraction Schemas (SCHEMA.md v0.5 §§5-6)",
+  "description": "Executable structural contract for Draft, DraftProposal, DraftBinding, and ReplyExtraction. Enforces full-match patterns and rg-* formats.",
+  "$ref": "#/$defs/Draft",
+  "$defs": {
+    "ID": {
+      "type": "string",
+      "pattern": "[A-Za-z0-9_-]{1,128}"
+    },
+    "Text": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "[^\\u0000-\\u0008\\u000B\\u000C\\u000E-\\u001F\\u007F-\\u009F]+"
+    },
+    "TextAllowEmpty": {
+      "type": "string",
+      "pattern": "[^\\u0000-\\u0008\\u000B\\u000C\\u000E-\\u001F\\u007F-\\u009F]*"
+    },
+    "Hash": {
+      "type": "string",
+      "pattern": "[0-9a-f]{64}"
+    },
+    "Version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "Decimal": {
+      "type": "string",
+      "format": "rg-decimal"
+    },
+    "Date": {
+      "type": "string",
+      "format": "rg-date"
+    },
+    "Timestamp": {
+      "type": "string",
+      "format": "rg-timestamp"
+    },
+    "CurrencyCode": {
+      "type": "string",
+      "format": "rg-currency"
+    },
+    "Confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "format": "rg-confidence"
+    },
+    "IdSet": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ID"
+      },
+      "uniqueItems": true
+    },
+    "IdList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ID"
+      }
+    },
+    "NullableID": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/ID"
+        }
+      ]
+    },
+    "Modality": {
+      "enum": [
+        "may",
+        "will",
+        "must",
+        "must_not"
+      ]
+    },
+    "ValueAbsent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "value",
+        "raw_text"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "unknown",
+            "not_stated",
+            "ambiguous"
+          ]
+        },
+        "value": {
+          "type": "null"
+        },
+        "raw_text": {
+          "$ref": "#/$defs/TextAllowEmpty"
+        }
+      }
+    },
+    "ValueText": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "value",
+            "raw_text"
+          ],
+          "properties": {
+            "status": {
+              "const": "explicit"
+            },
+            "value": {
+              "$ref": "#/$defs/Text"
+            },
+            "raw_text": {
+              "$ref": "#/$defs/TextAllowEmpty"
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/ValueAbsent"
+        }
+      ]
+    },
+    "ValueModality": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "value",
+            "raw_text"
+          ],
+          "properties": {
+            "status": {
+              "const": "explicit"
+            },
+            "value": {
+              "$ref": "#/$defs/Modality"
+            },
+            "raw_text": {
+              "$ref": "#/$defs/TextAllowEmpty"
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/ValueAbsent"
+        }
+      ]
+    },
+    "ValueDecimal": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "value",
+            "raw_text"
+          ],
+          "properties": {
+            "status": {
+              "const": "explicit"
+            },
+            "value": {
+              "$ref": "#/$defs/Decimal"
+            },
+            "raw_text": {
+              "$ref": "#/$defs/TextAllowEmpty"
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/ValueAbsent"
+        }
+      ]
+    },
+    "ValueCurrency": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "value",
+            "raw_text"
+          ],
+          "properties": {
+            "status": {
+              "const": "explicit"
+            },
+            "value": {
+              "$ref": "#/$defs/CurrencyCode"
+            },
+            "raw_text": {
+              "$ref": "#/$defs/TextAllowEmpty"
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/ValueAbsent"
+        }
+      ]
+    },
+    "ValueDate": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "value",
+            "raw_text"
+          ],
+          "properties": {
+            "status": {
+              "const": "explicit"
+            },
+            "value": {
+              "$ref": "#/$defs/Date"
+            },
+            "raw_text": {
+              "$ref": "#/$defs/TextAllowEmpty"
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/ValueAbsent"
+        }
+      ]
+    },
+    "ValueBool": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "value",
+            "raw_text"
+          ],
+          "properties": {
+            "status": {
+              "const": "explicit"
+            },
+            "value": {
+              "type": "boolean"
+            },
+            "raw_text": {
+              "$ref": "#/$defs/TextAllowEmpty"
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/ValueAbsent"
+        }
+      ]
+    },
+    "Evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "source_kind",
+        "source_id",
+        "source_hash",
+        "quote",
+        "supports",
+        "confidence"
+      ],
+      "properties": {
+        "evidence_id": {
+          "$ref": "#/$defs/ID"
+        },
+        "source_kind": {
+          "enum": [
+            "source_message",
+            "reply"
+          ]
+        },
+        "source_id": {
+          "$ref": "#/$defs/ID"
+        },
+        "source_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "quote": {
+          "$ref": "#/$defs/Text"
+        },
+        "supports": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence"
+        }
+      }
+    },
+    "TextClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "evidence_ids",
+        "text"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "text": {
+          "$ref": "#/$defs/ValueText"
+        }
+      }
+    },
+    "ClauseTerm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "evidence_ids",
+        "text",
+        "modality",
+        "condition",
+        "scope",
+        "monetary_term_ids",
+        "deadline_ids",
+        "commitment_ids"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "text": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "modality": {
+          "$ref": "#/$defs/ValueModality"
+        },
+        "condition": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "scope": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "monetary_term_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "deadline_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "commitment_ids": {
+          "$ref": "#/$defs/IdSet"
+        }
+      }
+    },
+    "MonetaryTerm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "evidence_ids",
+        "amount",
+        "currency",
+        "type",
+        "condition"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "amount": {
+          "$ref": "#/$defs/ValueDecimal"
+        },
+        "currency": {
+          "$ref": "#/$defs/ValueCurrency"
+        },
+        "type": {
+          "enum": [
+            "price",
+            "discount",
+            "credit",
+            "refund",
+            "payment",
+            "fee",
+            "other"
+          ]
+        },
+        "condition": {
+          "$ref": "#/$defs/ValueText"
+        }
+      }
+    },
+    "DateTerm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "evidence_ids",
+        "type",
+        "date",
+        "timezone"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "type": {
+          "enum": [
+            "date",
+            "deadline"
+          ]
+        },
+        "date": {
+          "$ref": "#/$defs/ValueDate"
+        },
+        "timezone": {
+          "$ref": "#/$defs/ValueText"
+        }
+      }
+    },
+    "QuantityTerm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "evidence_ids",
+        "quantity",
+        "unit",
+        "condition"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "quantity": {
+          "$ref": "#/$defs/ValueDecimal"
+        },
+        "unit": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "condition": {
+          "$ref": "#/$defs/ValueText"
+        }
+      }
+    },
+    "RightsLicenseTerm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "evidence_ids",
+        "scope",
+        "exclusivity",
+        "sublicensing",
+        "commercial_use",
+        "condition"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "scope": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "exclusivity": {
+          "$ref": "#/$defs/ValueBool"
+        },
+        "sublicensing": {
+          "$ref": "#/$defs/ValueBool"
+        },
+        "commercial_use": {
+          "$ref": "#/$defs/ValueBool"
+        },
+        "condition": {
+          "$ref": "#/$defs/ValueText"
+        }
+      }
+    },
+    "Commitment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "evidence_ids",
+        "actor",
+        "action",
+        "object",
+        "modality",
+        "condition",
+        "scope",
+        "deadline_id",
+        "monetary_term_ids",
+        "authorization_state"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "actor": {
+          "enum": [
+            "user",
+            "counterparty",
+            "third_party",
+            "unknown"
+          ]
+        },
+        "action": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "object": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "modality": {
+          "$ref": "#/$defs/ValueModality"
+        },
+        "condition": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "scope": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "deadline_id": {
+          "$ref": "#/$defs/NullableID"
+        },
+        "monetary_term_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "authorization_state": {
+          "enum": [
+            "requested",
+            "approved",
+            "rejected",
+            "unanswered",
+            "not_approved"
+          ]
+        }
+      }
+    },
+    "Question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "evidence_ids",
+        "text",
+        "required_answer"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "text": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "required_answer": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Emotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "evidence_ids",
+        "type",
+        "intensity",
+        "target"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "type": {
+          "enum": [
+            "anger",
+            "distrust",
+            "cancellation_intent",
+            "public_complaint",
+            "other"
+          ]
+        },
+        "intensity": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "unknown"
+          ]
+        },
+        "target": {
+          "$ref": "#/$defs/ValueText"
+        }
+      }
+    },
+    "LegalClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "evidence_ids",
+        "claim_type",
+        "requires_human_review"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "claim_type": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "requires_human_review": {
+          "const": true
+        }
+      }
+    },
+    "Risk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "evidence_ids",
+        "type",
+        "description",
+        "affects_critical",
+        "resolved"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/IdSet"
+        },
+        "type": {
+          "enum": [
+            "reputational",
+            "contradiction",
+            "missing_information",
+            "ambiguity",
+            "attachment",
+            "injection",
+            "policy_exception",
+            "other"
+          ]
+        },
+        "description": {
+          "$ref": "#/$defs/ValueText"
+        },
+        "affects_critical": {
+          "type": "boolean"
+        },
+        "resolved": {
+          "type": "boolean"
+        }
+      }
+    },
+    "StructuredState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sender_intent",
+        "requests",
+        "questions",
+        "monetary_terms",
+        "dates",
+        "quantities",
+        "contract_terms",
+        "prohibitions",
+        "guarantees",
+        "refund_terms",
+        "cancellation_terms",
+        "license_terms",
+        "rights",
+        "requested_commitments",
+        "commitments",
+        "personal_data",
+        "customer_emotion",
+        "legal_claims",
+        "reputational_risks",
+        "prior_commitment_conflicts",
+        "risks",
+        "ambiguities",
+        "missing_information",
+        "attachment_dependencies",
+        "prompt_injection_risks",
+        "recommended_actions",
+        "human_review_required",
+        "confidence",
+        "evidence"
+      ],
+      "properties": {
+        "sender_intent": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TextClaim"
+          }
+        },
+        "requests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TextClaim"
+          }
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Question"
+          }
+        },
+        "monetary_terms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MonetaryTerm"
+          }
+        },
+        "dates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DateTerm"
+          }
+        },
+        "quantities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/QuantityTerm"
+          }
+        },
+        "contract_terms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ClauseTerm"
+          }
+        },
+        "prohibitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ClauseTerm"
+          }
+        },
+        "guarantees": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ClauseTerm"
+          }
+        },
+        "refund_terms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ClauseTerm"
+          }
+        },
+        "cancellation_terms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ClauseTerm"
+          }
+        },
+        "license_terms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RightsLicenseTerm"
+          }
+        },
+        "rights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RightsLicenseTerm"
+          }
+        },
+        "requested_commitments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Commitment"
+          }
+        },
+        "commitments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Commitment"
+          }
+        },
+        "personal_data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TextClaim"
+          }
+        },
+        "customer_emotion": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Emotion"
+          }
+        },
+        "legal_claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/LegalClaim"
+          }
+        },
+        "reputational_risks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Risk"
+          }
+        },
+        "prior_commitment_conflicts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Risk"
+          }
+        },
+        "risks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Risk"
+          }
+        },
+        "ambiguities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Risk"
+          }
+        },
+        "missing_information": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Risk"
+          }
+        },
+        "attachment_dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Risk"
+          }
+        },
+        "prompt_injection_risks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Risk"
+          }
+        },
+        "recommended_actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TextClaim"
+          }
+        },
+        "human_review_required": {
+          "type": "boolean"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          }
+        }
+      }
+    },
+    "Binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_id",
+        "source_hash",
+        "interpretation_id",
+        "interpretation_version",
+        "decision_id",
+        "decision_version",
+        "decision_hash",
+        "policy_version"
+      ],
+      "properties": {
+        "case_id": {
+          "$ref": "#/$defs/ID"
+        },
+        "source_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "interpretation_id": {
+          "$ref": "#/$defs/ID"
+        },
+        "interpretation_version": {
+          "$ref": "#/$defs/Version"
+        },
+        "decision_id": {
+          "$ref": "#/$defs/ID"
+        },
+        "decision_version": {
+          "$ref": "#/$defs/Version"
+        },
+        "decision_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "policy_version": {
+          "$ref": "#/$defs/Text"
+        }
+      }
+    },
+    "DraftBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decision",
+        "draft_id",
+        "draft_hash"
+      ],
+      "properties": {
+        "decision": {
+          "$ref": "#/$defs/Binding"
+        },
+        "draft_id": {
+          "$ref": "#/$defs/ID"
+        },
+        "draft_hash": {
+          "$ref": "#/$defs/Hash"
+        }
+      }
+    },
+    "Draft": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "draft_id",
+        "binding",
+        "reply_text",
+        "draft_hash",
+        "model_execution_id"
+      ],
+      "properties": {
+        "draft_id": {
+          "$ref": "#/$defs/ID"
+        },
+        "binding": {
+          "$ref": "#/$defs/Binding"
+        },
+        "reply_text": {
+          "$ref": "#/$defs/Text"
+        },
+        "draft_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "model_execution_id": {
+          "$ref": "#/$defs/ID"
+        }
+      }
+    },
+    "DraftProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reply_text",
+        "binding",
+        "represented_state"
+      ],
+      "properties": {
+        "reply_text": {
+          "$ref": "#/$defs/Text"
+        },
+        "binding": {
+          "$ref": "#/$defs/Binding"
+        },
+        "represented_state": {
+          "$ref": "#/$defs/StructuredState"
+        }
+      }
+    },
+    "ReplyExtraction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "extraction_id",
+        "binding",
+        "state"
+      ],
+      "properties": {
+        "extraction_id": {
+          "$ref": "#/$defs/ID"
+        },
+        "binding": {
+          "$ref": "#/$defs/DraftBinding"
+        },
+        "state": {
+          "$ref": "#/$defs/StructuredState"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l2_answer_known_info",
+  "source_message": {
+    "message_id": "case_l2_answer_known_info_msg",
+    "subject": "Order inquiry",
+    "body": "Which mailbox should we use for invoices? Our records show invoices@example.com for your account.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "dcb79a5ff05d16fceed2fee1c4bb39e1805038427c5b78f78ae28c79fe17e141"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l2_answer_known_info_interp",
+    "version": 1,
+    "source_message_id": "case_l2_answer_known_info_msg",
+    "source_hash": "dcb79a5ff05d16fceed2fee1c4bb39e1805038427c5b78f78ae28c79fe17e141",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "States the mailbox on record",
+            "raw_text": "States the mailbox on record"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Which mailbox receives invoices?",
+            "raw_text": "Which mailbox receives invoices?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l2_answer_known_info_msg",
+          "source_hash": "dcb79a5ff05d16fceed2fee1c4bb39e1805038427c5b78f78ae28c79fe17e141",
+          "quote": "Which mailbox should we use for invoices?",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l2_answer_known_info_msg",
+          "source_hash": "dcb79a5ff05d16fceed2fee1c4bb39e1805038427c5b78f78ae28c79fe17e141",
+          "quote": "Our records show invoices@example.com for your account.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l2_answer_known_info_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l2_answer_known_info_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "dcb79a5ff05d16fceed2fee1c4bb39e1805038427c5b78f78ae28c79fe17e141",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [
+      {
+        "question_id": "c_q1",
+        "answer_text": "invoices@example.com is correct.",
+        "basis": "source_evidence",
+        "evidence_ids": [
+          "ev02"
+        ],
+        "related_claim_ids": [
+          "c_intent"
+        ],
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの回答（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "8a21f7caae459ca48d8dbda092dc419cfb8fa292a3efc9afe8298822cc58db9e"
+  },
+  "policy_version": "delegation-0.4"
+}

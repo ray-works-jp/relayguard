@@ -1,0 +1,39 @@
+{
+  "gate": "SHADOW_GATE",
+  "timestamp": "2026-09-26T10:20:48Z",
+  "criteria": {
+    "ruff_check": true,
+    "ruff_format": true,
+    "mypy_strict": true,
+    "pytest_full": true,
+    "sg001_run": true,
+    "release_set_run": true
+  },
+  "hashes": {
+    "ADR-026": "22e6071565b4098ee3dc8f44dc49d54efec77f0d1acfa4960164cfe0417e7d75",
+    "SCHEMA_v05": "8e00a9f868df91dc73352bd0d0c0d08367c75638576ce5095c0fcda3b0a99a3f",
+    "DELEGATION_v04": "9a2ca9150c869fb4b07c55513dbd6927c6dc439249731bb8b45164813a5373aa",
+    "SG001_expected": "3a9f01866181c227bfdffffead3062de9ad496cb19848cf5ab42234b089bdec6",
+    "candidates_manifest": "2929f19ea47c5c7061bd0ff31ebbdd3b676b3a28ed8fb76fd649c3a6fd9808bc"
+  },
+  "decision": "PASSED (All 3 Gates - ruling D-1 conditions met)",
+  "metrics": {
+    "delegation_accuracy": "1.0000",
+    "false_automation_count": 0,
+    "under_classified_count": 0,
+    "pii_leak_count": 0,
+    "determinism_violations": 0,
+    "external_action_performed": 0
+  },
+  "gates": {
+    "A_shadow_core": true,
+    "B_reply_extractor_fuzz": true,
+    "C_ui": true
+  },
+  "evidence_level": "2_BUILDER_VERIFIED",
+  "not_established": [
+    "3_ARCHITECT_VERIFIED",
+    "4_INDEPENDENT_QA",
+    "5_RELEASE_APPROVED"
+  ]
+}

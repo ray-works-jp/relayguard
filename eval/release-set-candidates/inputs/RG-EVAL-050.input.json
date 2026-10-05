@@ -1,0 +1,148 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-050",
+  "source_message": {
+    "message_id": "RG-EVAL-050_msg",
+    "subject": "Republishing",
+    "body": "Hello,\nYou may republish our article on your blog, provided that you credit the author and link to the original.\nEditorial, Example Magazine",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "58e04ed3bbc216eba7f66c78cd9241e19bf8db9c4b0e6e3c9aa9af8ad489935d"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-050_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-050_msg",
+    "source_hash": "58e04ed3bbc216eba7f66c78cd9241e19bf8db9c4b0e6e3c9aa9af8ad489935d",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [
+        {
+          "id": "c_repub",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "republish the article on your blog",
+            "raw_text": "republish the article on your blog"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "may",
+            "raw_text": "may"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "credit the author and link to the original",
+            "raw_text": "provided that you credit the author and link to the original"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "your blog",
+            "raw_text": "your blog"
+          },
+          "monetary_term_ids": [],
+          "deadline_ids": [],
+          "commitment_ids": []
+        }
+      ],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-050_msg",
+          "source_hash": "58e04ed3bbc216eba7f66c78cd9241e19bf8db9c4b0e6e3c9aa9af8ad489935d",
+          "quote": "You may republish our article on your blog",
+          "supports": [
+            "c_repub"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-050_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-050_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "58e04ed3bbc216eba7f66c78cd9241e19bf8db9c4b0e6e3c9aa9af8ad489935d",
+    "items": [
+      {
+        "item_id": "item_c_repub",
+        "source_claim_id": "c_repub",
+        "decision": "modify",
+        "replacement": {
+          "kind": "ClauseTerm",
+          "value": {
+            "id": "c_repub",
+            "evidence_ids": [],
+            "text": {
+              "status": "explicit",
+              "value": "republish the article on your blog",
+              "raw_text": "republish the article on your blog"
+            },
+            "modality": {
+              "status": "explicit",
+              "value": "may",
+              "raw_text": "may"
+            },
+            "condition": {
+              "status": "not_stated",
+              "value": null,
+              "raw_text": ""
+            },
+            "scope": {
+              "status": "explicit",
+              "value": "your blog",
+              "raw_text": "your blog"
+            },
+            "monetary_term_ids": [],
+            "deadline_ids": [],
+            "commitment_ids": []
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "58cbaac0f06a5cec42a236521b229c378b52f1fe488d29148cafbac9edf3dabc"
+  },
+  "policy_version": "delegation-0.4"
+}

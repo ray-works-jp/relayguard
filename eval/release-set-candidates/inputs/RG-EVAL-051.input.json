@@ -1,0 +1,232 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-051",
+  "source_message": {
+    "message_id": "RG-EVAL-051_msg",
+    "subject": "Invoice copy",
+    "body": "Hello,\nThanks for the quick delivery. Could you send a copy of invoice INV-1203 by email? Also, what is your internal supplier ranking for us?\nBest,\nPurchasing, Example Kitchen",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "08815911d80ec965c7c97e4abf188696b57538d90fa04b3d04de5885da652aed"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-051_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-051_msg",
+    "source_hash": "08815911d80ec965c7c97e4abf188696b57538d90fa04b3d04de5885da652aed",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Thanks for the delivery",
+            "raw_text": "Thanks for the delivery"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "What is the internal supplier ranking?",
+            "raw_text": "What is the internal supplier ranking?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_send",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "send a copy of invoice INV-1203",
+            "raw_text": "send a copy of invoice INV-1203"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "invoice INV-1203",
+            "raw_text": "invoice INV-1203"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "by email",
+            "raw_text": "by email"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "invoice INV-1203",
+            "raw_text": "invoice INV-1203"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-051_msg",
+          "source_hash": "08815911d80ec965c7c97e4abf188696b57538d90fa04b3d04de5885da652aed",
+          "quote": "Thanks for the quick delivery.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-051_msg",
+          "source_hash": "08815911d80ec965c7c97e4abf188696b57538d90fa04b3d04de5885da652aed",
+          "quote": "Could you send a copy of invoice INV-1203 by email?",
+          "supports": [
+            "c_send"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-051_msg",
+          "source_hash": "08815911d80ec965c7c97e4abf188696b57538d90fa04b3d04de5885da652aed",
+          "quote": "what is your internal supplier ranking for us?",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-051_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-051_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "08815911d80ec965c7c97e4abf188696b57538d90fa04b3d04de5885da652aed",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "do_not_answer",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_send",
+        "source_claim_id": "c_send",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_send",
+        "evidence_ids": [
+          "ev02"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "send a copy of invoice INV-1203",
+          "raw_text": "send a copy of invoice INV-1203"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "invoice INV-1203",
+          "raw_text": "invoice INV-1203"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "by email",
+          "raw_text": "by email"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "invoice INV-1203",
+          "raw_text": "invoice INV-1203"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [
+      "c_q1"
+    ],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "51bc3eb59cedc66de5b19855d5d9bcb4919c3c13536a792c7deb93501353b4f8"
+  },
+  "policy_version": "delegation-0.4"
+}

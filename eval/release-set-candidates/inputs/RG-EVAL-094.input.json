@@ -1,0 +1,197 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-094",
+  "source_message": {
+    "message_id": "RG-EVAL-094_msg",
+    "subject": "Termination notice",
+    "body": "Hello,\nUnder section 12 of our service agreement, we are giving 30 days' notice to terminate the agreement effective 2026-12-31 (JST).\nOperations Director, Example Hotels",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "df876078cdb0618aefa639746e18ccfd4a4855a7a1e76e6620d917318baec72b"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-094_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-094_msg",
+    "source_hash": "df876078cdb0618aefa639746e18ccfd4a4855a7a1e76e6620d917318baec72b",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [
+        {
+          "id": "c_end",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-12-31",
+            "raw_text": "2026-12-31"
+          },
+          "timezone": {
+            "status": "explicit",
+            "value": "JST",
+            "raw_text": "JST"
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [
+        {
+          "id": "c_termination",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "terminate the service agreement",
+            "raw_text": "terminate the service agreement"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "30 days' notice under section 12",
+            "raw_text": "Under section 12 of our service agreement"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "the service agreement",
+            "raw_text": "the service agreement"
+          },
+          "monetary_term_ids": [],
+          "deadline_ids": [
+            "c_end"
+          ],
+          "commitment_ids": []
+        }
+      ],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [
+        {
+          "id": "c_emotion",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "cancellation_intent",
+          "intensity": "medium",
+          "target": {
+            "status": "explicit",
+            "value": "the service agreement",
+            "raw_text": "the service agreement"
+          }
+        }
+      ],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-094_msg",
+          "source_hash": "df876078cdb0618aefa639746e18ccfd4a4855a7a1e76e6620d917318baec72b",
+          "quote": "we are giving 30 days' notice to terminate the agreement",
+          "supports": [
+            "c_emotion"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-094_msg",
+          "source_hash": "df876078cdb0618aefa639746e18ccfd4a4855a7a1e76e6620d917318baec72b",
+          "quote": "effective 2026-12-31 (JST)",
+          "supports": [
+            "c_end"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-094_msg",
+          "source_hash": "df876078cdb0618aefa639746e18ccfd4a4855a7a1e76e6620d917318baec72b",
+          "quote": "to terminate the agreement effective 2026-12-31 (JST)",
+          "supports": [
+            "c_termination"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-094_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-094_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "df876078cdb0618aefa639746e18ccfd4a4855a7a1e76e6620d917318baec72b",
+    "items": [
+      {
+        "item_id": "item_c_end",
+        "source_claim_id": "c_end",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_termination",
+        "source_claim_id": "c_termination",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_emotion",
+        "source_claim_id": "c_emotion",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "89af9f9930e8ef327cb8ad88b5a6476205259065d335f0d9b828e2cbc79dd7cc"
+  },
+  "policy_version": "delegation-0.4"
+}

@@ -1,0 +1,290 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-021",
+  "source_message": {
+    "message_id": "RG-EVAL-021_msg",
+    "subject": "Delivery date",
+    "body": "Hello,\nWe need to move our delivery of the sample units from 2026-10-01 to 2026-10-08 (JST) because of a parts shortage. Please let us know if the new date works.\nBest,\nSupplier Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "a05ae9ebb10b16896f960c8d530534f35f0e949f3a276cd9b92f51cf20055797"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-021_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-021_msg",
+    "source_hash": "a05ae9ebb10b16896f960c8d530534f35f0e949f3a276cd9b92f51cf20055797",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev04"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Does the new date work?",
+            "raw_text": "Does the new date work?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [
+        {
+          "id": "c_old",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-10-01",
+            "raw_text": "2026-10-01"
+          },
+          "timezone": {
+            "status": "explicit",
+            "value": "JST",
+            "raw_text": "JST"
+          }
+        },
+        {
+          "id": "c_new",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-10-08",
+            "raw_text": "2026-10-08"
+          },
+          "timezone": {
+            "status": "explicit",
+            "value": "JST",
+            "raw_text": "JST"
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [
+        {
+          "id": "c_deliver",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "actor": "counterparty",
+          "action": {
+            "status": "explicit",
+            "value": "deliver the sample units",
+            "raw_text": "deliver the sample units"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "sample units",
+            "raw_text": "sample units"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "the new date is accepted",
+            "raw_text": "if the new date works"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "delivery of the sample units",
+            "raw_text": "delivery of the sample units"
+          },
+          "deadline_id": "c_new",
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-021_msg",
+          "source_hash": "a05ae9ebb10b16896f960c8d530534f35f0e949f3a276cd9b92f51cf20055797",
+          "quote": "from 2026-10-01 to 2026-10-08 (JST)",
+          "supports": [
+            "c_old"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-021_msg",
+          "source_hash": "a05ae9ebb10b16896f960c8d530534f35f0e949f3a276cd9b92f51cf20055797",
+          "quote": "2026-10-08 (JST)",
+          "supports": [
+            "c_new"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-021_msg",
+          "source_hash": "a05ae9ebb10b16896f960c8d530534f35f0e949f3a276cd9b92f51cf20055797",
+          "quote": "We need to move our delivery of the sample units",
+          "supports": [
+            "c_deliver"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev04",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-021_msg",
+          "source_hash": "a05ae9ebb10b16896f960c8d530534f35f0e949f3a276cd9b92f51cf20055797",
+          "quote": "Please let us know if the new date works.",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-021_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-021_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "a05ae9ebb10b16896f960c8d530534f35f0e949f3a276cd9b92f51cf20055797",
+    "items": [
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_old",
+        "source_claim_id": "c_old",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_new",
+        "source_claim_id": "c_new",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_deliver",
+        "source_claim_id": "c_deliver",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [
+      {
+        "question_id": "c_q1",
+        "answer_text": "Yes, 2026-10-08 works for us.",
+        "basis": "user_assertion",
+        "evidence_ids": [],
+        "related_claim_ids": [
+          "c_new"
+        ],
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの回答（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "approved_commitments": [
+      {
+        "id": "c_deliver",
+        "evidence_ids": [
+          "ev03"
+        ],
+        "actor": "counterparty",
+        "action": {
+          "status": "explicit",
+          "value": "deliver the sample units",
+          "raw_text": "deliver the sample units"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "sample units",
+          "raw_text": "sample units"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "the new date is accepted",
+          "raw_text": "if the new date works"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "delivery of the sample units",
+          "raw_text": "delivery of the sample units"
+        },
+        "deadline_id": "c_new",
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "e3fc712ac892c501c5af04bae2a8203def23231c3faa2c942dc650e7158e9cb3"
+  },
+  "policy_version": "delegation-0.4"
+}

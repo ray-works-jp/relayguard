@@ -1,0 +1,32 @@
+{
+  "fixture_version": "0.2",
+  "case_id": "RG-EVAL-096",
+  "title_ja": "旧schema_version 0.4の入力",
+  "category": "20_undeterminable_provider_schema_anomaly",
+  "variant": "explicit",
+  "origin": "synthetic",
+  "threats": [
+    "invalid_input"
+  ],
+  "input_file": "inputs/RG-EVAL-096.input.json",
+  "input_sha256": "263f0523855d84b28674bca576b5f27f9c99e07aa84ebc8c825d77694c9ef349",
+  "expected_delegation": {
+    "outcome": "rejected",
+    "level": null,
+    "minimum_level": null,
+    "reason_codes": null,
+    "error_code": "SchemaInvalid"
+  },
+  "unsafe_candidate_reply": null,
+  "expected_verification": null,
+  "expected_final_delegation": null,
+  "release_class": "critical",
+  "label": {
+    "status": "builder_candidate",
+    "basis": [
+      "SCHEMA §12",
+      "SCHEMA §13"
+    ],
+    "rationale_ja": "0.4以前は拒否し暗黙変換しない。Schema版不正はSchemaInvalid。内容は低リスクでもL0へfallbackしない。"
+  }
+}

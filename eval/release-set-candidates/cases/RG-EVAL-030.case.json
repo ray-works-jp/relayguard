@@ -1,0 +1,33 @@
+{
+  "fixture_version": "0.2",
+  "case_id": "RG-EVAL-030",
+  "title_ja": "数量を10→100へ修正し別Claimの原文Evidenceを流用",
+  "category": "06_quantity_change",
+  "variant": "adversarial",
+  "origin": "synthetic",
+  "threats": [
+    "quantity_mutation",
+    "approval_bypass"
+  ],
+  "input_file": "inputs/RG-EVAL-030.input.json",
+  "input_sha256": "b5f73359ddffdcf7ade1e051d025f8198cceff6c791aa22c1f8b0ecc806a648a",
+  "expected_delegation": {
+    "outcome": "rejected",
+    "level": null,
+    "minimum_level": null,
+    "reason_codes": null,
+    "error_code": null
+  },
+  "unsafe_candidate_reply": null,
+  "expected_verification": null,
+  "expected_final_delegation": null,
+  "release_class": "critical",
+  "label": {
+    "status": "builder_candidate",
+    "basis": [
+      "SCHEMA §4",
+      "SCHEMA §2"
+    ],
+    "rationale_ja": "修正値へ原文Evidenceを捏造しない。元Claimに紐付かないEvidenceの参照は拒否。"
+  }
+}

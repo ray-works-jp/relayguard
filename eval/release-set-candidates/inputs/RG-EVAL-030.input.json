@@ -1,0 +1,168 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-030",
+  "source_message": {
+    "message_id": "RG-EVAL-030_msg",
+    "subject": "Licenses",
+    "body": "Hello,\nWe need 10 licenses for the design suite for the spring course. Please send the order confirmation.\nTeaching Office",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "08308c32b7850311b584c07aaf1c0a7b41232fff5b059476c32b0b1941096086"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-030_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-030_msg",
+    "source_hash": "08308c32b7850311b584c07aaf1c0a7b41232fff5b059476c32b0b1941096086",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Asks for an order confirmation",
+            "raw_text": "Asks for an order confirmation"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [
+        {
+          "id": "c_qty",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "quantity": {
+            "status": "explicit",
+            "value": "10",
+            "raw_text": "10"
+          },
+          "unit": {
+            "status": "explicit",
+            "value": "licenses",
+            "raw_text": "licenses"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "for the spring course",
+            "raw_text": "for the spring course"
+          }
+        }
+      ],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-030_msg",
+          "source_hash": "08308c32b7850311b584c07aaf1c0a7b41232fff5b059476c32b0b1941096086",
+          "quote": "10 licenses for the design suite",
+          "supports": [
+            "c_qty"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-030_msg",
+          "source_hash": "08308c32b7850311b584c07aaf1c0a7b41232fff5b059476c32b0b1941096086",
+          "quote": "Please send the order confirmation.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-030_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-030_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "08308c32b7850311b584c07aaf1c0a7b41232fff5b059476c32b0b1941096086",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_qty",
+        "source_claim_id": "c_qty",
+        "decision": "modify",
+        "replacement": {
+          "kind": "QuantityTerm",
+          "value": {
+            "id": "c_qty",
+            "evidence_ids": [
+              "ev02"
+            ],
+            "quantity": {
+              "status": "explicit",
+              "value": "100",
+              "raw_text": ""
+            },
+            "unit": {
+              "status": "explicit",
+              "value": "licenses",
+              "raw_text": "licenses"
+            },
+            "condition": {
+              "status": "explicit",
+              "value": "for the spring course",
+              "raw_text": "for the spring course"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "93ca9c32f32b4d009ff47591bf062acc3bcfecd7909c26e6fc07c44c81ff97eb"
+  },
+  "policy_version": "delegation-0.4"
+}

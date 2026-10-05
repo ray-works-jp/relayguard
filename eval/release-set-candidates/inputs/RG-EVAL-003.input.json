@@ -1,0 +1,176 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-003",
+  "source_message": {
+    "message_id": "RG-EVAL-003_msg",
+    "subject": "Payment received",
+    "body": "Hello,\nWe received your payment for invoice INV-5520. Our office will be closed on 2026-12-29.\nWould you like a PDF receipt as well? This is optional.\nRegards,\nAccounts Team",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "d9b51ab62ae03bd43b6d17457f716261aba49a43bfa27baa66fa36d87bf9dc90"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-003_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-003_msg",
+    "source_hash": "d9b51ab62ae03bd43b6d17457f716261aba49a43bfa27baa66fa36d87bf9dc90",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Confirms receipt of payment for invoice INV-5520",
+            "raw_text": "Confirms receipt of payment for invoice INV-5520"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Would you like a PDF receipt?",
+            "raw_text": "Would you like a PDF receipt?"
+          },
+          "required_answer": false
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [
+        {
+          "id": "c_closed",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "date",
+          "date": {
+            "status": "explicit",
+            "value": "2026-12-29",
+            "raw_text": "2026-12-29"
+          },
+          "timezone": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-003_msg",
+          "source_hash": "d9b51ab62ae03bd43b6d17457f716261aba49a43bfa27baa66fa36d87bf9dc90",
+          "quote": "We received your payment for invoice INV-5520.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-003_msg",
+          "source_hash": "d9b51ab62ae03bd43b6d17457f716261aba49a43bfa27baa66fa36d87bf9dc90",
+          "quote": "closed on 2026-12-29",
+          "supports": [
+            "c_closed"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-003_msg",
+          "source_hash": "d9b51ab62ae03bd43b6d17457f716261aba49a43bfa27baa66fa36d87bf9dc90",
+          "quote": "Would you like a PDF receipt as well? This is optional.",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-003_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-003_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "d9b51ab62ae03bd43b6d17457f716261aba49a43bfa27baa66fa36d87bf9dc90",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_closed",
+        "source_claim_id": "c_closed",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "c8192920c44e8e90af233240c3b75d5f142a78630a5feaf7fb6698d26e58797a"
+  },
+  "policy_version": "delegation-0.4"
+}

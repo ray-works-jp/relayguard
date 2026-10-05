@@ -1,0 +1,121 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-045",
+  "source_message": {
+    "message_id": "RG-EVAL-045_msg",
+    "subject": "Translation rights",
+    "body": "Hello,\nWe request a non-exclusive right to translate your guide into Spanish for commercial sale, with no sublicensing, for the 2027 edition only.\nExample Language Press",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "2855ec21a0c015c295cb5bfa54cb175645154ab101ae2235a8939bf2b8b9b74b"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-045_interp",
+    "version": 2,
+    "source_message_id": "RG-EVAL-045_msg",
+    "source_hash": "2855ec21a0c015c295cb5bfa54cb175645154ab101ae2235a8939bf2b8b9b74b",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [
+        {
+          "id": "c_rights",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "scope": {
+            "status": "explicit",
+            "value": "Spanish translation of the guide",
+            "raw_text": "Spanish translation of the guide"
+          },
+          "exclusivity": {
+            "status": "explicit",
+            "value": false,
+            "raw_text": "non-exclusive"
+          },
+          "sublicensing": {
+            "status": "explicit",
+            "value": true,
+            "raw_text": ""
+          },
+          "commercial_use": {
+            "status": "explicit",
+            "value": true,
+            "raw_text": "commercial sale"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "for the 2027 edition only",
+            "raw_text": "for the 2027 edition only"
+          }
+        }
+      ],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-045_msg",
+          "source_hash": "2855ec21a0c015c295cb5bfa54cb175645154ab101ae2235a8939bf2b8b9b74b",
+          "quote": "a non-exclusive right to translate your guide into Spanish for commercial sale",
+          "supports": [
+            "c_rights"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-045_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-045_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "2855ec21a0c015c295cb5bfa54cb175645154ab101ae2235a8939bf2b8b9b74b",
+    "items": [
+      {
+        "item_id": "item_c_rights",
+        "source_claim_id": "c_rights",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "f237ae3115ecb0b01e9b661b437117ed0e222dc39e43d702d617ebe86ea007f1"
+  },
+  "policy_version": "delegation-0.4"
+}

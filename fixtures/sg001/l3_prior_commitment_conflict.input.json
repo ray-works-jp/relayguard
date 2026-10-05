@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l3_conflict",
+  "source_message": {
+    "message_id": "case_l3_conflict_msg",
+    "subject": "Order inquiry",
+    "body": "Last month you promised free shipping, but now the invoice includes a shipping fee.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "7384c8b323dc8dec8338cda4cfaea3125e5b5e4716a8d724acac5fb6d788d3e4"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l3_conflict_interp",
+    "version": 1,
+    "source_message_id": "case_l3_conflict_msg",
+    "source_hash": "7384c8b323dc8dec8338cda4cfaea3125e5b5e4716a8d724acac5fb6d788d3e4",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [
+        {
+          "id": "c_conflict",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "contradiction",
+          "description": {
+            "status": "explicit",
+            "value": "Free shipping promise vs shipping fee",
+            "raw_text": "Free shipping promise vs shipping fee"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l3_conflict_msg",
+          "source_hash": "7384c8b323dc8dec8338cda4cfaea3125e5b5e4716a8d724acac5fb6d788d3e4",
+          "quote": "you promised free shipping",
+          "supports": [
+            "c_conflict"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l3_conflict_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l3_conflict_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "7384c8b323dc8dec8338cda4cfaea3125e5b5e4716a8d724acac5fb6d788d3e4",
+    "items": [
+      {
+        "item_id": "item_c_conflict",
+        "source_claim_id": "c_conflict",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "5c4333bb7ecf4e250ac2b375c0354cf5cd93d7f81fc89a53c3b98382b7732d4c"
+  },
+  "policy_version": "delegation-0.4"
+}

@@ -1,0 +1,133 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-016",
+  "source_message": {
+    "message_id": "RG-EVAL-016_msg",
+    "subject": "Logo use",
+    "body": "Hello,\nMay we use your logo on our charity event web page? The use would be non-exclusive and non-commercial, with no sublicensing, for the 2026 charity run page only.\nBest regards,\nEvent Office, Example Foundation",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "835b826033c0fba0e5c63863997af9f9e8eae1ca4df1ae222bca6a6b666c6388"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-016_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-016_msg",
+    "source_hash": "835b826033c0fba0e5c63863997af9f9e8eae1ca4df1ae222bca6a6b666c6388",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [
+        {
+          "id": "c_lic",
+          "evidence_ids": [
+            "ev01",
+            "ev02"
+          ],
+          "scope": {
+            "status": "explicit",
+            "value": "logo on the charity event web page",
+            "raw_text": "logo on the charity event web page"
+          },
+          "exclusivity": {
+            "status": "explicit",
+            "value": false,
+            "raw_text": "non-exclusive"
+          },
+          "sublicensing": {
+            "status": "explicit",
+            "value": false,
+            "raw_text": "no sublicensing"
+          },
+          "commercial_use": {
+            "status": "explicit",
+            "value": false,
+            "raw_text": "non-commercial"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "for the 2026 charity run page only",
+            "raw_text": "for the 2026 charity run page only"
+          }
+        }
+      ],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-016_msg",
+          "source_hash": "835b826033c0fba0e5c63863997af9f9e8eae1ca4df1ae222bca6a6b666c6388",
+          "quote": "May we use your logo on our charity event web page?",
+          "supports": [
+            "c_lic"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-016_msg",
+          "source_hash": "835b826033c0fba0e5c63863997af9f9e8eae1ca4df1ae222bca6a6b666c6388",
+          "quote": "for the 2026 charity run page only",
+          "supports": [
+            "c_lic"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-016_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-016_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "835b826033c0fba0e5c63863997af9f9e8eae1ca4df1ae222bca6a6b666c6388",
+    "items": [
+      {
+        "item_id": "item_c_lic",
+        "source_claim_id": "c_lic",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "47402a8cd6ebbcd7fe90fa9c29f3f2b65edeb2c8c0c6507321ab1b56ad0084e3"
+  },
+  "policy_version": "delegation-0.4"
+}

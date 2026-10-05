@@ -1,0 +1,196 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-043",
+  "source_message": {
+    "message_id": "RG-EVAL-043_msg",
+    "subject": "Korea rights",
+    "body": "Hi,\nWe propose an exclusive right to sell your app in Korea, without sublicensing, for commercial use, until 2027-12-31, with a royalty of 15% of net sales.\nPartnerships, Example Games",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "50b60c208c2bb41bb2107ea3ad10117d0445f19900e565fc1768f01cb163ebd0"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-043_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-043_msg",
+    "source_hash": "50b60c208c2bb41bb2107ea3ad10117d0445f19900e565fc1768f01cb163ebd0",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [
+        {
+          "id": "c_royalty",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "quantity": {
+            "status": "explicit",
+            "value": "15",
+            "raw_text": "15%"
+          },
+          "unit": {
+            "status": "explicit",
+            "value": "percent",
+            "raw_text": "%"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "of net sales",
+            "raw_text": "of net sales"
+          }
+        }
+      ],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [
+        {
+          "id": "c_rights",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "scope": {
+            "status": "explicit",
+            "value": "selling the app in Korea",
+            "raw_text": "selling the app in Korea"
+          },
+          "exclusivity": {
+            "status": "explicit",
+            "value": true,
+            "raw_text": "exclusive"
+          },
+          "sublicensing": {
+            "status": "explicit",
+            "value": false,
+            "raw_text": "without sublicensing"
+          },
+          "commercial_use": {
+            "status": "explicit",
+            "value": true,
+            "raw_text": "commercial use"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "until 2027-12-31",
+            "raw_text": "until 2027-12-31"
+          }
+        }
+      ],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-043_msg",
+          "source_hash": "50b60c208c2bb41bb2107ea3ad10117d0445f19900e565fc1768f01cb163ebd0",
+          "quote": "an exclusive right to sell your app in Korea",
+          "supports": [
+            "c_rights"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-043_msg",
+          "source_hash": "50b60c208c2bb41bb2107ea3ad10117d0445f19900e565fc1768f01cb163ebd0",
+          "quote": "a royalty of 15% of net sales",
+          "supports": [
+            "c_royalty"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-043_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-043_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "50b60c208c2bb41bb2107ea3ad10117d0445f19900e565fc1768f01cb163ebd0",
+    "items": [
+      {
+        "item_id": "item_c_royalty",
+        "source_claim_id": "c_royalty",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_rights",
+        "source_claim_id": "c_rights",
+        "decision": "modify",
+        "replacement": {
+          "kind": "RightsLicenseTerm",
+          "value": {
+            "id": "c_rights",
+            "evidence_ids": [],
+            "scope": {
+              "status": "explicit",
+              "value": "selling the app in Korea",
+              "raw_text": "selling the app in Korea"
+            },
+            "exclusivity": {
+              "status": "explicit",
+              "value": false,
+              "raw_text": ""
+            },
+            "sublicensing": {
+              "status": "explicit",
+              "value": false,
+              "raw_text": "without sublicensing"
+            },
+            "commercial_use": {
+              "status": "explicit",
+              "value": true,
+              "raw_text": "commercial use"
+            },
+            "condition": {
+              "status": "explicit",
+              "value": "until 2027-12-31",
+              "raw_text": "until 2027-12-31"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "ec737cdac50acf51bb33fc8ae1fb0733882d308cf8159767e179ca48cf7add0e"
+  },
+  "policy_version": "delegation-0.4"
+}

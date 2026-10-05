@@ -1,0 +1,193 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-081",
+  "source_message": {
+    "message_id": "RG-EVAL-081_msg",
+    "subject": "Invoice mismatch",
+    "body": "Hello,\nYour quote said USD 900.00 but the invoice says USD 950.00.\nAccounts Payable, Example School",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "7fce8989b51935ba2c6cb0a41db98f6f541742ea09832bb275bfb8e3af4d60c1"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-081_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-081_msg",
+    "source_hash": "7fce8989b51935ba2c6cb0a41db98f6f541742ea09832bb275bfb8e3af4d60c1",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_quote",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "900.00",
+            "raw_text": "USD 900.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "price",
+          "condition": {
+            "status": "explicit",
+            "value": "in the quote",
+            "raw_text": "in the quote"
+          }
+        },
+        {
+          "id": "c_invoice",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "950.00",
+            "raw_text": "USD 950.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "payment",
+          "condition": {
+            "status": "explicit",
+            "value": "on the invoice",
+            "raw_text": "on the invoice"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [
+        {
+          "id": "c_conflict",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "type": "contradiction",
+          "description": {
+            "status": "explicit",
+            "value": "Quoted and invoiced amounts differ",
+            "raw_text": "Quoted and invoiced amounts differ"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-081_msg",
+          "source_hash": "7fce8989b51935ba2c6cb0a41db98f6f541742ea09832bb275bfb8e3af4d60c1",
+          "quote": "Your quote said USD 900.00",
+          "supports": [
+            "c_quote"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-081_msg",
+          "source_hash": "7fce8989b51935ba2c6cb0a41db98f6f541742ea09832bb275bfb8e3af4d60c1",
+          "quote": "the invoice says USD 950.00",
+          "supports": [
+            "c_invoice"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-081_msg",
+          "source_hash": "7fce8989b51935ba2c6cb0a41db98f6f541742ea09832bb275bfb8e3af4d60c1",
+          "quote": "Your quote said USD 900.00 but the invoice says USD 950.00.",
+          "supports": [
+            "c_conflict"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-081_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-081_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "7fce8989b51935ba2c6cb0a41db98f6f541742ea09832bb275bfb8e3af4d60c1",
+    "items": [
+      {
+        "item_id": "item_c_quote",
+        "source_claim_id": "c_quote",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_invoice",
+        "source_claim_id": "c_invoice",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_conflict",
+        "source_claim_id": "c_conflict",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "bc5a254abdc1b27204e6fa108ff947e24d8e9d341a499cfdd1aa2e9ff4144207"
+  },
+  "policy_version": "delegation-0.4"
+}

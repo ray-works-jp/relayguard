@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+{% if error %}
+<div class="alert" role="alert">操作を完了できませんでした。{{ error }}</div>
+{% endif %}
+
+<div class="page-head">
+  <h1>案件</h1>
+  <a class="cta" href="/new">＋ 新しいメールを解析</a>
+</div>
+
+{% if cases %}
+<section class="panel">
+  <table class="list">
+    <thead><tr><th>メール</th><th>状態</th><th>任せられる範囲</th></tr></thead>
+    <tbody>
+    {% for c in cases %}
+      {% set level = (c.post_assessment or c.pre_assessment or {}).get("level") %}
+      <tr>
+        <td><a href="/cases/{{ c.case_id }}">{{ c.source.subject or "（件名なし）" }}</a>{% if c.origin == "fixture" %} <span class="tag">サンプル</span>{% endif %}</td>
+        <td><span class="state state-{{ c.state }}">{{ STATE_LABELS[c.state] }}</span></td>
+        <td>{% if level %}<span class="level level-{{ level }}">{{ LEVEL_SHORT[level] }}</span>{% endif %}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p class="muted small">案件はこのPCのメモリにだけあり、RelayGuard を閉じると（承認済みのものも）消えます。続きをやるときは、元のメールから取り込み直してください。</p>
+</section>
+{% else %}
+<section class="panel empty">
+  <p class="lead">案件はまだありません。英語のメールを取り込むと、ここに並びます。</p>
+  <ol class="steps steps-static" aria-label="使い方">
+    <li><span class="step-no" aria-hidden="true">1</span>メールを追加</li>
+    <li><span class="step-no" aria-hidden="true">2</span>解析（相手の要求を日本語で確認）</li>
+    <li><span class="step-no" aria-hidden="true">3</span>確認・承認して、返信をコピー</li>
+  </ol>
+  {% if samples %}
+  <form method="post" action="/cases/import-sample" class="inline-form">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <input type="hidden" name="name" value="{{ "RG-EVAL-011.input.json" if "RG-EVAL-011.input.json" in samples else samples[0] }}">
+    <button type="submit">サンプル案件を開いて試す</button>
+  </form>
+  {% endif %}
+  <p class="muted small">案件は閉じると消えます（保存しません）。</p>
+</section>
+{% endif %}
+{% endblock %}

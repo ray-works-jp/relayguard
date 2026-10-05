@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-100",
+  "source_message": {
+    "message_id": "RG-EVAL-100_msg",
+    "subject": "Replacement part",
+    "body": "Hi,\nDid the replacement part arrive?\nMaintenance Team, Example Plant",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "102cff4c420c288d5585c313ec2ac4beb7013bd28a4548d26f2a32f03f7376d0"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-100_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-100_msg",
+    "source_hash": "102cff4c420c288d5585c313ec2ac4beb7013bd28a4548d26f2a32f03f7376d0",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Did the replacement part arrive?",
+            "raw_text": "Did the replacement part arrive?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-100_msg",
+          "source_hash": "102cff4c420c288d5585c313ec2ac4beb7013bd28a4548d26f2a32f03f7376d0",
+          "quote": "Did the replacement part arrive?",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-100_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-100_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "102cff4c420c288d5585c313ec2ac4beb7013bd28a4548d26f2a32f03f7376d0",
+    "items": [
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [
+      {
+        "question_id": "c_q1",
+        "answer_text": "Yes, and we accept the USD 500.00 surcharge.",
+        "basis": "user_assertion",
+        "evidence_ids": [],
+        "related_claim_ids": [],
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの回答（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "c71274a63a157d9ac1972e30247fa03e297d12f94e7fafb51968a4d2dbcbbb60"
+  },
+  "policy_version": "delegation-0.4"
+}

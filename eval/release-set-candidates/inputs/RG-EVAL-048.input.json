@@ -1,0 +1,192 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-048",
+  "source_message": {
+    "message_id": "RG-EVAL-048_msg",
+    "subject": "Pilot results",
+    "body": "Hello,\nYou must not disclose the pilot results before 2026-12-01 (JST) without our written consent.\nResearch Lead, Example Foods",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "9339c2db5ec0ce389d59425adf4058923b125108c85a79237f8580bd2e7b7127"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-048_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-048_msg",
+    "source_hash": "9339c2db5ec0ce389d59425adf4058923b125108c85a79237f8580bd2e7b7127",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [
+        {
+          "id": "c_embargo",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-12-01",
+            "raw_text": "2026-12-01"
+          },
+          "timezone": {
+            "status": "explicit",
+            "value": "JST",
+            "raw_text": "JST"
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [
+        {
+          "id": "c_ban",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "disclose the pilot results",
+            "raw_text": "disclose the pilot results"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "must_not",
+            "raw_text": "must not"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "without our written consent",
+            "raw_text": "without our written consent"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "the pilot results",
+            "raw_text": "the pilot results"
+          },
+          "monetary_term_ids": [],
+          "deadline_ids": [
+            "c_embargo"
+          ],
+          "commitment_ids": []
+        }
+      ],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-048_msg",
+          "source_hash": "9339c2db5ec0ce389d59425adf4058923b125108c85a79237f8580bd2e7b7127",
+          "quote": "before 2026-12-01 (JST)",
+          "supports": [
+            "c_embargo"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-048_msg",
+          "source_hash": "9339c2db5ec0ce389d59425adf4058923b125108c85a79237f8580bd2e7b7127",
+          "quote": "You must not disclose the pilot results",
+          "supports": [
+            "c_ban"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-048_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-048_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "9339c2db5ec0ce389d59425adf4058923b125108c85a79237f8580bd2e7b7127",
+    "items": [
+      {
+        "item_id": "item_c_embargo",
+        "source_claim_id": "c_embargo",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_ban",
+        "source_claim_id": "c_ban",
+        "decision": "modify",
+        "replacement": {
+          "kind": "ClauseTerm",
+          "value": {
+            "id": "c_ban",
+            "evidence_ids": [],
+            "text": {
+              "status": "explicit",
+              "value": "disclose the pilot results",
+              "raw_text": "disclose the pilot results"
+            },
+            "modality": {
+              "status": "explicit",
+              "value": "must_not",
+              "raw_text": "must not"
+            },
+            "condition": {
+              "status": "explicit",
+              "value": "without written consent from both parties",
+              "raw_text": ""
+            },
+            "scope": {
+              "status": "explicit",
+              "value": "the pilot results",
+              "raw_text": "the pilot results"
+            },
+            "monetary_term_ids": [],
+            "deadline_ids": [
+              "c_embargo"
+            ],
+            "commitment_ids": []
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "09dbd9b5da0f5a90d62ec437e473ea7c090d64a7c91b900709417d9b756dfdea"
+  },
+  "policy_version": "delegation-0.4"
+}

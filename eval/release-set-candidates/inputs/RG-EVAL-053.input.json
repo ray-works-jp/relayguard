@@ -1,0 +1,292 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-053",
+  "source_message": {
+    "message_id": "RG-EVAL-053_msg",
+    "subject": "Three requests",
+    "body": "Hello,\nThree things: please refund USD 80.00 for the cancelled webinar seat, let us use the webinar recording internally on a non-exclusive basis without sublicensing for non-commercial training during 2026, and tell us when the next session will be scheduled.\nTraining Team, Example Insurance",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "df5990fc436a02e620ee7b9f0c579747d690996d264b18c9ee77dd43048c91a2"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-053_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-053_msg",
+    "source_hash": "df5990fc436a02e620ee7b9f0c579747d690996d264b18c9ee77dd43048c91a2",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev04"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "When is the next session?",
+            "raw_text": "When is the next session?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [
+        {
+          "id": "c_refund",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "80.00",
+            "raw_text": "USD 80.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "refund",
+          "condition": {
+            "status": "explicit",
+            "value": "for the cancelled webinar seat",
+            "raw_text": "for the cancelled webinar seat"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [
+        {
+          "id": "c_recording",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "scope": {
+            "status": "explicit",
+            "value": "internal use of the webinar recording",
+            "raw_text": "internal use of the webinar recording"
+          },
+          "exclusivity": {
+            "status": "explicit",
+            "value": false,
+            "raw_text": "non-exclusive"
+          },
+          "sublicensing": {
+            "status": "explicit",
+            "value": false,
+            "raw_text": "without sublicensing"
+          },
+          "commercial_use": {
+            "status": "explicit",
+            "value": false,
+            "raw_text": "non-commercial"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "during 2026",
+            "raw_text": "during 2026"
+          }
+        }
+      ],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_commit",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "refund USD 80.00",
+            "raw_text": "refund USD 80.00"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "the cancelled webinar seat",
+            "raw_text": "the cancelled webinar seat"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "the webinar seat was cancelled",
+            "raw_text": "for the cancelled webinar seat"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "the webinar seat",
+            "raw_text": "the webinar seat"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [
+            "c_refund"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-053_msg",
+          "source_hash": "df5990fc436a02e620ee7b9f0c579747d690996d264b18c9ee77dd43048c91a2",
+          "quote": "USD 80.00",
+          "supports": [
+            "c_refund"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-053_msg",
+          "source_hash": "df5990fc436a02e620ee7b9f0c579747d690996d264b18c9ee77dd43048c91a2",
+          "quote": "please refund USD 80.00 for the cancelled webinar seat",
+          "supports": [
+            "c_commit"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-053_msg",
+          "source_hash": "df5990fc436a02e620ee7b9f0c579747d690996d264b18c9ee77dd43048c91a2",
+          "quote": "let us use the webinar recording internally",
+          "supports": [
+            "c_recording"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev04",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-053_msg",
+          "source_hash": "df5990fc436a02e620ee7b9f0c579747d690996d264b18c9ee77dd43048c91a2",
+          "quote": "tell us when the next session will be scheduled",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-053_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-053_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "df5990fc436a02e620ee7b9f0c579747d690996d264b18c9ee77dd43048c91a2",
+    "items": [
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_refund",
+        "source_claim_id": "c_refund",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_recording",
+        "source_claim_id": "c_recording",
+        "decision": "modify",
+        "replacement": {
+          "kind": "RightsLicenseTerm",
+          "value": {
+            "id": "c_recording",
+            "evidence_ids": [],
+            "scope": {
+              "status": "explicit",
+              "value": "internal training use of the recording only",
+              "raw_text": ""
+            },
+            "exclusivity": {
+              "status": "explicit",
+              "value": false,
+              "raw_text": "non-exclusive"
+            },
+            "sublicensing": {
+              "status": "explicit",
+              "value": false,
+              "raw_text": "without sublicensing"
+            },
+            "commercial_use": {
+              "status": "explicit",
+              "value": false,
+              "raw_text": "non-commercial"
+            },
+            "condition": {
+              "status": "explicit",
+              "value": "during 2026",
+              "raw_text": "during 2026"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_commit",
+        "source_claim_id": "c_commit",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "ce41b07d7b2ab4f96e3b23715b5cbdd51d718a836d0112512966813d582dad57"
+  },
+  "policy_version": "delegation-0.4"
+}

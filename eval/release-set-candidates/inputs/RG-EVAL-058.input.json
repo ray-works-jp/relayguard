@@ -1,0 +1,250 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-058",
+  "source_message": {
+    "message_id": "RG-EVAL-058_msg",
+    "subject": "Translation invoice",
+    "body": "Hi,\nPlease pay 350.00 for the translation by 2026-10-20.\nTranslator Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "b5313a7f57e11e5be59a4d3bc592516defdc67dc999347a7a606a37c85f900ec"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-058_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-058_msg",
+    "source_hash": "b5313a7f57e11e5be59a4d3bc592516defdc67dc999347a7a606a37c85f900ec",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_fee",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "350.00",
+            "raw_text": "350.00"
+          },
+          "currency": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "type": "payment",
+          "condition": {
+            "status": "explicit",
+            "value": "for the translation",
+            "raw_text": "for the translation"
+          }
+        }
+      ],
+      "dates": [
+        {
+          "id": "c_due",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-10-20",
+            "raw_text": "2026-10-20"
+          },
+          "timezone": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_pay",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "pay 350.00",
+            "raw_text": "pay 350.00"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "the translation",
+            "raw_text": "the translation"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "for the translation",
+            "raw_text": "for the translation"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "the translation",
+            "raw_text": "the translation"
+          },
+          "deadline_id": "c_due",
+          "monetary_term_ids": [
+            "c_fee"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-058_msg",
+          "source_hash": "b5313a7f57e11e5be59a4d3bc592516defdc67dc999347a7a606a37c85f900ec",
+          "quote": "350.00 for the translation",
+          "supports": [
+            "c_fee"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-058_msg",
+          "source_hash": "b5313a7f57e11e5be59a4d3bc592516defdc67dc999347a7a606a37c85f900ec",
+          "quote": "by 2026-10-20",
+          "supports": [
+            "c_due"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-058_msg",
+          "source_hash": "b5313a7f57e11e5be59a4d3bc592516defdc67dc999347a7a606a37c85f900ec",
+          "quote": "Please pay 350.00 for the translation by 2026-10-20.",
+          "supports": [
+            "c_pay"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-058_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-058_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "b5313a7f57e11e5be59a4d3bc592516defdc67dc999347a7a606a37c85f900ec",
+    "items": [
+      {
+        "item_id": "item_c_fee",
+        "source_claim_id": "c_fee",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_due",
+        "source_claim_id": "c_due",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_pay",
+        "source_claim_id": "c_pay",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_pay",
+        "evidence_ids": [
+          "ev03"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "pay 350.00",
+          "raw_text": "pay 350.00"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "the translation",
+          "raw_text": "the translation"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "for the translation",
+          "raw_text": "for the translation"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "the translation",
+          "raw_text": "the translation"
+        },
+        "deadline_id": "c_due",
+        "monetary_term_ids": [
+          "c_fee"
+        ],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "37035d6a9f52f30aead45eaa71a013234e1bf4312744d0ae5e3cf15c84bb1bdb"
+  },
+  "policy_version": "delegation-0.4"
+}

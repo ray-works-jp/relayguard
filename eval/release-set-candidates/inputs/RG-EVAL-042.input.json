@@ -1,0 +1,121 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-042",
+  "source_message": {
+    "message_id": "RG-EVAL-042_msg",
+    "subject": "Partnership",
+    "body": "Hi,\nWe'd love to be your go-to partner for the whole region.\nWarm regards,\nExample Partners",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "82adfa0ecedcd2d8d558f93aaa51d7f26c7d8b1f8f700d929b681f95f98e4e9e"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-042_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-042_msg",
+    "source_hash": "82adfa0ecedcd2d8d558f93aaa51d7f26c7d8b1f8f700d929b681f95f98e4e9e",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [
+        {
+          "id": "c_rights",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "scope": {
+            "status": "explicit",
+            "value": "partnership for the whole region",
+            "raw_text": "partnership for the whole region"
+          },
+          "exclusivity": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "go-to partner"
+          },
+          "sublicensing": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "commercial_use": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-042_msg",
+          "source_hash": "82adfa0ecedcd2d8d558f93aaa51d7f26c7d8b1f8f700d929b681f95f98e4e9e",
+          "quote": "your go-to partner for the whole region",
+          "supports": [
+            "c_rights"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-042_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-042_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "82adfa0ecedcd2d8d558f93aaa51d7f26c7d8b1f8f700d929b681f95f98e4e9e",
+    "items": [
+      {
+        "item_id": "item_c_rights",
+        "source_claim_id": "c_rights",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "42ad559525c3363f214efdad29611da12a7af96beafa5866a4903d8773f3d3ad"
+  },
+  "policy_version": "delegation-0.4"
+}

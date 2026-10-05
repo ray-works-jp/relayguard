@@ -1,0 +1,138 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l1_anger",
+  "source_message": {
+    "message_id": "case_l1_anger_msg",
+    "subject": "Order inquiry",
+    "body": "I am really frustrated. I have been waiting three days for any reply to my message. Did anyone read it?",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "b22035430e2560743b775634add2ea651e5ff9030329d15114a942275eb2ff45"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l1_anger_interp",
+    "version": 1,
+    "source_message_id": "case_l1_anger_msg",
+    "source_hash": "b22035430e2560743b775634add2ea651e5ff9030329d15114a942275eb2ff45",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Did anyone read my message?",
+            "raw_text": "Did anyone read my message?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [
+        {
+          "id": "c_emotion",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "anger",
+          "intensity": "high",
+          "target": {
+            "status": "explicit",
+            "value": "slow reply",
+            "raw_text": "slow reply"
+          }
+        }
+      ],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l1_anger_msg",
+          "source_hash": "b22035430e2560743b775634add2ea651e5ff9030329d15114a942275eb2ff45",
+          "quote": "I am really frustrated.",
+          "supports": [
+            "c_emotion"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l1_anger_msg",
+          "source_hash": "b22035430e2560743b775634add2ea651e5ff9030329d15114a942275eb2ff45",
+          "quote": "Did anyone read it?",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l1_anger_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l1_anger_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "b22035430e2560743b775634add2ea651e5ff9030329d15114a942275eb2ff45",
+    "items": [
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_emotion",
+        "source_claim_id": "c_emotion",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "9a084f8ae070c857cfcce8fe20448bfba7cd8c12fe25b37dd22cc12250cd4cea"
+  },
+  "policy_version": "delegation-0.4"
+}

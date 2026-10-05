@@ -1,0 +1,174 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l1_emotion_notice",
+  "source_message": {
+    "message_id": "case_l1_emotion_notice_msg",
+    "subject": "Order inquiry",
+    "body": "I am really frustrated that your update arrived three days late. I just wanted you to know.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "37b15a67899996ca79494e80f0807bb4f9b2b9997eb560ace8ff0224815e3e9e"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l1_emotion_notice_interp",
+    "version": 1,
+    "source_message_id": "case_l1_emotion_notice_msg",
+    "source_hash": "37b15a67899996ca79494e80f0807bb4f9b2b9997eb560ace8ff0224815e3e9e",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Expresses dissatisfaction about a late update",
+            "raw_text": "Expresses dissatisfaction about a late update"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [
+        {
+          "id": "c_emotion",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "anger",
+          "intensity": "high",
+          "target": {
+            "status": "explicit",
+            "value": "late update",
+            "raw_text": "late update"
+          }
+        }
+      ],
+      "legal_claims": [],
+      "reputational_risks": [
+        {
+          "id": "c_past_delay",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "type": "reputational",
+          "description": {
+            "status": "explicit",
+            "value": "Earlier update was three days late",
+            "raw_text": "Earlier update was three days late"
+          },
+          "affects_critical": false,
+          "resolved": true
+        }
+      ],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l1_emotion_notice_msg",
+          "source_hash": "37b15a67899996ca79494e80f0807bb4f9b2b9997eb560ace8ff0224815e3e9e",
+          "quote": "I am really frustrated",
+          "supports": [
+            "c_emotion"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l1_emotion_notice_msg",
+          "source_hash": "37b15a67899996ca79494e80f0807bb4f9b2b9997eb560ace8ff0224815e3e9e",
+          "quote": "I just wanted you to know.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "case_l1_emotion_notice_msg",
+          "source_hash": "37b15a67899996ca79494e80f0807bb4f9b2b9997eb560ace8ff0224815e3e9e",
+          "quote": "your update arrived three days late",
+          "supports": [
+            "c_past_delay"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l1_emotion_notice_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l1_emotion_notice_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "37b15a67899996ca79494e80f0807bb4f9b2b9997eb560ace8ff0224815e3e9e",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_emotion",
+        "source_claim_id": "c_emotion",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_past_delay",
+        "source_claim_id": "c_past_delay",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "7e1dfad6b5fd3fdfaf1693e88b07c38888c0c2496496d6b6143729ab2ef46c83"
+  },
+  "policy_version": "delegation-0.4"
+}

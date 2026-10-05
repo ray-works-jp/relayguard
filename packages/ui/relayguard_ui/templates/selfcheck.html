@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}自己診断 - RelayGuard Reviewer{% endblock %}
+{% block content %}
+<p><a href="/">← 案件一覧</a></p>
+<section class="panel">
+  <h1>自己診断</h1>
+  <p class="muted small">起動前に詰まりやすい点をまとめて確認します。APIの確認には数円未満の費用がかかり、メール本文は送信しません。</p>
+  <table class="list">
+    <thead><tr><th>項目</th><th>結果</th><th>内容</th></tr></thead>
+    <tbody>
+    {% for r in results %}
+      <tr class="{% if not r.ok %}uncertain{% endif %}">
+        <td>{{ r.name }}</td>
+        <td><span class="state">{{ r.mark }}</span></td>
+        <td>{{ r.detail }}{% if r.fix %}<div class="todo">対処: {{ r.fix }}</div>{% endif %}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

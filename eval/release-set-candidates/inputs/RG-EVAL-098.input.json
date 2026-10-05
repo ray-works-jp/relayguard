@@ -1,0 +1,102 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-098",
+  "case_id": "RG-EVAL-098",
+  "source_message": {
+    "message_id": "RG-EVAL-098_msg",
+    "subject": "Packing notice",
+    "body": "Hello,\nYour order C-7700 has been packed and will ship tomorrow.\nOrder Desk",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "89b3e25b88a1512dfce476aee220bcc3c3499d7ecc3b2800ad28ae8dd93f9fd0"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-098_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-098_msg",
+    "source_hash": "89b3e25b88a1512dfce476aee220bcc3c3499d7ecc3b2800ad28ae8dd93f9fd0",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Notifies that the order is packed",
+            "raw_text": "Notifies that the order is packed"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-098_msg",
+          "source_hash": "89b3e25b88a1512dfce476aee220bcc3c3499d7ecc3b2800ad28ae8dd93f9fd0",
+          "quote": "Your order C-7700 has been packed",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-098_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-098_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "89b3e25b88a1512dfce476aee220bcc3c3499d7ecc3b2800ad28ae8dd93f9fd0",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "68d5e2810e131ae0e22c980686d4348d65daff9245fa7edcfcd3df08d594985e"
+  },
+  "policy_version": "delegation-0.4"
+}

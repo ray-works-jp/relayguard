@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:relayguard:schema:0.5:shadow-core-result",
+  "title": "ShadowCoreResult (SCHEMA.md v0.5 §10)",
+  "description": "Executable structural contract for the SG-001 result. level >= minimum_level and audit chain linkage are checked by the Domain layer.",
+  "$ref": "#/$defs/ShadowCoreResult",
+  "$defs": {
+    "ID": { "type": "string", "pattern": "[A-Za-z0-9_-]{1,128}" },
+    "Text": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "[^\\u0000-\\u0008\\u000B\\u000C\\u000E-\\u001F\\u007F-\\u009F]+"
+    },
+    "Hash": { "type": "string", "pattern": "[0-9a-f]{64}" },
+    "Version": { "type": "integer", "minimum": 1, "maximum": 9007199254740991 },
+    "Timestamp": { "type": "string", "format": "rg-timestamp" },
+    "NullableID": { "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/ID" }] },
+    "NullableHash": { "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/Hash" }] },
+    "DelegationLevel": { "enum": ["L0_AUTO", "L1_POST_REVIEW", "L2_PRE_APPROVAL", "L3_STOP"] },
+    "ReasonCode": {
+      "enum": [
+        "LEGAL_CLAIM", "UNRESOLVED_PROMPT_INJECTION", "CRITICAL_MISSING_INFORMATION", "ATTACHMENT_REQUIRED_MISSING",
+        "CONTRADICTORY_COMMITMENTS", "CRITICAL_DIFF", "REFUND_OR_CREDIT", "CONTRACTUAL_CHANGE", "RIGHTS_OR_LICENSE_CHANGE",
+        "NEW_GUARANTEE", "MATERIAL_MONEY_CHANGE", "MATERIAL_DEADLINE_CHANGE", "QUANTITY_CHANGE", "PERSONAL_DATA_DISCLOSURE",
+        "NEW_COMMITMENT", "POLICY_EXCEPTION", "CUSTOMER_SENSITIVITY", "LOW_RISK_INFORMATIONAL", "LOW_RISK_POST_REVIEW",
+        "UNCLASSIFIED_RISK", "ANSWER_REVIEW_REQUIRED", "INVALID_INPUT", "INCOMPLETE_PIPELINE", "STALE_STATE", "VERIFIER_BLOCK"
+      ]
+    },
+    "RiskAxis": { "enum": ["low", "medium", "high", "unknown"] },
+    "RiskFactors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["impact", "uncertainty", "irreversibility", "customer_sensitivity"],
+      "properties": {
+        "impact": { "$ref": "#/$defs/RiskAxis" },
+        "uncertainty": { "$ref": "#/$defs/RiskAxis" },
+        "irreversibility": { "$ref": "#/$defs/RiskAxis" },
+        "customer_sensitivity": { "$ref": "#/$defs/RiskAxis" }
+      }
+    },
+    "Binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["case_id", "source_hash", "interpretation_id", "interpretation_version", "decision_id", "decision_version", "decision_hash", "policy_version"],
+      "properties": {
+        "case_id": { "$ref": "#/$defs/ID" },
+        "source_hash": { "$ref": "#/$defs/Hash" },
+        "interpretation_id": { "$ref": "#/$defs/ID" },
+        "interpretation_version": { "$ref": "#/$defs/Version" },
+        "decision_id": { "$ref": "#/$defs/ID" },
+        "decision_version": { "$ref": "#/$defs/Version" },
+        "decision_hash": { "$ref": "#/$defs/Hash" },
+        "policy_version": { "$ref": "#/$defs/Text" }
+      }
+    },
+    "DraftBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "draft_id", "draft_hash"],
+      "properties": {
+        "decision": { "$ref": "#/$defs/Binding" },
+        "draft_id": { "$ref": "#/$defs/ID" },
+        "draft_hash": { "$ref": "#/$defs/Hash" }
+      }
+    },
+    "DelegationAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessment_id", "binding", "phase", "draft_binding", "level", "minimum_level", "reason_codes", "risk_factors", "shadow_mode", "human_review_required"],
+      "properties": {
+        "assessment_id": { "$ref": "#/$defs/ID" },
+        "binding": { "$ref": "#/$defs/Binding" },
+        "phase": { "enum": ["pre_generation", "post_verification"] },
+        "draft_binding": { "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/DraftBinding" }] },
+        "level": { "$ref": "#/$defs/DelegationLevel" },
+        "minimum_level": { "$ref": "#/$defs/DelegationLevel" },
+        "reason_codes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/ReasonCode" }, "uniqueItems": true },
+        "risk_factors": { "$ref": "#/$defs/RiskFactors" },
+        "shadow_mode": { "const": true },
+        "human_review_required": { "type": "boolean" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "phase": { "const": "pre_generation" } } },
+          "then": { "properties": { "draft_binding": { "type": "null" } } },
+          "else": { "properties": { "draft_binding": { "$ref": "#/$defs/DraftBinding" } } }
+        },
+        {
+          "if": { "properties": { "level": { "const": "L0_AUTO" } } },
+          "then": { "properties": { "human_review_required": { "const": false } } },
+          "else": { "properties": { "human_review_required": { "const": true } } }
+        }
+      ]
+    },
+    "AuditEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_id", "case_id", "actor_type", "actor_id", "event_type", "entity_id", "entity_hash", "previous_hash", "event_hash", "created_at"],
+      "properties": {
+        "event_id": { "$ref": "#/$defs/ID" },
+        "case_id": { "$ref": "#/$defs/ID" },
+        "actor_type": { "enum": ["user", "system", "fixture"] },
+        "actor_id": { "$ref": "#/$defs/NullableID" },
+        "event_type": { "$ref": "#/$defs/Text" },
+        "entity_id": { "$ref": "#/$defs/ID" },
+        "entity_hash": { "$ref": "#/$defs/Hash" },
+        "previous_hash": { "$ref": "#/$defs/NullableHash" },
+        "event_hash": { "$ref": "#/$defs/Hash" },
+        "created_at": { "$ref": "#/$defs/Timestamp" }
+      }
+    },
+    "Failure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "explanation_ja", "retryable", "case_id"],
+      "properties": {
+        "code": {
+          "enum": ["SafetyBlock", "SchemaInvalid", "StaleState", "ProviderUnavailable", "UnsupportedInput", "InjectionSuspected", "PolicyViolation", "InternalIntegrityError", "DelegationConflict"]
+        },
+        "explanation_ja": { "$ref": "#/$defs/Text" },
+        "retryable": { "type": "boolean" },
+        "case_id": { "$ref": "#/$defs/NullableID" }
+      },
+      "if": { "properties": { "code": { "not": { "const": "ProviderUnavailable" } } } },
+      "then": { "properties": { "retryable": { "const": false } } }
+    },
+    "AssessedResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "schema_version", "case_id", "assessment", "input_hash", "audit", "external_action_performed"],
+      "properties": {
+        "status": { "const": "assessed" },
+        "schema_version": { "const": "0.5" },
+        "case_id": { "$ref": "#/$defs/ID" },
+        "assessment": { "$ref": "#/$defs/DelegationAssessment" },
+        "input_hash": { "$ref": "#/$defs/Hash" },
+        "audit": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/AuditEvent" } },
+        "external_action_performed": { "const": false }
+      }
+    },
+    "RejectedResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "schema_version", "failure", "external_action_performed"],
+      "properties": {
+        "status": { "const": "rejected" },
+        "schema_version": { "const": "0.5" },
+        "failure": { "$ref": "#/$defs/Failure" },
+        "external_action_performed": { "const": false }
+      }
+    },
+    "ShadowCoreResult": {
+      "oneOf": [{ "$ref": "#/$defs/AssessedResult" }, { "$ref": "#/$defs/RejectedResult" }]
+    }
+  }
+}

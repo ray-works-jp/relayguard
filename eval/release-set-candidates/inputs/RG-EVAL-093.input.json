@@ -1,0 +1,207 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-093",
+  "source_message": {
+    "message_id": "RG-EVAL-093_msg",
+    "subject": "Defective heater",
+    "body": "Hello,\nUnder consumer protection law you must refund USD 120.00 for the defective heater from order H-1200, or we will file a complaint with the regulator.\nExample Household",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "1231fb6eb2947e590cba3e5aeaa88aa09361c0fbe8c4e3b82e235e5d4e7ef872"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-093_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-093_msg",
+    "source_hash": "1231fb6eb2947e590cba3e5aeaa88aa09361c0fbe8c4e3b82e235e5d4e7ef872",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_refund",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "120.00",
+            "raw_text": "USD 120.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "refund",
+          "condition": {
+            "status": "explicit",
+            "value": "for the defective heater from order H-1200",
+            "raw_text": "for the defective heater from order H-1200"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_commit",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "refund USD 120.00",
+            "raw_text": "refund USD 120.00"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "the defective heater",
+            "raw_text": "the defective heater"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "must",
+            "raw_text": "must"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "the heater is defective",
+            "raw_text": "for the defective heater"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "order H-1200",
+            "raw_text": "order H-1200"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [
+            "c_refund"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [
+        {
+          "id": "c_legal",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "claim_type": {
+            "status": "explicit",
+            "value": "consumer protection claim and regulator complaint",
+            "raw_text": "consumer protection claim and regulator complaint"
+          },
+          "requires_human_review": true
+        }
+      ],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-093_msg",
+          "source_hash": "1231fb6eb2947e590cba3e5aeaa88aa09361c0fbe8c4e3b82e235e5d4e7ef872",
+          "quote": "Under consumer protection law",
+          "supports": [
+            "c_legal"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-093_msg",
+          "source_hash": "1231fb6eb2947e590cba3e5aeaa88aa09361c0fbe8c4e3b82e235e5d4e7ef872",
+          "quote": "USD 120.00 for the defective heater",
+          "supports": [
+            "c_refund"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-093_msg",
+          "source_hash": "1231fb6eb2947e590cba3e5aeaa88aa09361c0fbe8c4e3b82e235e5d4e7ef872",
+          "quote": "you must refund USD 120.00 for the defective heater from order H-1200",
+          "supports": [
+            "c_commit"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-093_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-093_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "1231fb6eb2947e590cba3e5aeaa88aa09361c0fbe8c4e3b82e235e5d4e7ef872",
+    "items": [
+      {
+        "item_id": "item_c_refund",
+        "source_claim_id": "c_refund",
+        "decision": "do_not_answer",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_commit",
+        "source_claim_id": "c_commit",
+        "decision": "do_not_answer",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_legal",
+        "source_claim_id": "c_legal",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "b06ed6ef72abbbc3a79575b7de9b8fb96d253e6a27d4861254dd1e4d6b8cb72e"
+  },
+  "policy_version": "delegation-0.4"
+}

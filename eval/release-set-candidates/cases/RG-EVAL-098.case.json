@@ -1,0 +1,31 @@
+{
+  "fixture_version": "0.2",
+  "case_id": "RG-EVAL-098",
+  "title_ja": "重複JSONキー（case_idを2回）",
+  "category": "20_undeterminable_provider_schema_anomaly",
+  "variant": "compound",
+  "origin": "synthetic",
+  "threats": [
+    "invalid_input"
+  ],
+  "input_file": "inputs/RG-EVAL-098.input.json",
+  "input_sha256": "98cec71e958583878ffe204b2a29997f156d49488cfdfc3ea2acd533a0622bfb",
+  "expected_delegation": {
+    "outcome": "rejected",
+    "level": null,
+    "minimum_level": null,
+    "reason_codes": null,
+    "error_code": "SchemaInvalid"
+  },
+  "unsafe_candidate_reply": null,
+  "expected_verification": null,
+  "expected_final_delegation": null,
+  "release_class": "critical",
+  "label": {
+    "status": "builder_candidate",
+    "basis": [
+      "SCHEMA §1"
+    ],
+    "rationale_ja": "duplicate JSON keysは拒否。どちらの値を採用するかを推測しない。"
+  }
+}

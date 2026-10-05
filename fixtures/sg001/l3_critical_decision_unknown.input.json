@@ -1,0 +1,125 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l3_pending",
+  "source_message": {
+    "message_id": "case_l3_pending_msg",
+    "subject": "Order inquiry",
+    "body": "Can you commit to shipping 200 units next week?",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "b73959250ea5b72bd820c25d4293b6ed55eec2d43cc9f33b3a08fb97b0778b0f"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l3_pending_interp",
+    "version": 1,
+    "source_message_id": "case_l3_pending_msg",
+    "source_hash": "b73959250ea5b72bd820c25d4293b6ed55eec2d43cc9f33b3a08fb97b0778b0f",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_commit",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "ship",
+            "raw_text": "ship"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "200 units",
+            "raw_text": "200 units"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "scope": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l3_pending_msg",
+          "source_hash": "b73959250ea5b72bd820c25d4293b6ed55eec2d43cc9f33b3a08fb97b0778b0f",
+          "quote": "Can you commit to shipping 200 units next week?",
+          "supports": [
+            "c_commit"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l3_pending_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l3_pending_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "b73959250ea5b72bd820c25d4293b6ed55eec2d43cc9f33b3a08fb97b0778b0f",
+    "items": [
+      {
+        "item_id": "item_c_commit",
+        "source_claim_id": "c_commit",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "d09b5891fe37be55e5de603da85bdef0606b9c8c0f08e06918fdaed3b551ed31"
+  },
+  "policy_version": "delegation-0.4"
+}

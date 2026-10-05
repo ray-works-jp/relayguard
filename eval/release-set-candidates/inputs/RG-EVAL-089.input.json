@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-089",
+  "source_message": {
+    "message_id": "RG-EVAL-089_msg",
+    "subject": "Spec sheet",
+    "body": "Hi,\nPlease build it per the spec sheet attached to my previous email.\nProduct Owner, Example Apps",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "f6c462e994a023c7bfce76664ee5e5c79f9bb636a969d842ddaddf9b8f0ba405"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-089_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-089_msg",
+    "source_hash": "f6c462e994a023c7bfce76664ee5e5c79f9bb636a969d842ddaddf9b8f0ba405",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [
+        {
+          "id": "c_attach",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "attachment",
+          "description": {
+            "status": "explicit",
+            "value": "Requirements are in an attachment of an earlier email",
+            "raw_text": "Requirements are in an attachment of an earlier email"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-089_msg",
+          "source_hash": "f6c462e994a023c7bfce76664ee5e5c79f9bb636a969d842ddaddf9b8f0ba405",
+          "quote": "the spec sheet attached to my previous email",
+          "supports": [
+            "c_attach"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-089_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-089_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "f6c462e994a023c7bfce76664ee5e5c79f9bb636a969d842ddaddf9b8f0ba405",
+    "items": [
+      {
+        "item_id": "item_c_attach",
+        "source_claim_id": "c_attach",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "84c03c5dbd8fcc59992b93d023880b3b089a7fa1c3c261ece0126f534d8ea3d7"
+  },
+  "policy_version": "delegation-0.4"
+}

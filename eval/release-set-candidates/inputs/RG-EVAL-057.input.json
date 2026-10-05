@@ -1,0 +1,172 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-057",
+  "source_message": {
+    "message_id": "RG-EVAL-057_msg",
+    "subject": "Order",
+    "body": "Hi,\nLet's go ahead with the order at the price we discussed.\nCheers,\nExample Coffee Roasters",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "7123c35a60f5ac9f569159540deec79bcb426ea51b45867d4db52be83bcf5e31"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-057_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-057_msg",
+    "source_hash": "7123c35a60f5ac9f569159540deec79bcb426ea51b45867d4db52be83bcf5e31",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_price",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "unknown",
+            "value": null,
+            "raw_text": "the price we discussed"
+          },
+          "currency": {
+            "status": "unknown",
+            "value": null,
+            "raw_text": ""
+          },
+          "type": "price",
+          "condition": {
+            "status": "explicit",
+            "value": "as discussed",
+            "raw_text": "the price we discussed"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_proceed",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "proceed with the order",
+            "raw_text": "proceed with the order"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "the order",
+            "raw_text": "the order"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "at the price we discussed",
+            "raw_text": "at the price we discussed"
+          },
+          "scope": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [
+            "c_price"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-057_msg",
+          "source_hash": "7123c35a60f5ac9f569159540deec79bcb426ea51b45867d4db52be83bcf5e31",
+          "quote": "at the price we discussed",
+          "supports": [
+            "c_price"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-057_msg",
+          "source_hash": "7123c35a60f5ac9f569159540deec79bcb426ea51b45867d4db52be83bcf5e31",
+          "quote": "Let's go ahead with the order",
+          "supports": [
+            "c_proceed"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-057_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-057_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "7123c35a60f5ac9f569159540deec79bcb426ea51b45867d4db52be83bcf5e31",
+    "items": [
+      {
+        "item_id": "item_c_price",
+        "source_claim_id": "c_price",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_proceed",
+        "source_claim_id": "c_proceed",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "c3c9ed290550a515b5717c336f58dc47249d94808e3f3ebb72948511a9285b97"
+  },
+  "policy_version": "delegation-0.4"
+}

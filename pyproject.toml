@@ -1,0 +1,58 @@
+[project]
+name = "relayguard-core"
+version = "0.0.0"
+description = "RelayGuard - offline delegation core, deterministic reply verification and local reviewer UI (no e-mail sending)"
+requires-python = ">=3.14"
+dependencies = ["jsonschema>=4.26"]
+
+[project.optional-dependencies]
+ui = ["fastapi>=0.115", "jinja2>=3.1", "python-multipart>=0.0.9", "uvicorn>=0.30"]
+llm = ["anthropic>=1.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["packages/core", "packages/core/tests", "packages/evaluation", "packages/evaluation/tests", "packages/evaluation/authoring", "packages/ui", "packages/ui/tests", "scripts"]
+testpaths = ["packages/core/tests", "packages/evaluation/tests", "packages/ui/tests"]
+addopts = "-q --strict-markers"
+
+[tool.ruff]
+line-length = 140
+target-version = "py314"
+src = ["packages/core", "packages/evaluation", "packages/ui"]
+include = ["packages/core/**/*.py", "packages/evaluation/**/*.py", "packages/ui/relayguard_ui/**/*.py", "packages/ui/tests/**/*.py", "scripts/**/*.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "BLE", "S", "PL"]
+ignore = [
+  "RUF001", "RUF002", "RUF003",  # Japanese full-width punctuation in messages/docs is intentional
+  "PLR2004",                     # magic values in tests / limits
+  "PLR0911", "PLR0912", "PLR0915",
+  "SIM905",                      # whitespace-separated code table is clearer than a list literal
+]
+
+[tool.ruff.lint.per-file-ignores]
+"packages/core/tests/**" = ["S101", "PLR0913", "PLR0917", "S603", "E501"]
+"packages/evaluation/tests/**" = ["S101", "PLR0913", "PLR0917", "S603", "E501"]
+"packages/ui/tests/**" = ["S101", "PLR0913", "PLR0917", "S105", "S106", "E501"]
+"packages/evaluation/authoring/**" = ["E501", "PLR0913"]
+"scripts/**" = ["S603"]
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+mypy_path = ["packages/core", "packages/core/tests", "packages/evaluation", "packages/evaluation/tests", "packages/evaluation/authoring", "packages/ui", "packages/ui/tests", "scripts"]
+files = ["packages/core/relayguard", "packages/core/tests", "packages/evaluation/relayguard_eval", "packages/evaluation/authoring", "packages/evaluation/tests", "packages/ui/relayguard_ui", "packages/ui/tests", "scripts"]
+explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+module = ["jsonschema", "jsonschema.*"]
+ignore_missing_imports = true
+
+[tool.pyright]
+# LSP / editor intelligence only. The enforced type gate stays mypy strict (see
+# [tool.mypy]); pyright is not part of the verification sequence.
+venvPath = "."
+venv = ".venv"
+include = ["packages/core", "packages/evaluation", "packages/ui", "scripts"]
+extraPaths = ["packages/core", "packages/core/tests", "packages/evaluation", "packages/evaluation/tests", "packages/evaluation/authoring", "packages/ui", "packages/ui/tests", "scripts"]
+typeCheckingMode = "standard"
+reportMissingImports = "error"

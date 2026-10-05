@@ -1,0 +1,205 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-029",
+  "source_message": {
+    "message_id": "RG-EVAL-029_msg",
+    "subject": "Renewal",
+    "body": "Hello,\nPlease renew our workspace with the same headcount as last quarter.\nRegards,\nAdmin, Example Clinic",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "a62aaf38438997563e3078ae461ab5f112f9124d5a1261c12a24b703abbc969d"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-029_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-029_msg",
+    "source_hash": "a62aaf38438997563e3078ae461ab5f112f9124d5a1261c12a24b703abbc969d",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [
+        {
+          "id": "c_headcount",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "quantity": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "unit": {
+            "status": "explicit",
+            "value": "users",
+            "raw_text": "headcount"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "same as last quarter",
+            "raw_text": "same as last quarter"
+          }
+        }
+      ],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_renew",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "renew the workspace",
+            "raw_text": "renew the workspace"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "our workspace",
+            "raw_text": "our workspace"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "same headcount as last quarter",
+            "raw_text": "same headcount as last quarter"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "our workspace",
+            "raw_text": "our workspace"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-029_msg",
+          "source_hash": "a62aaf38438997563e3078ae461ab5f112f9124d5a1261c12a24b703abbc969d",
+          "quote": "the same headcount as last quarter",
+          "supports": [
+            "c_headcount"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-029_msg",
+          "source_hash": "a62aaf38438997563e3078ae461ab5f112f9124d5a1261c12a24b703abbc969d",
+          "quote": "Please renew our workspace",
+          "supports": [
+            "c_renew"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-029_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-029_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "a62aaf38438997563e3078ae461ab5f112f9124d5a1261c12a24b703abbc969d",
+    "items": [
+      {
+        "item_id": "item_c_headcount",
+        "source_claim_id": "c_headcount",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_renew",
+        "source_claim_id": "c_renew",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_renew",
+        "evidence_ids": [
+          "ev02"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "renew the workspace",
+          "raw_text": "renew the workspace"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "our workspace",
+          "raw_text": "our workspace"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "same headcount as last quarter",
+          "raw_text": "same headcount as last quarter"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "our workspace",
+          "raw_text": "our workspace"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "6913b9cf49f889412b1be584dd3fd1f57ca876c1b007b7523b420c3e3809fddf"
+  },
+  "policy_version": "delegation-0.4"
+}

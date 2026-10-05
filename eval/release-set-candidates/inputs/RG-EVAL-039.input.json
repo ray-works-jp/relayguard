@@ -1,0 +1,192 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-039",
+  "source_message": {
+    "message_id": "RG-EVAL-039_msg",
+    "subject": "Support response",
+    "body": "Hello,\nYour 2025 contract promised a 4-hour response time, but last month you took two days to respond to our outage ticket. We are starting to doubt your support.\nOps Manager, Example Freight",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "2caf601de93aee6d19543f6f55937a67fb08880af660ecdd480371294688e034"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-039_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-039_msg",
+    "source_hash": "2caf601de93aee6d19543f6f55937a67fb08880af660ecdd480371294688e034",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [
+        {
+          "id": "c_sla",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "4-hour response time",
+            "raw_text": "4-hour response time"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "under the 2025 contract",
+            "raw_text": "Your 2025 contract"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "support response time",
+            "raw_text": "support response time"
+          },
+          "monetary_term_ids": [],
+          "deadline_ids": [],
+          "commitment_ids": []
+        }
+      ],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [
+        {
+          "id": "c_emotion",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "type": "distrust",
+          "intensity": "medium",
+          "target": {
+            "status": "explicit",
+            "value": "support response",
+            "raw_text": "support response"
+          }
+        }
+      ],
+      "legal_claims": [],
+      "reputational_risks": [
+        {
+          "id": "c_rep",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "reputational",
+          "description": {
+            "status": "explicit",
+            "value": "A past response-time commitment was missed",
+            "raw_text": "A past response-time commitment was missed"
+          },
+          "affects_critical": false,
+          "resolved": false
+        }
+      ],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-039_msg",
+          "source_hash": "2caf601de93aee6d19543f6f55937a67fb08880af660ecdd480371294688e034",
+          "quote": "Your 2025 contract promised a 4-hour response time",
+          "supports": [
+            "c_sla"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-039_msg",
+          "source_hash": "2caf601de93aee6d19543f6f55937a67fb08880af660ecdd480371294688e034",
+          "quote": "last month you took two days to respond to our outage ticket",
+          "supports": [
+            "c_rep"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-039_msg",
+          "source_hash": "2caf601de93aee6d19543f6f55937a67fb08880af660ecdd480371294688e034",
+          "quote": "We are starting to doubt your support.",
+          "supports": [
+            "c_emotion"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-039_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-039_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "2caf601de93aee6d19543f6f55937a67fb08880af660ecdd480371294688e034",
+    "items": [
+      {
+        "item_id": "item_c_sla",
+        "source_claim_id": "c_sla",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_emotion",
+        "source_claim_id": "c_emotion",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_rep",
+        "source_claim_id": "c_rep",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "ac003ad3e60daef2b4b3105fdb4a2282f6068266beb417fbc72fbf493e40e03b"
+  },
+  "policy_version": "delegation-0.4"
+}

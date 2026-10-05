@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-087",
+  "source_message": {
+    "message_id": "RG-EVAL-087_msg",
+    "subject": "Details",
+    "body": "Hi,\nThe details are in the file I shared with you.\nThanks,\nExample Architects Office",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "5bdd751b4968a9456c9dccf5efe844e8a9724df5ec593188bfc749afac226acf"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-087_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-087_msg",
+    "source_hash": "5bdd751b4968a9456c9dccf5efe844e8a9724df5ec593188bfc749afac226acf",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [
+        {
+          "id": "c_attach",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "attachment",
+          "description": {
+            "status": "explicit",
+            "value": "Details exist only in a shared file",
+            "raw_text": "Details exist only in a shared file"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-087_msg",
+          "source_hash": "5bdd751b4968a9456c9dccf5efe844e8a9724df5ec593188bfc749afac226acf",
+          "quote": "The details are in the file I shared with you.",
+          "supports": [
+            "c_attach"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-087_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-087_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "5bdd751b4968a9456c9dccf5efe844e8a9724df5ec593188bfc749afac226acf",
+    "items": [
+      {
+        "item_id": "item_c_attach",
+        "source_claim_id": "c_attach",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "9b66e4ded3de956690d4351182ee9a644942e2f669328c261e41e8e98b0af754"
+  },
+  "policy_version": "delegation-0.4"
+}

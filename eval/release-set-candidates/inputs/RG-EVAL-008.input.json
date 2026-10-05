@@ -1,0 +1,333 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-008",
+  "source_message": {
+    "message_id": "RG-EVAL-008_msg",
+    "subject": "Order terms",
+    "body": "Hello,\nWe can place the order for USD 5000.00 if you apply a discount of USD 250.00 for orders placed this month, and deliver by 2026-11-02 (JST). Please confirm both.\nBest,\nSato, Example Retail",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "815b0ceae3f138717746e6d0226883379f5508c6fb4381089142094ddbbdc9d8"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-008_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-008_msg",
+    "source_hash": "815b0ceae3f138717746e6d0226883379f5508c6fb4381089142094ddbbdc9d8",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_total",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "5000.00",
+            "raw_text": "USD 5000.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "price",
+          "condition": {
+            "status": "explicit",
+            "value": "for the order",
+            "raw_text": "for the order"
+          }
+        },
+        {
+          "id": "c_disc",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "250.00",
+            "raw_text": "USD 250.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "discount",
+          "condition": {
+            "status": "explicit",
+            "value": "for orders placed this month",
+            "raw_text": "for orders placed this month"
+          }
+        }
+      ],
+      "dates": [
+        {
+          "id": "c_due",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-11-02",
+            "raw_text": "2026-11-02"
+          },
+          "timezone": {
+            "status": "explicit",
+            "value": "JST",
+            "raw_text": "JST"
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_apply",
+          "evidence_ids": [
+            "ev04"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "apply a discount and deliver",
+            "raw_text": "apply a discount and deliver"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "the order",
+            "raw_text": "the order"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "for orders placed this month",
+            "raw_text": "for orders placed this month"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "this order",
+            "raw_text": "this order"
+          },
+          "deadline_id": "c_due",
+          "monetary_term_ids": [
+            "c_disc"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-008_msg",
+          "source_hash": "815b0ceae3f138717746e6d0226883379f5508c6fb4381089142094ddbbdc9d8",
+          "quote": "place the order for USD 5000.00",
+          "supports": [
+            "c_total"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-008_msg",
+          "source_hash": "815b0ceae3f138717746e6d0226883379f5508c6fb4381089142094ddbbdc9d8",
+          "quote": "a discount of USD 250.00 for orders placed this month",
+          "supports": [
+            "c_disc"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-008_msg",
+          "source_hash": "815b0ceae3f138717746e6d0226883379f5508c6fb4381089142094ddbbdc9d8",
+          "quote": "deliver by 2026-11-02 (JST)",
+          "supports": [
+            "c_due"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev04",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-008_msg",
+          "source_hash": "815b0ceae3f138717746e6d0226883379f5508c6fb4381089142094ddbbdc9d8",
+          "quote": "if you apply a discount of USD 250.00",
+          "supports": [
+            "c_apply"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-008_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-008_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "815b0ceae3f138717746e6d0226883379f5508c6fb4381089142094ddbbdc9d8",
+    "items": [
+      {
+        "item_id": "item_c_total",
+        "source_claim_id": "c_total",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_disc",
+        "source_claim_id": "c_disc",
+        "decision": "modify",
+        "replacement": {
+          "kind": "MonetaryTerm",
+          "value": {
+            "id": "c_disc",
+            "evidence_ids": [],
+            "amount": {
+              "status": "explicit",
+              "value": "200.00",
+              "raw_text": ""
+            },
+            "currency": {
+              "status": "explicit",
+              "value": "USD",
+              "raw_text": "USD"
+            },
+            "type": "discount",
+            "condition": {
+              "status": "explicit",
+              "value": "for orders placed this month",
+              "raw_text": "for orders placed this month"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_due",
+        "source_claim_id": "c_due",
+        "decision": "modify",
+        "replacement": {
+          "kind": "DateTerm",
+          "value": {
+            "id": "c_due",
+            "evidence_ids": [],
+            "type": "deadline",
+            "date": {
+              "status": "explicit",
+              "value": "2026-11-09",
+              "raw_text": ""
+            },
+            "timezone": {
+              "status": "explicit",
+              "value": "JST",
+              "raw_text": "JST"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_apply",
+        "source_claim_id": "c_apply",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_apply",
+        "evidence_ids": [
+          "ev04"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "apply a discount and deliver",
+          "raw_text": "apply a discount and deliver"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "the order",
+          "raw_text": "the order"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "for orders placed this month",
+          "raw_text": "for orders placed this month"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "this order",
+          "raw_text": "this order"
+        },
+        "deadline_id": "c_due",
+        "monetary_term_ids": [
+          "c_disc"
+        ],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "cbc74cfa95840ae852a99a26e92668a7de36d71710bec8e7047a2cb27dd34529"
+  },
+  "policy_version": "delegation-0.4"
+}

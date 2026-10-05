@@ -1,0 +1,205 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-026",
+  "source_message": {
+    "message_id": "RG-EVAL-026_msg",
+    "subject": "Seats",
+    "body": "Hello,\nPlease increase our subscription from 10 to 25 users starting with the next billing cycle.\nThanks,\nIT Admin, Example Logistics",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "44593ad0681e0cb0d28f03a4a4511b1c03b7d2df0e4b4b7fdfbf94eeb3283c69"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-026_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-026_msg",
+    "source_hash": "44593ad0681e0cb0d28f03a4a4511b1c03b7d2df0e4b4b7fdfbf94eeb3283c69",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [
+        {
+          "id": "c_seats",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "quantity": {
+            "status": "explicit",
+            "value": "25",
+            "raw_text": "25"
+          },
+          "unit": {
+            "status": "explicit",
+            "value": "users",
+            "raw_text": "users"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "starting with the next billing cycle",
+            "raw_text": "starting with the next billing cycle"
+          }
+        }
+      ],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_increase",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "increase the subscription to 25 users",
+            "raw_text": "increase the subscription to 25 users"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "our subscription",
+            "raw_text": "our subscription"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "starting with the next billing cycle",
+            "raw_text": "starting with the next billing cycle"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "our subscription",
+            "raw_text": "our subscription"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-026_msg",
+          "source_hash": "44593ad0681e0cb0d28f03a4a4511b1c03b7d2df0e4b4b7fdfbf94eeb3283c69",
+          "quote": "25 users starting with the next billing cycle",
+          "supports": [
+            "c_seats"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-026_msg",
+          "source_hash": "44593ad0681e0cb0d28f03a4a4511b1c03b7d2df0e4b4b7fdfbf94eeb3283c69",
+          "quote": "Please increase our subscription from 10 to 25 users",
+          "supports": [
+            "c_increase"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-026_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-026_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "44593ad0681e0cb0d28f03a4a4511b1c03b7d2df0e4b4b7fdfbf94eeb3283c69",
+    "items": [
+      {
+        "item_id": "item_c_seats",
+        "source_claim_id": "c_seats",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_increase",
+        "source_claim_id": "c_increase",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_increase",
+        "evidence_ids": [
+          "ev02"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "increase the subscription to 25 users",
+          "raw_text": "increase the subscription to 25 users"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "our subscription",
+          "raw_text": "our subscription"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "starting with the next billing cycle",
+          "raw_text": "starting with the next billing cycle"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "our subscription",
+          "raw_text": "our subscription"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "ff4dd6a8a80dd3af1a38d6c61e00c6fed0b7262ead3b38b167c22ab5d3cf81d6"
+  },
+  "policy_version": "delegation-0.4"
+}

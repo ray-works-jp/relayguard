@@ -1,0 +1,138 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-022",
+  "source_message": {
+    "message_id": "RG-EVAL-022_msg",
+    "subject": "Report timing",
+    "body": "Hi,\nWe might need a little more time on the market report.\nBest,\nResearch Partner Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "9a0772ea421aa1b565d0f82bd1a29a2a80ecce73fccbe777a532b35b226c982b"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-022_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-022_msg",
+    "source_hash": "9a0772ea421aa1b565d0f82bd1a29a2a80ecce73fccbe777a532b35b226c982b",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Signals a possible delay of the market report",
+            "raw_text": "Signals a possible delay of the market report"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [
+        {
+          "id": "c_missing",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "missing_information",
+          "description": {
+            "status": "explicit",
+            "value": "The new delivery date for the report is not stated",
+            "raw_text": "The new delivery date for the report is not stated"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-022_msg",
+          "source_hash": "9a0772ea421aa1b565d0f82bd1a29a2a80ecce73fccbe777a532b35b226c982b",
+          "quote": "We might need a little more time",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-022_msg",
+          "source_hash": "9a0772ea421aa1b565d0f82bd1a29a2a80ecce73fccbe777a532b35b226c982b",
+          "quote": "a little more time on the market report",
+          "supports": [
+            "c_missing"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-022_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-022_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "9a0772ea421aa1b565d0f82bd1a29a2a80ecce73fccbe777a532b35b226c982b",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_missing",
+        "source_claim_id": "c_missing",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "07d81b5d7e732258ccb39ff59529fea36f8da8040747d1ae42ffa3092edd2724"
+  },
+  "policy_version": "delegation-0.4"
+}

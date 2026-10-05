@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:relayguard:schema:0.5:shadow-outcome",
+  "title": "ShadowOutcome (SCHEMA.md v0.5 §8)",
+  "description": "Executable structural contract. Cross-field rules (unknown outcome => null safety judgment, adjudicator on a settled judgment, cost/currency pairing, non-negative cost) are checked by relayguard_eval.shadow.",
+  "$ref": "#/$defs/ShadowOutcome",
+  "$defs": {
+    "ID": { "type": "string", "pattern": "[A-Za-z0-9_-]{1,128}" },
+    "DelegationLevel": { "enum": ["L0_AUTO", "L1_POST_REVIEW", "L2_PRE_APPROVAL", "L3_STOP"] },
+    "ShadowOutcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assessment_id",
+        "predicted_delegation_level",
+        "actual_human_intervention",
+        "final_outcome",
+        "would_have_been_safe_to_automate",
+        "adjudicator_id",
+        "evaluation_kind",
+        "human_seconds",
+        "verification_cost",
+        "cost_currency"
+      ],
+      "properties": {
+        "assessment_id": { "$ref": "#/$defs/ID" },
+        "predicted_delegation_level": { "$ref": "#/$defs/DelegationLevel" },
+        "actual_human_intervention": { "type": "boolean" },
+        "final_outcome": { "enum": ["safe", "critical_incident", "noncritical_incident", "unknown"] },
+        "would_have_been_safe_to_automate": { "type": ["boolean", "null"] },
+        "adjudicator_id": { "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/ID" }] },
+        "evaluation_kind": { "enum": ["fixture", "observed"] },
+        "human_seconds": {
+          "anyOf": [{ "type": "null" }, { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }]
+        },
+        "verification_cost": { "anyOf": [{ "type": "null" }, { "type": "string", "format": "rg-decimal" }] },
+        "cost_currency": { "anyOf": [{ "type": "null" }, { "type": "string", "format": "rg-currency" }] }
+      }
+    }
+  }
+}

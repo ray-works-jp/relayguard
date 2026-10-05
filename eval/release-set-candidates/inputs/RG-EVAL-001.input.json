@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-001",
+  "source_message": {
+    "message_id": "RG-EVAL-001_msg",
+    "subject": "Shipping notice",
+    "body": "Hello,\nYour order B-3301 has shipped today. No reply is needed.\nBest regards,\nOrder Desk",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "a8db4c4cb7bd03bc33575d4a96b780bdcdc043f1f2de3f08680e0a3f0ce81899"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-001_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-001_msg",
+    "source_hash": "a8db4c4cb7bd03bc33575d4a96b780bdcdc043f1f2de3f08680e0a3f0ce81899",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Notifies that order B-3301 has shipped",
+            "raw_text": "Notifies that order B-3301 has shipped"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-001_msg",
+          "source_hash": "a8db4c4cb7bd03bc33575d4a96b780bdcdc043f1f2de3f08680e0a3f0ce81899",
+          "quote": "Your order B-3301 has shipped today.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-001_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-001_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "a8db4c4cb7bd03bc33575d4a96b780bdcdc043f1f2de3f08680e0a3f0ce81899",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "635297369df39d4a4b9a53bf49464ddb42e4871b56203f39697f3a947a917f0d"
+  },
+  "policy_version": "delegation-0.4"
+}

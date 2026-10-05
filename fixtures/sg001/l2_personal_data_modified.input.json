@@ -1,0 +1,146 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l2_pii_modify",
+  "source_message": {
+    "message_id": "case_l2_pii_modify_msg",
+    "subject": "Order inquiry",
+    "body": "Please send the parcel to Hanako Sample, 1-2-3 Sample-cho.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "412dcae17d6aaeed1f636ae708490181ba47c7884b30c945419d3a73a1b03618"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l2_pii_modify_interp",
+    "version": 1,
+    "source_message_id": "case_l2_pii_modify_msg",
+    "source_hash": "412dcae17d6aaeed1f636ae708490181ba47c7884b30c945419d3a73a1b03618",
+    "state": {
+      "sender_intent": [],
+      "requests": [
+        {
+          "id": "c_req",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Ship the parcel to the stated address",
+            "raw_text": "Ship the parcel to the stated address"
+          }
+        }
+      ],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [
+        {
+          "id": "c_pii",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Hanako Sample, 1-2-3 Sample-cho",
+            "raw_text": "Hanako Sample, 1-2-3 Sample-cho"
+          }
+        }
+      ],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l2_pii_modify_msg",
+          "source_hash": "412dcae17d6aaeed1f636ae708490181ba47c7884b30c945419d3a73a1b03618",
+          "quote": "Hanako Sample, 1-2-3 Sample-cho",
+          "supports": [
+            "c_pii"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l2_pii_modify_msg",
+          "source_hash": "412dcae17d6aaeed1f636ae708490181ba47c7884b30c945419d3a73a1b03618",
+          "quote": "Please send the parcel",
+          "supports": [
+            "c_req"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l2_pii_modify_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l2_pii_modify_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "412dcae17d6aaeed1f636ae708490181ba47c7884b30c945419d3a73a1b03618",
+    "items": [
+      {
+        "item_id": "item_c_req",
+        "source_claim_id": "c_req",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_pii",
+        "source_claim_id": "c_pii",
+        "decision": "modify",
+        "replacement": {
+          "kind": "TextClaim",
+          "value": {
+            "id": "c_pii",
+            "evidence_ids": [],
+            "text": {
+              "status": "explicit",
+              "value": "Hanako Sample, 1-2-3 Sample-cho, Room 401",
+              "raw_text": ""
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "ee8730b05bea9c253a512ea0ec47b324c2e0ebfd2af4a4373c95366d4361f111"
+  },
+  "policy_version": "delegation-0.4"
+}

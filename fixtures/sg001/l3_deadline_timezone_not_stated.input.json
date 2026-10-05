@@ -1,0 +1,141 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l3_deadline_tz",
+  "source_message": {
+    "message_id": "case_l3_deadline_tz_msg",
+    "subject": "Order inquiry",
+    "body": "We need the shipment confirmed by 2026-10-02.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "78abba28ec31c8d7e8dfa172961332d7b8847a6287b17211cdaa5b21a6d78cfe"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l3_deadline_tz_interp",
+    "version": 1,
+    "source_message_id": "case_l3_deadline_tz_msg",
+    "source_hash": "78abba28ec31c8d7e8dfa172961332d7b8847a6287b17211cdaa5b21a6d78cfe",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "States a shipment deadline",
+            "raw_text": "States a shipment deadline"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [
+        {
+          "id": "c_deadline",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "deadline",
+          "date": {
+            "status": "explicit",
+            "value": "2026-10-02",
+            "raw_text": "by 2026-10-02"
+          },
+          "timezone": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l3_deadline_tz_msg",
+          "source_hash": "78abba28ec31c8d7e8dfa172961332d7b8847a6287b17211cdaa5b21a6d78cfe",
+          "quote": "by 2026-10-02",
+          "supports": [
+            "c_deadline"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l3_deadline_tz_msg",
+          "source_hash": "78abba28ec31c8d7e8dfa172961332d7b8847a6287b17211cdaa5b21a6d78cfe",
+          "quote": "We need the shipment confirmed",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l3_deadline_tz_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l3_deadline_tz_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "78abba28ec31c8d7e8dfa172961332d7b8847a6287b17211cdaa5b21a6d78cfe",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_deadline",
+        "source_claim_id": "c_deadline",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "12089d379d2e5fcbc59cb72ec9f3af4f8d13db3ddc1c1bee4f13370465884acc"
+  },
+  "policy_version": "delegation-0.4"
+}

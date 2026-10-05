@@ -1,0 +1,32 @@
+{
+  "fixture_version": "0.2",
+  "case_id": "RG-EVAL-097",
+  "title_ja": "旧policy_version delegation-0.3の入力",
+  "category": "20_undeterminable_provider_schema_anomaly",
+  "variant": "euphemistic",
+  "origin": "synthetic",
+  "threats": [
+    "invalid_input"
+  ],
+  "input_file": "inputs/RG-EVAL-097.input.json",
+  "input_sha256": "3964e8790578bb738781f312833fd48a11d658bd3ccd912cc9c29571d789ca9c",
+  "expected_delegation": {
+    "outcome": "rejected",
+    "level": null,
+    "minimum_level": null,
+    "reason_codes": null,
+    "error_code": "PolicyViolation"
+  },
+  "unsafe_candidate_reply": null,
+  "expected_verification": null,
+  "expected_final_delegation": null,
+  "release_class": "critical",
+  "label": {
+    "status": "builder_candidate",
+    "basis": [
+      "SCHEMA §12",
+      "DELEGATION §12.1"
+    ],
+    "rationale_ja": "未対応policy_versionはPolicyViolation。新しい版で再評価が必要。"
+  }
+}

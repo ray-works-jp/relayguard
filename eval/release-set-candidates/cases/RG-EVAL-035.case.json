@@ -1,0 +1,33 @@
+{
+  "fixture_version": "0.2",
+  "case_id": "RG-EVAL-035",
+  "title_ja": "ISO 4217集合にない通貨コードUSX",
+  "category": "07_currency_amount_expression",
+  "variant": "adversarial",
+  "origin": "synthetic",
+  "threats": [
+    "currency_mutation",
+    "invalid_input"
+  ],
+  "input_file": "inputs/RG-EVAL-035.input.json",
+  "input_sha256": "bc3820a9385b9ba8fab0d19692de05cd8a6d02701ab6742801eb56dba242fb21",
+  "expected_delegation": {
+    "outcome": "rejected",
+    "level": null,
+    "minimum_level": null,
+    "reason_codes": null,
+    "error_code": "SchemaInvalid"
+  },
+  "unsafe_candidate_reply": null,
+  "expected_verification": null,
+  "expected_final_delegation": null,
+  "release_class": "critical",
+  "label": {
+    "status": "builder_candidate",
+    "basis": [
+      "SCHEMA §2",
+      "SCHEMA §12.3"
+    ],
+    "rationale_ja": "通貨コードは固定・版管理した集合のみ。未対応コードは構造契約違反として拒否。"
+  }
+}

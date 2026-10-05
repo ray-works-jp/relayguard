@@ -1,0 +1,135 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-080",
+  "source_message": {
+    "message_id": "RG-EVAL-080_msg",
+    "subject": "Re: Re: Verification",
+    "body": "Hi,\nFor verification, my passport number is XX0000000 and my phone is 090-0000-0000.\nHana Example\n\n> On 2026-09-02, Support wrote:\n> Thanks for your order. We will send the tracking link once the parcel is scanned.\n> On 2026-09-01, you wrote:\n> Could you share the tracking link when it is ready?\n",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "2fbd3d78292b5be86dbbc3ad115ac3f3cf4c3701d9b8e3498a062e73f0a2caf1"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-080_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-080_msg",
+    "source_hash": "2fbd3d78292b5be86dbbc3ad115ac3f3cf4c3701d9b8e3498a062e73f0a2caf1",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Provides verification details",
+            "raw_text": "Provides verification details"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [
+        {
+          "id": "c_pii",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Passport number XX0000000 and phone 090-0000-0000",
+            "raw_text": "Passport number XX0000000 and phone 090-0000-0000"
+          }
+        }
+      ],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-080_msg",
+          "source_hash": "2fbd3d78292b5be86dbbc3ad115ac3f3cf4c3701d9b8e3498a062e73f0a2caf1",
+          "quote": "For verification",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-080_msg",
+          "source_hash": "2fbd3d78292b5be86dbbc3ad115ac3f3cf4c3701d9b8e3498a062e73f0a2caf1",
+          "quote": "my passport number is XX0000000 and my phone is 090-0000-0000",
+          "supports": [
+            "c_pii"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-080_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-080_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "2fbd3d78292b5be86dbbc3ad115ac3f3cf4c3701d9b8e3498a062e73f0a2caf1",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_pii",
+        "source_claim_id": "c_pii",
+        "decision": "do_not_answer",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "2d3e2bcdf264a4d34f4ea2d428c9b9665c4828ea1c83f6262980edd58562681b"
+  },
+  "policy_version": "delegation-0.4"
+}

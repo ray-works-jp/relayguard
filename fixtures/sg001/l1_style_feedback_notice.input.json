@@ -1,0 +1,137 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l1_style_feedback",
+  "source_message": {
+    "message_id": "case_l1_style_feedback_msg",
+    "subject": "Order inquiry",
+    "body": "Honestly, the wording in your last newsletter felt too pushy to me. Just sharing my impression.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "a51b8df56f35ce2bdd8dd2ff1348040d86247c4e3197eccdd2b2a04144c79a13"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l1_style_feedback_interp",
+    "version": 1,
+    "source_message_id": "case_l1_style_feedback_msg",
+    "source_hash": "a51b8df56f35ce2bdd8dd2ff1348040d86247c4e3197eccdd2b2a04144c79a13",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Shares an impression about the newsletter wording",
+            "raw_text": "Shares an impression about the newsletter wording"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [
+        {
+          "id": "c_emotion",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "other",
+          "intensity": "low",
+          "target": {
+            "status": "explicit",
+            "value": "newsletter wording",
+            "raw_text": "newsletter wording"
+          }
+        }
+      ],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l1_style_feedback_msg",
+          "source_hash": "a51b8df56f35ce2bdd8dd2ff1348040d86247c4e3197eccdd2b2a04144c79a13",
+          "quote": "felt too pushy to me",
+          "supports": [
+            "c_emotion"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l1_style_feedback_msg",
+          "source_hash": "a51b8df56f35ce2bdd8dd2ff1348040d86247c4e3197eccdd2b2a04144c79a13",
+          "quote": "Just sharing my impression.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l1_style_feedback_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l1_style_feedback_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "a51b8df56f35ce2bdd8dd2ff1348040d86247c4e3197eccdd2b2a04144c79a13",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_emotion",
+        "source_claim_id": "c_emotion",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "762358df1ac91d5a5327202ee3b952b5a751c0bddcb095a0da55f444d5fe9bf1"
+  },
+  "policy_version": "delegation-0.4"
+}

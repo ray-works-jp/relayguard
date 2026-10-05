@@ -1,0 +1,268 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-013",
+  "source_message": {
+    "message_id": "RG-EVAL-013_msg",
+    "subject": "Torn jacket",
+    "body": "This is really unacceptable. The jacket from order R-3100 came with a torn sleeve. I want a refund of USD 60.00 for the jacket, returned at your cost.\nKaito Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "d4c8d86a8956ad3ab6d6507f3076a52679ca713911cfae5c1bdf4ea4d750d9df"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-013_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-013_msg",
+    "source_hash": "d4c8d86a8956ad3ab6d6507f3076a52679ca713911cfae5c1bdf4ea4d750d9df",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [
+        {
+          "id": "c_refund",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "amount": {
+            "status": "explicit",
+            "value": "60.00",
+            "raw_text": "USD 60.00"
+          },
+          "currency": {
+            "status": "explicit",
+            "value": "USD",
+            "raw_text": "USD"
+          },
+          "type": "refund",
+          "condition": {
+            "status": "explicit",
+            "value": "the jacket is returned at your cost",
+            "raw_text": "returned at your cost"
+          }
+        }
+      ],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_commit",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "refund the jacket",
+            "raw_text": "refund the jacket"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "the jacket from order R-3100",
+            "raw_text": "the jacket from order R-3100"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "the jacket is returned at your cost",
+            "raw_text": "returned at your cost"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "order R-3100",
+            "raw_text": "order R-3100"
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [
+            "c_refund"
+          ],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [
+        {
+          "id": "c_emotion",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "anger",
+          "intensity": "high",
+          "target": {
+            "status": "explicit",
+            "value": "torn sleeve on the jacket",
+            "raw_text": "torn sleeve on the jacket"
+          }
+        }
+      ],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-013_msg",
+          "source_hash": "d4c8d86a8956ad3ab6d6507f3076a52679ca713911cfae5c1bdf4ea4d750d9df",
+          "quote": "This is really unacceptable.",
+          "supports": [
+            "c_emotion"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-013_msg",
+          "source_hash": "d4c8d86a8956ad3ab6d6507f3076a52679ca713911cfae5c1bdf4ea4d750d9df",
+          "quote": "USD 60.00",
+          "supports": [
+            "c_refund"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-013_msg",
+          "source_hash": "d4c8d86a8956ad3ab6d6507f3076a52679ca713911cfae5c1bdf4ea4d750d9df",
+          "quote": "I want a refund of USD 60.00 for the jacket, returned at your cost.",
+          "supports": [
+            "c_commit"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-013_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-013_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "d4c8d86a8956ad3ab6d6507f3076a52679ca713911cfae5c1bdf4ea4d750d9df",
+    "items": [
+      {
+        "item_id": "item_c_refund",
+        "source_claim_id": "c_refund",
+        "decision": "modify",
+        "replacement": {
+          "kind": "MonetaryTerm",
+          "value": {
+            "id": "c_refund",
+            "evidence_ids": [],
+            "amount": {
+              "status": "explicit",
+              "value": "30.00",
+              "raw_text": ""
+            },
+            "currency": {
+              "status": "explicit",
+              "value": "USD",
+              "raw_text": "USD"
+            },
+            "type": "refund",
+            "condition": {
+              "status": "explicit",
+              "value": "the jacket is returned at your cost",
+              "raw_text": "returned at your cost"
+            }
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_commit",
+        "source_claim_id": "c_commit",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_emotion",
+        "source_claim_id": "c_emotion",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [
+      {
+        "id": "c_commit",
+        "evidence_ids": [
+          "ev03"
+        ],
+        "actor": "user",
+        "action": {
+          "status": "explicit",
+          "value": "refund the jacket",
+          "raw_text": "refund the jacket"
+        },
+        "object": {
+          "status": "explicit",
+          "value": "the jacket from order R-3100",
+          "raw_text": "the jacket from order R-3100"
+        },
+        "modality": {
+          "status": "explicit",
+          "value": "will",
+          "raw_text": "will"
+        },
+        "condition": {
+          "status": "explicit",
+          "value": "the jacket is returned at your cost",
+          "raw_text": "returned at your cost"
+        },
+        "scope": {
+          "status": "explicit",
+          "value": "order R-3100",
+          "raw_text": "order R-3100"
+        },
+        "deadline_id": null,
+        "monetary_term_ids": [
+          "c_refund"
+        ],
+        "authorization_state": "approved"
+      }
+    ],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "03ea2c78f28a73130ad5e73ec32d0932c2325917640d0dc2e67a47218ac35230"
+  },
+  "policy_version": "delegation-0.4"
+}

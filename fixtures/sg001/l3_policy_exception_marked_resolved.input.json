@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l3_policy_exception",
+  "source_message": {
+    "message_id": "case_l3_policy_exception_msg",
+    "subject": "Order inquiry",
+    "body": "Please make an exception to your published return policy for this order.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "c4c708fde88110f826939016cfc315e0967d825e94b1100787ebdc5671ae471a"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l3_policy_exception_interp",
+    "version": 1,
+    "source_message_id": "case_l3_policy_exception_msg",
+    "source_hash": "c4c708fde88110f826939016cfc315e0967d825e94b1100787ebdc5671ae471a",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [
+        {
+          "id": "c_policy",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "policy_exception",
+          "description": {
+            "status": "explicit",
+            "value": "Requests an exception to the return policy",
+            "raw_text": "Requests an exception to the return policy"
+          },
+          "affects_critical": false,
+          "resolved": true
+        }
+      ],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l3_policy_exception_msg",
+          "source_hash": "c4c708fde88110f826939016cfc315e0967d825e94b1100787ebdc5671ae471a",
+          "quote": "make an exception to your published return policy",
+          "supports": [
+            "c_policy"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l3_policy_exception_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l3_policy_exception_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "c4c708fde88110f826939016cfc315e0967d825e94b1100787ebdc5671ae471a",
+    "items": [
+      {
+        "item_id": "item_c_policy",
+        "source_claim_id": "c_policy",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "553d7d8dd976042f10a56513c4f1390f96b96c12d04a035a8c7e870a00fffb3d"
+  },
+  "policy_version": "delegation-0.4"
+}

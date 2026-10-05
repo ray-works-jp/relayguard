@@ -1,0 +1,162 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-086",
+  "source_message": {
+    "message_id": "RG-EVAL-086_msg",
+    "subject": "Contract",
+    "body": "Hello,\nPlease review and sign the attached contract.\nLegal Assistant, Example Builders",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "16a6663a28aa4333d0cdff4d5e1f035b8cc272b1c9c0aa3975cba57326d24798"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-086_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-086_msg",
+    "source_hash": "16a6663a28aa4333d0cdff4d5e1f035b8cc272b1c9c0aa3975cba57326d24798",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [
+        {
+          "id": "c_sign",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "actor": "user",
+          "action": {
+            "status": "explicit",
+            "value": "sign the contract",
+            "raw_text": "sign the contract"
+          },
+          "object": {
+            "status": "explicit",
+            "value": "the attached contract",
+            "raw_text": "the attached contract"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "scope": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "deadline_id": null,
+          "monetary_term_ids": [],
+          "authorization_state": "requested"
+        }
+      ],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [
+        {
+          "id": "c_attach",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "attachment",
+          "description": {
+            "status": "explicit",
+            "value": "The contract to sign is only in the attachment",
+            "raw_text": "The contract to sign is only in the attachment"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-086_msg",
+          "source_hash": "16a6663a28aa4333d0cdff4d5e1f035b8cc272b1c9c0aa3975cba57326d24798",
+          "quote": "the attached contract",
+          "supports": [
+            "c_attach"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-086_msg",
+          "source_hash": "16a6663a28aa4333d0cdff4d5e1f035b8cc272b1c9c0aa3975cba57326d24798",
+          "quote": "Please review and sign the attached contract.",
+          "supports": [
+            "c_sign"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-086_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-086_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "16a6663a28aa4333d0cdff4d5e1f035b8cc272b1c9c0aa3975cba57326d24798",
+    "items": [
+      {
+        "item_id": "item_c_sign",
+        "source_claim_id": "c_sign",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_attach",
+        "source_claim_id": "c_attach",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "446e8e1344f302f575e403bffa43f882b25211c641f3bac39ac085a90dd9a2bc"
+  },
+  "policy_version": "delegation-0.4"
+}

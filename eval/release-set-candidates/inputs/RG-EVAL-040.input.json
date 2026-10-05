@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-040",
+  "source_message": {
+    "message_id": "RG-EVAL-040_msg",
+    "subject": "SLA exception",
+    "body": "Hi,\nCould you waive the scheduled-maintenance exclusion in the SLA just this once? Everyone else seems to get exceptions.\nExample Travel",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "2a2c2a632ffbaf428cf406fc57c21824fa85f884265139cc11b2ec8c1840b3b5"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-040_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-040_msg",
+    "source_hash": "2a2c2a632ffbaf428cf406fc57c21824fa85f884265139cc11b2ec8c1840b3b5",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [
+        {
+          "id": "c_exception",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "type": "policy_exception",
+          "description": {
+            "status": "explicit",
+            "value": "Requests waiving the SLA scheduled-maintenance exclusion",
+            "raw_text": "Requests waiving the SLA scheduled-maintenance exclusion"
+          },
+          "affects_critical": false,
+          "resolved": true
+        }
+      ],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-040_msg",
+          "source_hash": "2a2c2a632ffbaf428cf406fc57c21824fa85f884265139cc11b2ec8c1840b3b5",
+          "quote": "waive the scheduled-maintenance exclusion in the SLA just this once",
+          "supports": [
+            "c_exception"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-040_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-040_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "2a2c2a632ffbaf428cf406fc57c21824fa85f884265139cc11b2ec8c1840b3b5",
+    "items": [
+      {
+        "item_id": "item_c_exception",
+        "source_claim_id": "c_exception",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "9e032b6455434e3cfbf3f0eee61b27b91a9ff13f97af3f93dabb7fd976106b61"
+  },
+  "policy_version": "delegation-0.4"
+}

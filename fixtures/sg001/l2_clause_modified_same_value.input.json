@@ -1,0 +1,194 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l2_clause_same",
+  "source_message": {
+    "message_id": "case_l2_clause_same_msg",
+    "subject": "Order inquiry",
+    "body": "Our current agreement renews automatically each year unless either side cancels 30 days in advance. The renewal applies to the support plan only.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "4b0e1f3f4b271c5c1c2253da4f04273d72c9e7172f78ae45941fd18e3db829fd"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l2_clause_same_interp",
+    "version": 1,
+    "source_message_id": "case_l2_clause_same_msg",
+    "source_hash": "4b0e1f3f4b271c5c1c2253da4f04273d72c9e7172f78ae45941fd18e3db829fd",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev03"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Restates the renewal terms",
+            "raw_text": "Restates the renewal terms"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [
+        {
+          "id": "c_clause",
+          "evidence_ids": [
+            "ev01",
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "The agreement renews automatically each year",
+            "raw_text": "The agreement renews automatically each year"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "will",
+            "raw_text": "will"
+          },
+          "condition": {
+            "status": "explicit",
+            "value": "unless either side cancels 30 days in advance",
+            "raw_text": "unless either side cancels 30 days in advance"
+          },
+          "scope": {
+            "status": "explicit",
+            "value": "the support plan only",
+            "raw_text": "The renewal applies to the support plan only"
+          },
+          "monetary_term_ids": [],
+          "deadline_ids": [],
+          "commitment_ids": []
+        }
+      ],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l2_clause_same_msg",
+          "source_hash": "4b0e1f3f4b271c5c1c2253da4f04273d72c9e7172f78ae45941fd18e3db829fd",
+          "quote": "renews automatically each year",
+          "supports": [
+            "c_clause"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l2_clause_same_msg",
+          "source_hash": "4b0e1f3f4b271c5c1c2253da4f04273d72c9e7172f78ae45941fd18e3db829fd",
+          "quote": "the support plan only",
+          "supports": [
+            "c_clause"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev03",
+          "source_kind": "source_message",
+          "source_id": "case_l2_clause_same_msg",
+          "source_hash": "4b0e1f3f4b271c5c1c2253da4f04273d72c9e7172f78ae45941fd18e3db829fd",
+          "quote": "Our current agreement renews automatically",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l2_clause_same_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l2_clause_same_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "4b0e1f3f4b271c5c1c2253da4f04273d72c9e7172f78ae45941fd18e3db829fd",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_clause",
+        "source_claim_id": "c_clause",
+        "decision": "modify",
+        "replacement": {
+          "kind": "ClauseTerm",
+          "value": {
+            "id": "c_clause",
+            "evidence_ids": [],
+            "text": {
+              "status": "explicit",
+              "value": "The agreement renews automatically each year",
+              "raw_text": "The agreement renews automatically each year"
+            },
+            "modality": {
+              "status": "explicit",
+              "value": "will",
+              "raw_text": "will"
+            },
+            "condition": {
+              "status": "explicit",
+              "value": "unless either side cancels 30 days in advance",
+              "raw_text": "unless either side cancels 30 days in advance"
+            },
+            "scope": {
+              "status": "explicit",
+              "value": "the support plan only",
+              "raw_text": "The renewal applies to the support plan only"
+            },
+            "monetary_term_ids": [],
+            "deadline_ids": [],
+            "commitment_ids": []
+          }
+        },
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "9245088a2f29e471cb2bc930af1789ec9612fc7783dab0073f29185eb0cdf3ca"
+  },
+  "policy_version": "delegation-0.4"
+}

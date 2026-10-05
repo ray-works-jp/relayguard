@@ -1,0 +1,121 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-017",
+  "source_message": {
+    "message_id": "RG-EVAL-017_msg",
+    "subject": "Photos",
+    "body": "Hi there,\nWould it be alright if our team featured some of your photos here and there?\nCheers,\nRina Sample",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "c6ac6aa49cc6fff3d169bb5543c2dc6c8eba89b7ab9fe810ce1544b0cb94ae1d"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-017_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-017_msg",
+    "source_hash": "c6ac6aa49cc6fff3d169bb5543c2dc6c8eba89b7ab9fe810ce1544b0cb94ae1d",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [
+        {
+          "id": "c_lic",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "scope": {
+            "status": "ambiguous",
+            "value": null,
+            "raw_text": "here and there"
+          },
+          "exclusivity": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "sublicensing": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "commercial_use": {
+            "status": "unknown",
+            "value": null,
+            "raw_text": ""
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-017_msg",
+          "source_hash": "c6ac6aa49cc6fff3d169bb5543c2dc6c8eba89b7ab9fe810ce1544b0cb94ae1d",
+          "quote": "featured some of your photos here and there",
+          "supports": [
+            "c_lic"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-017_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-017_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "c6ac6aa49cc6fff3d169bb5543c2dc6c8eba89b7ab9fe810ce1544b0cb94ae1d",
+    "items": [
+      {
+        "item_id": "item_c_lic",
+        "source_claim_id": "c_lic",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "7a17ecd401ae65f98e70efc130a6a52356832d6aa07bed5838fae4667008608d"
+  },
+  "policy_version": "delegation-0.4"
+}

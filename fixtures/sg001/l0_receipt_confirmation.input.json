@@ -1,0 +1,136 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l0_receipt",
+  "source_message": {
+    "message_id": "case_l0_receipt_msg",
+    "subject": "Order inquiry",
+    "body": "Hello,\nCould you confirm that you received our order form?\nBest regards,\nTaro Example",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "a5faab8042dbd0ad790febaf69c9f78c9608b67027029a0ad03212e1f934a349"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l0_receipt_interp",
+    "version": 1,
+    "source_message_id": "case_l0_receipt_msg",
+    "source_hash": "a5faab8042dbd0ad790febaf69c9f78c9608b67027029a0ad03212e1f934a349",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Asks for confirmation of receipt",
+            "raw_text": "Asks for confirmation of receipt"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Did you receive our order form?",
+            "raw_text": "Did you receive our order form?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l0_receipt_msg",
+          "source_hash": "a5faab8042dbd0ad790febaf69c9f78c9608b67027029a0ad03212e1f934a349",
+          "quote": "Could you confirm",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "case_l0_receipt_msg",
+          "source_hash": "a5faab8042dbd0ad790febaf69c9f78c9608b67027029a0ad03212e1f934a349",
+          "quote": "received our order form?",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l0_receipt_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l0_receipt_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "a5faab8042dbd0ad790febaf69c9f78c9608b67027029a0ad03212e1f934a349",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "49fe1cba04001746bbfca0ab56696de9efe5f5af92090ab0d1c0080bbaedbeb0"
+  },
+  "policy_version": "delegation-0.4"
+}

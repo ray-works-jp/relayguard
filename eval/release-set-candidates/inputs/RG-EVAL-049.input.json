@@ -1,0 +1,156 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-049",
+  "source_message": {
+    "message_id": "RG-EVAL-049_msg",
+    "subject": "NDA",
+    "body": "Hi,\nAs per clause 7 of our NDA, you are not allowed to disclose this information.\nPartner Office, Example Motors",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "7d3f6abcd5e34bb4617e01f18408351b8858a566b024fd04354e77ea86edebed"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-049_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-049_msg",
+    "source_hash": "7d3f6abcd5e34bb4617e01f18408351b8858a566b024fd04354e77ea86edebed",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [
+        {
+          "id": "c_ban",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "disclose this information",
+            "raw_text": "disclose this information"
+          },
+          "modality": {
+            "status": "explicit",
+            "value": "must_not",
+            "raw_text": "not allowed"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "scope": {
+            "status": "unknown",
+            "value": null,
+            "raw_text": "this information"
+          },
+          "monetary_term_ids": [],
+          "deadline_ids": [],
+          "commitment_ids": []
+        }
+      ],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [
+        {
+          "id": "c_clause",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "missing_information",
+          "description": {
+            "status": "explicit",
+            "value": "The text of NDA clause 7 is not included",
+            "raw_text": "The text of NDA clause 7 is not included"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-049_msg",
+          "source_hash": "7d3f6abcd5e34bb4617e01f18408351b8858a566b024fd04354e77ea86edebed",
+          "quote": "you are not allowed to disclose this information",
+          "supports": [
+            "c_ban"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-049_msg",
+          "source_hash": "7d3f6abcd5e34bb4617e01f18408351b8858a566b024fd04354e77ea86edebed",
+          "quote": "As per clause 7 of our NDA",
+          "supports": [
+            "c_clause"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-049_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-049_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "7d3f6abcd5e34bb4617e01f18408351b8858a566b024fd04354e77ea86edebed",
+    "items": [
+      {
+        "item_id": "item_c_ban",
+        "source_claim_id": "c_ban",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_clause",
+        "source_claim_id": "c_clause",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "16c84668be42d1989a3141a338f776340eb046799d3ae3ba541923aa6b4e5295"
+  },
+  "policy_version": "delegation-0.4"
+}

@@ -1,0 +1,36 @@
+Subject: Second sync failure this month - need an answer before renewal
+From: Counterparty 1 <counterparty1@example.invalid>
+To: operator@example.invalid
+Date: Sun, 20 Sep 2026 11:14:25 +0900
+Message-ID: <178987046586.12236.6863533367025352383@example.invalid>
+X-RelayGuard-Synthetic: true
+X-RelayGuard-Scenario: angry
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hi Daniel,
+
+Our nightly inventory sync failed again last night, 14 Nov, around 02:20. Sam=
+e as 31 Oct. Both times we only found out because the warehouse team noticed =
+stock counts were a day behind, not because anyone told us.
+
+Ticket 8841 from the October failure was closed with "resolved, cause unclear=
+". That is not a resolution, and now we have the same problem four weeks late=
+r with two days of manual reconciliation on our side.
+
+Our contract renews on 1 December. I am not going to sign it off in this stat=
+e, so I need something specific from you.
+
+Concrete question: can you tell me by Thursday what actually caused the 31 Oc=
+t and 14 Nov failures, and whether you can enable an automatic alert to our o=
+ps mailbox when a sync job does not complete? If that alerting is not possibl=
+e on our current plan, say so plainly and I will plan accordingly.
+
+I would rather fix this than move to someone else, but we cannot keep discove=
+ring outages ourselves.
+
+Regards,
+Marta Reinholt
+Operations Manager, Velmar Haustechnik GmbH
++49 211 4459 0182

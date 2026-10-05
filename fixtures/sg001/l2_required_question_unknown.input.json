@@ -1,0 +1,102 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l2_q_unknown",
+  "source_message": {
+    "message_id": "case_l2_q_unknown_msg",
+    "subject": "Order inquiry",
+    "body": "Could you tell me whether the store opens on the national holiday?",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "e4d4b657c5f0f1e25b0945cb7f259162e26f3ba09598a5d3daf56b876ee90935"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l2_q_unknown_interp",
+    "version": 1,
+    "source_message_id": "case_l2_q_unknown_msg",
+    "source_hash": "e4d4b657c5f0f1e25b0945cb7f259162e26f3ba09598a5d3daf56b876ee90935",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [
+        {
+          "id": "c_q1",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Is the store open on the holiday?",
+            "raw_text": "Is the store open on the holiday?"
+          },
+          "required_answer": true
+        }
+      ],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l2_q_unknown_msg",
+          "source_hash": "e4d4b657c5f0f1e25b0945cb7f259162e26f3ba09598a5d3daf56b876ee90935",
+          "quote": "whether the store opens on the national holiday?",
+          "supports": [
+            "c_q1"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l2_q_unknown_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l2_q_unknown_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "e4d4b657c5f0f1e25b0945cb7f259162e26f3ba09598a5d3daf56b876ee90935",
+    "items": [
+      {
+        "item_id": "item_c_q1",
+        "source_claim_id": "c_q1",
+        "decision": "unknown",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "e512cb596259fd250ecc0b870666a045ad04eee2c834079f28f590ab3e9bcea6"
+  },
+  "policy_version": "delegation-0.4"
+}

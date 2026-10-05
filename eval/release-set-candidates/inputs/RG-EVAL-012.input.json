@@ -1,0 +1,138 @@
+{
+  "schema_version": "0.5",
+  "case_id": "RG-EVAL-012",
+  "source_message": {
+    "message_id": "RG-EVAL-012_msg",
+    "subject": "Lamp",
+    "body": "Hi,\nThe lamp I bought stopped working after two days. I'd appreciate it if you could make this right somehow.\nMaki Sample",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "a003daefe6782126b20b2896b0972b6b2726463c56b0b52620a038e8a0accc1b"
+  },
+  "interpretation": {
+    "interpretation_id": "RG-EVAL-012_interp",
+    "version": 1,
+    "source_message_id": "RG-EVAL-012_msg",
+    "source_hash": "a003daefe6782126b20b2896b0972b6b2726463c56b0b52620a038e8a0accc1b",
+    "state": {
+      "sender_intent": [
+        {
+          "id": "c_intent",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "text": {
+            "status": "explicit",
+            "value": "Reports that the lamp stopped working",
+            "raw_text": "Reports that the lamp stopped working"
+          }
+        }
+      ],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [
+        {
+          "id": "c_amb",
+          "evidence_ids": [
+            "ev02"
+          ],
+          "type": "ambiguity",
+          "description": {
+            "status": "explicit",
+            "value": "Unclear whether a refund, replacement or apology is requested",
+            "raw_text": "Unclear whether a refund, replacement or apology is requested"
+          },
+          "affects_critical": true,
+          "resolved": false
+        }
+      ],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-012_msg",
+          "source_hash": "a003daefe6782126b20b2896b0972b6b2726463c56b0b52620a038e8a0accc1b",
+          "quote": "The lamp I bought stopped working after two days.",
+          "supports": [
+            "c_intent"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "evidence_id": "ev02",
+          "source_kind": "source_message",
+          "source_id": "RG-EVAL-012_msg",
+          "source_hash": "a003daefe6782126b20b2896b0972b6b2726463c56b0b52620a038e8a0accc1b",
+          "quote": "I'd appreciate it if you could make this right somehow.",
+          "supports": [
+            "c_amb"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "RG-EVAL-012_decision",
+    "version": 1,
+    "source_interpretation_id": "RG-EVAL-012_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "a003daefe6782126b20b2896b0972b6b2726463c56b0b52620a038e8a0accc1b",
+    "items": [
+      {
+        "item_id": "item_c_intent",
+        "source_claim_id": "c_intent",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      },
+      {
+        "item_id": "item_c_amb",
+        "source_claim_id": "c_amb",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "37f122f0d0cca2780dbf8df48300b1c4a872020e531bd9c530420ced62162f33"
+  },
+  "policy_version": "delegation-0.4"
+}

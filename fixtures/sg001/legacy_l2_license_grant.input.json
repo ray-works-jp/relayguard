@@ -1,0 +1,121 @@
+{
+  "schema_version": "0.5",
+  "case_id": "case_l2_license",
+  "source_message": {
+    "message_id": "case_l2_license_msg",
+    "subject": "Order inquiry",
+    "body": "May we use your photo for commercial use in our brochure? We do not need exclusivity.",
+    "source_language": "en",
+    "user_language": "ja",
+    "content_hash": "faf7d0f111b1afac65270d3626c0d6bd362220b8e9f805456f7ef90b99563818"
+  },
+  "interpretation": {
+    "interpretation_id": "case_l2_license_interp",
+    "version": 1,
+    "source_message_id": "case_l2_license_msg",
+    "source_hash": "faf7d0f111b1afac65270d3626c0d6bd362220b8e9f805456f7ef90b99563818",
+    "state": {
+      "sender_intent": [],
+      "requests": [],
+      "questions": [],
+      "monetary_terms": [],
+      "dates": [],
+      "quantities": [],
+      "contract_terms": [],
+      "prohibitions": [],
+      "guarantees": [],
+      "refund_terms": [],
+      "cancellation_terms": [],
+      "license_terms": [
+        {
+          "id": "c_lic",
+          "evidence_ids": [
+            "ev01"
+          ],
+          "scope": {
+            "status": "explicit",
+            "value": "photo in brochure",
+            "raw_text": "photo in brochure"
+          },
+          "exclusivity": {
+            "status": "explicit",
+            "value": false,
+            "raw_text": "do not need exclusivity"
+          },
+          "sublicensing": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          },
+          "commercial_use": {
+            "status": "explicit",
+            "value": true,
+            "raw_text": "commercial use"
+          },
+          "condition": {
+            "status": "not_stated",
+            "value": null,
+            "raw_text": ""
+          }
+        }
+      ],
+      "rights": [],
+      "requested_commitments": [],
+      "commitments": [],
+      "personal_data": [],
+      "customer_emotion": [],
+      "legal_claims": [],
+      "reputational_risks": [],
+      "prior_commitment_conflicts": [],
+      "risks": [],
+      "ambiguities": [],
+      "missing_information": [],
+      "attachment_dependencies": [],
+      "prompt_injection_risks": [],
+      "recommended_actions": [],
+      "human_review_required": false,
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "evidence_id": "ev01",
+          "source_kind": "source_message",
+          "source_id": "case_l2_license_msg",
+          "source_hash": "faf7d0f111b1afac65270d3626c0d6bd362220b8e9f805456f7ef90b99563818",
+          "quote": "May we use your photo for commercial use in our brochure?",
+          "supports": [
+            "c_lic"
+          ],
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "approved_decision": {
+    "decision_id": "case_l2_license_decision",
+    "version": 1,
+    "source_interpretation_id": "case_l2_license_interp",
+    "source_interpretation_version": 1,
+    "source_hash": "faf7d0f111b1afac65270d3626c0d6bd362220b8e9f805456f7ef90b99563818",
+    "items": [
+      {
+        "item_id": "item_c_lic",
+        "source_claim_id": "c_lic",
+        "decision": "approve",
+        "replacement": null,
+        "provenance": {
+          "actor_id": "fixture_actor_01",
+          "decided_at": "2026-09-15T09:00:00.000Z",
+          "reason_ja": "テスト用fixtureの判断（実ユーザー承認ではない）"
+        }
+      }
+    ],
+    "question_answers": [],
+    "approved_commitments": [],
+    "explicitly_unanswered": [],
+    "human_notes": [],
+    "approved_by": "fixture_actor_01",
+    "approved_at": "2026-09-15T09:00:00.000Z",
+    "decision_hash": "82e913e1a714e9c9e4576ec32ae0d1c971ffa0586333e9e1f2482bab4b834410"
+  },
+  "policy_version": "delegation-0.4"
+}
